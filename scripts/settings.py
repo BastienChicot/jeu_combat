@@ -17,31 +17,31 @@ hauteur = {
     }
 
 punch = {
-    "basti":-10,
-    "clou":-8,
-    "coach":-15,
-    "justi":-5
+    "basti":6,
+    "clou":4,
+    "coach":10,
+    "justi":4
     }
 
 kicks = {
-    "basti":-5,
-    "clou":-8,
-    "coach":-12,
-    "justi":-10
+    "basti":4,
+    "clou":6,
+    "coach":10,
+    "justi":8
     }
 
 supers = {
-    "basti":-15,
-    "clou":-12,
-    "coach":-15,
-    "justi":-20
+    "basti":14,
+    "clou":14,
+    "coach":14,
+    "justi":14
     }
 
 sauter = {
-    "basti":-10,
-    "clou":-10,
-    "coach":-12,
-    "justi":-15
+    "basti":8,
+    "clou":8,
+    "coach":10,
+    "justi":12
     }
 
 level_sol ={

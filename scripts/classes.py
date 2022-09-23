@@ -29,6 +29,11 @@ class level():
 class joueur():
     def __init__(self,nom,joueur,nivo):
         self.path = "..\\_bank\\perso\\"+str(nom)
+        
+        self.name = nom 
+        self.interact = False
+        
+        self.joueur = joueur
           
         ##BASE
         self.pos1 = pygame.image.load(self.path+"\\"+str(nom)+"_1.png")
@@ -43,7 +48,7 @@ class joueur():
         self.start_pos = self.fr[0].get_rect()
         self.height = int(self.start_pos.height)
 
-        self.limite = level_sol["practice"]-self.height
+        self.limite = level_sol[nivo]-self.height
         self.detente = hauteur[nom]
         
         ##HIT
@@ -123,13 +128,22 @@ class joueur():
         self.spel = [self.spe1_l,self.spe2_l,self.spe3_l,self.spe4_l]
         
         ##CONTROLES
-        self.saut = pygame.K_UP
-        self.descend = pygame.K_DOWN
-        self.gauche = pygame.K_LEFT
-        self.droite = pygame.K_RIGHT
-    
-        self.action = pygame.K_a
-        self.coup = pygame.K_z
+        if self.joueur == 1:
+            self.saut = pygame.K_z
+            self.descend = pygame.K_s
+            self.gauche = pygame.K_q
+            self.droite = pygame.K_d
+        
+            self.action = pygame.K_t
+            self.coup = pygame.K_y
+        elif self.joueur == 2:
+            self.saut = pygame.K_UP
+            self.descend = pygame.K_DOWN
+            self.gauche = pygame.K_LEFT
+            self.droite = pygame.K_RIGHT
+        
+            self.action = pygame.K_KP1
+            self.coup = pygame.K_KP2
         
         ##ATTRIBUTS
         self.vie = 100
@@ -146,15 +160,15 @@ class joueur():
         self.hit = False
         self.collision = False
         
-        if joueur == 1:
+        if self.joueur == 1:
             self.side = True
             self.x = 150
-            self.y = level_sol["practice"]-self.height
+            self.y = level_sol[nivo]-self.height
             
-        elif joueur == 2:
+        elif self.joueur == 2:
             self.side = False
             self.x = 300
-            self.y = level_sol["practice"]-self.height
+            self.y = level_sol[nivo]-self.height
 
         self.animation = False
         self.type_anim ="none"
@@ -167,6 +181,210 @@ class joueur():
         self.punch_move = abs(punch[nom]*2)
         self.kick_force = abs(kicks[nom]*4)
         self.super_force = abs(supers[nom]*10)
-        self.jump_force = abs(sauter[nom]*5)  
+        self.jump_force = abs(sauter[nom]*5) 
         
+    def move(self,e):           
+          # Condition becomes true when keyboard is pressed   
+        if e.type == pygame.KEYDOWN:
+       
+            if e.key == self.saut :
+                self.jump = True
+                
+            if e.key == self.descend :
+                self.fall = True
+                
+            if e.key == self.gauche :
+                self.move_x = -2
+                self.side = False
+                
+            if e.key == self.droite :
+                self.move_x = 2
+                self.side = True
+                
+            if e.key == self.action :
+                self.attack = True
+            if e.key == self.coup :
+                self.super_attack = True         
+                
+        if e.type == pygame.KEYUP:
+       
+            if e.key == self.saut :
+                self.jump = False
+                
+            if e.key == self.descend :
+                self.fall = False
+                
+            if e.key == self.gauche :
+                self.move_x = 0
+    
+            if e.key == self.droite :
+                self.move_x = 0
+    
+            if e.key == self.action :
+                self.attack = False
+            if e.key == self.coup :
+                self.super_attack = False
+                    
+        return(self.move_x,self.move_y)
+        
+    def maj_anim(self,a):
+        if self.side:
+            if self.type_anim == "none":
+                perso=self.fr[a]
+            elif self.type_anim == "punch":
+                perso = self.punchr[a]
+            elif self.type_anim == "kick":
+                perso = self.piedr[a]
+            elif self.type_anim == "super_punch":
+                perso = self.sper[a]
+            elif self.type_anim =="jump_punch":
+                perso = self.jumpr[a]
+            elif self.type_anim =="hit":
+                perso = self.hitr[a]
+            elif self.type_anim =="ko":
+                perso = self.kor[a]
+
+        else:
+            if self.type_anim == "none":
+                perso=self.fl[a]
+            elif self.type_anim == "punch":
+                perso = self.punchl[a]
+            elif self.type_anim == "kick":
+                perso = self.piedl[a]
+            elif self.type_anim == "super_punch":
+                perso = self.spel[a]
+            elif self.type_anim =="jump_punch":
+                perso = self.jumpl[a]
+            elif self.type_anim =="hit":
+                perso = self.hitl[a]
+            elif self.type_anim =="ko":
+                perso = self.kol[a]
+                
+        return(perso)
+        
+    def collision_joueur(self,perso_rect,perso_rect2,p2):
+        if perso_rect.colliderect(perso_rect2):
+            if abs(perso_rect.bottom - perso_rect2.top) <= 10 and self.move_y > 0:
+                self.move_y = 0
+                self.air_time = 1
+                self.jump = False
+                self.interact = True
+            if abs(perso_rect.top - perso_rect2.bottom) <= 10 and self.move_y < 0:
+                self.move_y = 0
+                self.interact = True
+            if abs(perso_rect.left - perso_rect2.right) <= 10 and self.move_x < 0:
+                self.move_x = 0             
+                self.interact = True
+            if abs(perso_rect.right - perso_rect2.left) <= 10 and self.move_x > 0:
+                self.move_x = 0
+                self.interact = True
+                
+        else:
+            self.interact = False
+    
+        return(self.move_y,self.move_x) 
+    
+    def punch_anim(self,frame_count):
+        if self.attack and not self.super_attack and self.clean_hit < 5:
+            self.animation = True
+            self.type_anim = "punch"
+            frame_count = 1
+        elif self.attack and self.super_attack and self.clean_hit < 5: 
+            self.animation = True
+            self.type_anim = "kick"
+            frame_count = 1
+        elif self.super_attack and self.move_x != 0 and self.clean_hit >= 5 and not self.attack:
+            self.clean_hit = 0
+            self.animation = True
+            self.type_anim = "super_punch"
+            frame_count = 1
+        elif self.attack and 10 < self.air_time < 35 :
+            self.animation = True
+            self.type_anim = "jump_punch"
+            frame_count = 1
+            
+        return(frame_count)
+            
+            
+    def damage(self,perso_rect,perso_rect2,p2):
+        if  abs(perso_rect.left - perso_rect2.right) <= 5 and self.attack and not self.super_attack and self.move_x != 0:
+            if self.clean_hit < 5:
+                self.clean_hit += 1
+            p2.vie -=punch[self.name]
+            p2.x -= 20
+            p2.clean_hit = 0 
+            p2.type_anim = "hit"              
+        if  abs(perso_rect.right - perso_rect2.left) <= 5 and self.attack and not self.super_attack and self.move_x != 0:
+            if self.clean_hit < 5:
+                self.clean_hit += 1
+            p2.vie -=punch[self.name]
+            p2.x += 20
+            p2.clean_hit = 0    
+            p2.type_anim = "hit"              
+
+        if  abs(perso_rect.left - perso_rect2.right) <= 5 and self.attack and not self.super_attack and self.move_x == 0:
+            p2.vie -=punch[self.name]/2
+            p2.x -= 5
+            p2.type_anim = "hit"              
+        if  abs(perso_rect.right - perso_rect2.left) <= 5 and self.attack and not self.super_attack and self.move_x == 0:
+            p2.vie -=punch[self.name]/2
+            p2.x += 5
+            p2.type_anim = "hit"              
+            
+        if  abs(perso_rect.left - perso_rect2.right) <= 10 and self.attack and self.super_attack and self.move_x != 0:
+            if self.clean_hit < 5:
+                self.clean_hit += 1
+            p2.vie -=kicks[self.name]
+            p2.x -= 30
+            p2.clean_hit = 0 
+            p2.type_anim = "hit"              
+        if  abs(perso_rect.right - perso_rect2.left) <= 10 and self.attack and self.super_attack and self.move_x != 0:
+            if self.clean_hit < 5:
+                self.clean_hit += 1
+            p2.vie -=kicks[self.name]
+            p2.x += 30
+            p2.clean_hit = 0    
+            p2.type_anim = "hit"              
+
+        if  abs(perso_rect.left - perso_rect2.right) <= 5 and self.attack and self.super_attack and self.move_x == 0:
+            p2.vie -=kicks[self.name]/2
+            p2.x -= 5
+            p2.type_anim = "hit"              
+        if  abs(perso_rect.right - perso_rect2.left) <= 5 and self.attack and self.super_attack and self.move_x == 0:
+            p2.vie -=kicks[self.name]/2
+            p2.x += 5
+            p2.type_anim = "hit"  
+            
+        if  abs(perso_rect.left - perso_rect2.right) <= 25 and not self.attack and self.super_attack and self.move_x != 0 and self.clean_hit >= 5:
+            if self.clean_hit < 5:
+                self.clean_hit += 1
+            p2.vie -=supers[self.name]
+            p2.x -= 50
+            p2.clean_hit = 0 
+            p2.type_anim = "hit"              
+        if  abs(perso_rect.right - perso_rect2.left) <= 25 and not self.attack and self.super_attack and self.move_x != 0 and self.clean_hit >= 5:
+            if self.clean_hit < 5:
+                self.clean_hit += 1
+            p2.vie -=supers[self.name]
+            p2.x += 50
+            p2.clean_hit = 0    
+            p2.type_anim = "hit"              
+
+        if  abs(perso_rect.left - perso_rect2.right) <= 15 and self.attack and 10 < self.air_time < 35:
+            if self.clean_hit < 5:
+                self.clean_hit += 1
+            p2.vie -=sauter[self.name]
+            p2.x -=10
+            p2.clean_hit = 0 
+            p2.type_anim = "hit"              
+        if  abs(perso_rect.right - perso_rect2.left) <= 15 and self.attack and 10 < self.air_time < 35:
+            if self.clean_hit < 5:
+                self.clean_hit += 1
+            p2.vie -=sauter[self.name]
+            p2.x += 10
+            p2.clean_hit = 0    
+            p2.type_anim = "hit"
+            
+        return(p2)
+
 
