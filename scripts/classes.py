@@ -41,9 +41,11 @@ class joueur():
         self.fl = [self.pos1_l,self.pos2_l,self.pos1_l,self.pos2_l]
         
         self.start_pos = self.fr[0].get_rect()
+        self.height = int(self.start_pos.height)
 
-        self.limite = level_sol["practice"]-self.start_pos.height()
-
+        self.limite = level_sol["practice"]-self.height
+        self.detente = hauteur[nom]
+        
         ##HIT
         self.hit1 = pygame.image.load(self.path+"\\"+str(nom)+"_hit_1.png")
         self.hit2 = pygame.image.load(self.path+"\\"+str(nom)+"_hit_2.png")
@@ -147,12 +149,12 @@ class joueur():
         if joueur == 1:
             self.side = True
             self.x = 150
-            self.y = level_sol["practice"]-self.start_pos.height()
+            self.y = level_sol["practice"]-self.height
             
         elif joueur == 2:
             self.side = False
             self.x = 300
-            self.y = level_sol["practice"]-self.start_pos.height()
+            self.y = level_sol["practice"]-self.height
 
         self.animation = False
         self.type_anim ="none"

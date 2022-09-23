@@ -4,6 +4,17 @@ Created on Sat Aug 20 12:14:13 2022
 
 @author: basti
 """
+import pygame
+
+display_width = 500
+display_height = 500
+
+hauteur = {
+    "basti":35,
+    "clou":20,
+    "coach":30,
+    "justi":25
+    }
 
 punch = {
     "basti":-10,
@@ -78,3 +89,11 @@ level_lim_max = {
     "metro":280
     }
 
+
+power_bar0 = pygame.image.load("..\\_bank\\image\\super_power0.png")
+power_bar1 = pygame.image.load("..\\_bank\\image\\super_power1.png")
+power_bar2 = pygame.image.load("..\\_bank\\image\\super_power2.png")
+power_bar3 = pygame.image.load("..\\_bank\\image\\super_power3.png")
+power_bar4 = pygame.image.load("..\\_bank\\image\\super_power4.png")
+power_bar5 = pygame.image.load("..\\_bank\\image\\super_power5.png")
+power_bar = [power_bar0,power_bar1,power_bar2,power_bar3,power_bar4,power_bar5]
