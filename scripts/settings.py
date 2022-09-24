@@ -6,6 +6,8 @@ Created on Sat Aug 20 12:14:13 2022
 """
 import pygame
 
+gui_font = pygame.font.Font(None,30)
+
 display_width = 500
 display_height = 500
 

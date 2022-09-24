@@ -7,6 +7,7 @@ Created on Sat Aug 20 12:13:44 2022
 
 from classes import *
 from settings import *
+from fonctions import *
 import pygame
 
 pygame.init()
