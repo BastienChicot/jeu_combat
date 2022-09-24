@@ -7,6 +7,9 @@ Created on Mon Sep 19 13:59:58 2022
 import pygame, sys
 from settings import *
 
+pygame.init()
+pygame.font.init()
+
 class jeu():
     def __init__(self,nivo,mode):
         self.nivo = nivo
@@ -413,7 +416,7 @@ class Button:
         self.text_surf = gui_font.render(newtext, True,'#FFFFFF')
         self.text_rect = self.text_surf.get_rect(center = self.top_rect.center)
 
-    def draw(self):
+    def draw(self,screen):
 		# elevation logic 
         self.top_rect.y = self.original_y_pos - self.dynamic_elecation
         self.text_rect.center = self.top_rect.center 
@@ -473,14 +476,14 @@ class Image_select:
 		#text
         self.text = image
         self.text_surf = gui_font.render(image,True,'#FFFFFF')
-        self.text_rect = self.text_surf.get_rect(center = self.rectangle.center)
+        self.text_rect = self.text_surf.get_rect(topleft = self.rectangle.bottomleft)
         
         buttons.append(self)
 
     def draw(self,screen):
 		# elevation logic 
         self.rectangle.topleft = (self.pos)
-        self.text_rect.center = self.rectangle.center 
+        self.text_rect.topleft = self.rectangle.bottomleft
 
         self.bottom_rect.midtop = self.rectangle.midtop
         self.bottom_rect.height = self.height + self.dynamic_elecation

@@ -5,6 +5,8 @@ Created on Sat Aug 20 12:14:13 2022
 @author: basti
 """
 import pygame
+pygame.init()
+pygame.font.init()
 
 gui_font = pygame.font.Font(None,30)
 

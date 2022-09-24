@@ -22,7 +22,7 @@ screen = pygame.display.set_mode((display_width,display_height))
 pygame.display.set_caption("Justi fight")
 
 def jeu_fight():
-    lenivo = "metro"
+    lenivo = "toit"
     
     gameExit=False
     
