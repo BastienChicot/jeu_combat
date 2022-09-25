@@ -10,15 +10,11 @@ from settings import *
 pygame.init()
 pygame.font.init()
 
-class Page:
-    def __init__(self,page):
-        self.page = page
-
-class jeu():
-    def __init__(self,nivo,mode):
+class Jeu():
+    def __init__(self,nivo = "none"):
         self.nivo = nivo
-        self.mode = "arcade"
         self.temps = 30
+        self.selected = "none"
 
 class level():
     def __init__ (self,nivo):

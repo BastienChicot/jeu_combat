@@ -8,6 +8,21 @@ import pygame
 from settings import *
 from classes import *
 
+pygame.init()
+pygame.font.init()
+pygame.mixer.init()
+
+screen = pygame.display.set_mode((display_width,display_height))
+pygame.display.set_caption('Justi FIGHT')
+clock = pygame.time.Clock()
+
+gui_font = pygame.font.Font(None,30)
+myfont = pygame.font.SysFont('corbel', 20, bold=True)
+Gus_font = pygame.font.SysFont('corbel', 16, bold=True)
+big_font = pygame.font.SysFont('corbel', 40, bold=True)
+
+clock = pygame.time.Clock()
+
 def buttons_draw(buttons,screen):
     for b in buttons:
         b.draw(screen)
@@ -82,16 +97,12 @@ def load(Gus,sac,tr):
 
 def accueil(jeu):
     pygame.init()
-    screen = pygame.display.set_mode((500,500))
-    pygame.display.set_caption('Justi FIGHT')
-    clock = pygame.time.Clock()
-    gui_font = pygame.font.Font(None,30)
-    
+
     buttons = []
     
-    button1 = Button('Multijoueur',200,50,(100,50),5,buttons,screen)
-    button2 = Button('Histoire',200,50,(100,200),5,buttons,screen)
-    button3 = Button('Options',200,50,(100,350),5,buttons,screen)    
+    multijoueur = Button('Multijoueur',200,50,(100,50),5,buttons,screen)
+    hist = Button('Histoire',200,50,(100,200),5,buttons,screen)
+    options = Button('Options',200,50,(100,350),5,buttons,screen)    
     
     a = 0
     frame_count = 0
@@ -100,7 +111,7 @@ def accueil(jeu):
     
     gameExit = False
 
-    while not gameExit and jeu.page == "accueil":
+    while not gameExit and jeu.selected == "none":
         if frame_count <= 100:
             frame_count += 1
         else:
@@ -123,7 +134,11 @@ def accueil(jeu):
         decors = lvl.anim_level[a]
         screen.blit(decors,(0,0))
         buttons_draw(buttons,screen)
-    
+        
+        if multijoueur.pressed:
+            jeu.selected = "multi"
+            
         pygame.display.update()
         clock.tick(60)
+
 
