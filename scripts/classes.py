@@ -10,6 +10,10 @@ from settings import *
 pygame.init()
 pygame.font.init()
 
+class Page:
+    def __init__(self,page):
+        self.page = page
+
 class jeu():
     def __init__(self,nivo,mode):
         self.nivo = nivo
@@ -391,13 +395,14 @@ class joueur():
         return(p2)
 
 class Button:
-    def __init__(self,text,width,height,pos,elevation,buttons):
+    def __init__(self,text,width,height,pos,elevation,buttons,screen):
         
 		#Core attributes 
         self.pressed = False
         self.elevation = elevation
         self.dynamic_elecation = elevation
         self.original_y_pos = pos[1]
+        self.screen = screen
 
 		# top rectangle 
         self.top_rect = pygame.Rect(pos,(width,height))
