@@ -22,7 +22,7 @@ import pygame
 # pygame.display.set_caption("Justi fight")
 
 def Multi(jeu):
-    lenivo = "toit"
+    lenivo = jeu.nivo
     
     gameExit=False
     
@@ -173,6 +173,8 @@ def Multi(jeu):
         
         # print(p1.x,p2.x)
         
-        clock.tick(60)
+        clock.tick(100)
+        
+    pygame.quit()
 
 

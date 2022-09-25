@@ -100,9 +100,9 @@ def accueil(jeu):
 
     buttons = []
     
-    multijoueur = Button('Multijoueur',200,50,(100,50),5,buttons,screen)
-    hist = Button('Histoire',200,50,(100,200),5,buttons,screen)
-    options = Button('Options',200,50,(100,350),5,buttons,screen)    
+    multijoueur = Button('Multijoueur',200,100,(250,175),5,buttons,screen)
+    hist = Button('Histoire',200,100,(250,300),5,buttons,screen)
+    options = Button('Options',200,50,(250,425),5,buttons,screen)    
     
     a = 0
     frame_count = 0
@@ -136,9 +136,72 @@ def accueil(jeu):
         buttons_draw(buttons,screen)
         
         if multijoueur.pressed:
-            jeu.selected = "multi"
+            jeu.selected = "multi_lvl"
             
         pygame.display.update()
         clock.tick(60)
 
+def Choix_level(jeu):
+    pygame.init()
 
+    buttons = []
+    images = []
+    
+    retour = Button('Retour',200,30,(50,400),5,buttons,screen)
+    gare_img = Image_select("gare",(75,50),5,images,"niveau")
+    metro_img = Image_select("metro",(175,50),5,images,"niveau")
+    parc_img = Image_select("parc",(275,50),5,images,"niveau")
+    toit_img = Image_select("toit",(375,50),5,images,"niveau")
+    theatre_img = Image_select("theatre",(75,175),5,images,"niveau")
+    usine_img = Image_select("usine",(175,175),5,images,"niveau")
+    montagne_img = Image_select("montagne",(275,175),5,images,"niveau")
+    lac_img = Image_select("lac",(375,175),5,images,"niveau")
+    espace_img = Image_select("espace",(75,300),5,images,"niveau")
+
+    a = 0
+    frame_count = 0
+    
+    lvl = level("centre_com")
+    
+    gameExit = False
+
+    while not gameExit and jeu.selected == "multi_lvl":
+        if frame_count <= 100:
+            frame_count += 1
+        else:
+            frame_count = 0
+            
+        if frame_count <= 25:
+            a=0
+        elif 25 < frame_count <= 50:
+            a=1
+        elif 50 < frame_count <= 75:
+            a=2
+        elif 75 < frame_count <= 100 :
+            a=3
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+    
+        decors = lvl.anim_level[a]
+        screen.blit(decors,(0,0))
+        buttons_draw(buttons,screen)
+        buttons_draw(images,screen)
+        
+        for img in images:
+            if img.pressed:
+                jeu.selected = "multi"
+                jeu.nivo = img.text
+        
+        if retour.pressed:
+            jeu.selected = "none"
+            
+        pygame.display.update()
+        clock.tick(60)
+        
+        
+        
+        
+        

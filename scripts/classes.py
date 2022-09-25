@@ -402,11 +402,11 @@ class Button:
 
 		# top rectangle 
         self.top_rect = pygame.Rect(pos,(width,height))
-        self.top_color = '#475F77'
+        self.top_color = '#94B3C1'
 
 		# bottom rectangle 
         self.bottom_rect = pygame.Rect(pos,(width,height))
-        self.bottom_color = '#354B5E'
+        self.bottom_color = '#3D615E'
 		#text
         self.text = text
         self.text_surf = gui_font.render(text,True,'#FFFFFF')
@@ -434,10 +434,10 @@ class Button:
     def check_click(self):
         mouse_pos = pygame.mouse.get_pos()
         if self.top_rect.collidepoint(mouse_pos)and not self.pressed:
-            self.top_color = '#D74B4B'
+            self.top_color = '#DE0B0B'
         elif not self.top_rect.collidepoint(mouse_pos) and not self.pressed:
             self.dynamic_elecation = self.elevation
-            self.top_color = '#475F77'
+            self.top_color = '#94B3C1'
             
     def update(self):
         mouse_pos = pygame.mouse.get_pos()
@@ -445,27 +445,33 @@ class Button:
             self.dynamic_elecation = 0
             self.pressed = True
             self.change_text(f"{self.text}")
-            self.top_color = '#D74B4B'
+            self.top_color = '#DE0B0B'
             
         elif pygame.mouse.get_pressed()[0] and self.top_rect.collidepoint(mouse_pos)and self.pressed:
             self.dynamic_elecation = 0
             self.pressed = False
             self.change_text(f"{self.text}")
-            self.top_color = '#475F77'
+            self.top_color = '#94B3C1'
         else:
             self.dynamic_elecation = self.elevation
 
 class Image_select:
-    def __init__(self,image,pos,elevation,buttons):
-        self.path = "..\\_bank\\perso\\"+str(image)
+    def __init__(self,image,pos,elevation,buttons,type_image):
         
+        if type_image == "perso":
+            self.path = "..\\_bank\\perso\\"+str(image)
+            self.image = pygame.image.load(self.path+"\\"+str(image)+"_1.png")
+
+        
+        elif type_image == "niveau" :
+            self.path = "..\\_bank\\image"
+            self.image = pygame.image.load(self.path+"\\"+str(image)+"_mini.png")
 		#Core attributes 
         self.pressed = False
         self.elevation = elevation
         self.dynamic_elecation = elevation
         self.original_y_pos = pos[1]
         
-        self.image = pygame.image.load(self.path+"\\"+str(image)+"_1.png")
         self.rectangle = self.image.get_rect()
         self.pos = pos
         self.height = int(self.rectangle.height)
@@ -473,10 +479,11 @@ class Image_select:
 
 		# bottom rectangle 
         self.bottom_rect = pygame.Rect(pos,(self.width,self.height))
-        self.bottom_color = '#354B5E'
+        self.bottom_color = '#3D615E'
 		#text
         self.text = image
-        self.text_surf = gui_font.render(image,True,'#FFFFFF')
+        self.text_color = "#FFFFFF"
+        self.text_surf = gui_font.render(image,True,self.text_color)
         self.text_rect = self.text_surf.get_rect(topleft = self.rectangle.bottomleft)
         
         buttons.append(self)
@@ -490,6 +497,8 @@ class Image_select:
         self.bottom_rect.height = self.height + self.dynamic_elecation
 
         pygame.draw.rect(screen,self.bottom_color, self.bottom_rect,border_radius = 12)
+        self.text_surf = gui_font.render(self.text,True,self.text_color)
+        self.text_rect = self.text_surf.get_rect(topleft = self.rectangle.bottomleft)
         
         screen.blit(self.image, self.rectangle)
         screen.blit(self.text_surf, self.text_rect)
@@ -499,21 +508,24 @@ class Image_select:
     def check_click(self):
         mouse_pos = pygame.mouse.get_pos()
         if self.rectangle.collidepoint(mouse_pos)and not self.pressed:
-            self.bottom_color = '#D74B4B'
+            self.bottom_color = '#3D615E'
+            self.text_color = '#000000'
         elif not self.rectangle.collidepoint(mouse_pos) and not self.pressed:
             self.dynamic_elecation = self.elevation
-            self.bottom_color = '#475F77'
+            self.bottom_color = '#16ACEA'
+            self.text_color = '#FFFFFF'
             
     def update(self):
         mouse_pos = pygame.mouse.get_pos()
         if pygame.mouse.get_pressed()[0] and self.rectangle.collidepoint(mouse_pos)and not self.pressed:
             self.dynamic_elecation = 0
             self.pressed = True
-            self.bottom_color = '#D74B4B'
+            self.bottom_color = '#3D615E'
+            self.text_color = '#000000'
             
         elif pygame.mouse.get_pressed()[0] and self.rectangle.collidepoint(mouse_pos)and self.pressed:
             self.dynamic_elecation = 0
             self.pressed = False
-            self.bottom_color = '#475F77'
+            self.bottom_color = '#3D615E'
         else:
             self.dynamic_elecation = self.elevation

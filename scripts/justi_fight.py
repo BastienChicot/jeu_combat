@@ -25,6 +25,8 @@ gameExit = False
 def launch_jeu(jeu):
     if jeu.selected == "none" :
         accueil(jeu)
+    if jeu.selected == "multi_lvl" :
+        Choix_level(jeu)
     if jeu.selected == "multi" :
         Multi(jeu)
 
