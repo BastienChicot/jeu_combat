@@ -148,15 +148,9 @@ def Choix_level(jeu):
     images = []
     
     retour = Button('Retour',200,30,(50,400),5,buttons,screen)
-    gare_img = Image_select("gare",(75,50),5,images,"niveau")
-    metro_img = Image_select("metro",(175,50),5,images,"niveau")
-    parc_img = Image_select("parc",(275,50),5,images,"niveau")
-    toit_img = Image_select("toit",(375,50),5,images,"niveau")
-    theatre_img = Image_select("theatre",(75,175),5,images,"niveau")
-    usine_img = Image_select("usine",(175,175),5,images,"niveau")
-    montagne_img = Image_select("montagne",(275,175),5,images,"niveau")
-    lac_img = Image_select("lac",(375,175),5,images,"niveau")
-    espace_img = Image_select("espace",(75,300),5,images,"niveau")
+    for key in jeu.unlock_nivo:
+        #globals()['%s' % key] = 
+        Image_select(str(key),jeu.unlock_nivo[key],5,images)
 
     a = 0
     frame_count = 0
@@ -192,7 +186,7 @@ def Choix_level(jeu):
         
         for img in images:
             if img.pressed:
-                jeu.selected = "multi"
+                jeu.selected = "choix_joueur1"
                 jeu.nivo = img.text
         
         if retour.pressed:
@@ -202,6 +196,117 @@ def Choix_level(jeu):
         clock.tick(60)
         
         
+def Choix_joueur1(jeu):
+    pygame.init()
+
+    buttons = []
+    images = []
+    
+    Titre = Button('Joueur 1 : choisi ton combattant',350,30,(75,25),5,buttons,screen)
+    retour = Button('Retour',200,30,(50,400),5,buttons,screen)
+    for key in jeu.unlock_perso:
+        #globals()['%s' % key] = 
+        Image_select(str(key),jeu.unlock_perso[key],5,images)        
+
+    a = 0
+    frame_count = 0
+    
+    lvl = level("centre_com")
+    
+    gameExit = False
+
+    while not gameExit and jeu.selected == "choix_joueur1":
+        if frame_count <= 100:
+            frame_count += 1
+        else:
+            frame_count = 0
+            
+        if frame_count <= 25:
+            a=0
+        elif 25 < frame_count <= 50:
+            a=1
+        elif 50 < frame_count <= 75:
+            a=2
+        elif 75 < frame_count <= 100 :
+            a=3
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+    
+        decors = lvl.anim_level[a]
+        screen.blit(decors,(0,0))
+        buttons_draw(buttons,screen)
+        buttons_draw(images,screen)
+        
+        for img in images:
+            if img.pressed:
+                jeu.selected = "choix_joueur2"
+                jeu.joueur1 = str(img.text)
+        
+        if retour.pressed:
+            jeu.selected = "multi_lvl"
+            
+        pygame.display.update()
+        clock.tick(60)
+        
+def Choix_joueur2(jeu):
+    pygame.init()
+
+    buttons = []
+    images = []
+    
+    Titre = Button('Joueur 2 : choisi ton combattant',350,30,(75,25),5,buttons,screen)
+    
+    retour = Button('Retour',200,30,(50,400),5,buttons,screen)
+    for key in jeu.unlock_perso:
+        #globals()['%s' % key] = 
+        Image_select(str(key),jeu.unlock_perso[key],5,images)
+        
+
+    a = 0
+    frame_count = 0
+    
+    lvl = level("centre_com")
+    
+    gameExit = False
+
+    while not gameExit and jeu.selected == "choix_joueur2":
+        if frame_count <= 100:
+            frame_count += 1
+        else:
+            frame_count = 0
+            
+        if frame_count <= 25:
+            a=0
+        elif 25 < frame_count <= 50:
+            a=1
+        elif 50 < frame_count <= 75:
+            a=2
+        elif 75 < frame_count <= 100 :
+            a=3
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+    
+        decors = lvl.anim_level[a]
+        screen.blit(decors,(0,0))
+        buttons_draw(buttons,screen)
+        buttons_draw(images,screen)
+        
+        for img in images:
+            if img.pressed:
+                jeu.selected = "multi"
+                jeu.joueur2 = str(img.text)
+        
+        if retour.pressed:
+            jeu.selected = "choix_joueur1"
+            
+        pygame.display.update()
+        clock.tick(60)
         
         
         

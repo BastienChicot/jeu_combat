@@ -27,6 +27,10 @@ def launch_jeu(jeu):
         accueil(jeu)
     if jeu.selected == "multi_lvl" :
         Choix_level(jeu)
+    if jeu.selected == "choix_joueur1" :
+        Choix_joueur1(jeu)
+    if jeu.selected == "choix_joueur2" :
+        Choix_joueur2(jeu)
     if jeu.selected == "multi" :
         Multi(jeu)
 

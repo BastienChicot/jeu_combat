@@ -31,8 +31,8 @@ def Multi(jeu):
     frame_count_1 = 0
     frame_count_2 = 0
     
-    p1 = joueur("basti", 1, lenivo)
-    p2 = joueur("coach",2,lenivo)
+    p1 = joueur(str(jeu.joueur1), 1, lenivo)
+    p2 = joueur(str(jeu.joueur2),2,lenivo)
     perso1 = p1.fr[0]
     perso2 = p2.fl[0]
     
