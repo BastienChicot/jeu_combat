@@ -102,14 +102,10 @@ power_bar4 = pygame.image.load("..\\_bank\\image\\super_power4.png")
 power_bar5 = pygame.image.load("..\\_bank\\image\\super_power5.png")
 power_bar = [power_bar0,power_bar1,power_bar2,power_bar3,power_bar4,power_bar5]
 
-# gare_mini = pygame.image.load("..\\_bank\\image\\gare_mini.png")
-# metro_mini = pygame.image.load("..\\_bank\\image\\metro_mini.png")
-# parc_mini = pygame.image.load("..\\_bank\\image\\parc_mini.png")
-# toit_mini = pygame.image.load("..\\_bank\\image\\toit_mini.png")
-# theatre_mini = pygame.image.load("..\\_bank\\image\\theatre_mini.png")
-# usine_mini = pygame.image.load("..\\_bank\\image\\usine_mini.png")
-# montagne_mini = pygame.image.load("..\\_bank\\image\\montagne_mini.png")
-# lac_mini = pygame.image.load("..\\_bank\\image\\lac_mini.png")
-# espace_mini = pygame.image.load("..\\_bank\\image\\espace_mini.png")
 
+ko_1 = pygame.image.load("..\\_bank\\image\\autres\\ko_1.png")
+ko_2 = pygame.image.load("..\\_bank\\image\\autres\\ko_2.png")
+ko_3 = pygame.image.load("..\\_bank\\image\\autres\\ko_3.png")
+ko_4 = pygame.image.load("..\\_bank\\image\\autres\\ko_4.png")
+ko = [ko_1,ko_2,ko_3,ko_4]
 

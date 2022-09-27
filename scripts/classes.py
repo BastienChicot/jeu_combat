@@ -27,6 +27,13 @@ class Jeu():
             "coach":(275,75),
             "justi":(375,75)
             }
+
+        self.unlock_perso2 = {
+            "basti":(125,75),
+            "clou":(225,75),
+            "coach":(325,75),
+            "justi":(425,75)
+            }
         
         self.unlock_nivo = {
             "gare":(75,50),

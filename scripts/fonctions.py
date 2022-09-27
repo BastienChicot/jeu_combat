@@ -260,9 +260,9 @@ def Choix_joueur2(jeu):
     Titre = Button('Joueur 2 : choisi ton combattant',350,30,(75,25),5,buttons,screen)
     
     retour = Button('Retour',200,30,(50,400),5,buttons,screen)
-    for key in jeu.unlock_perso:
+    for key in jeu.unlock_perso2:
         #globals()['%s' % key] = 
-        Image_select(str(key),jeu.unlock_perso[key],5,images)
+        Image_select(str(key),jeu.unlock_perso2[key],5,images)
         
 
     a = 0
@@ -308,5 +308,5 @@ def Choix_joueur2(jeu):
         pygame.display.update()
         clock.tick(60)
         
-        
-        
+    
+       
