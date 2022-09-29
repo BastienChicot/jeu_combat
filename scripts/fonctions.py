@@ -19,7 +19,7 @@ clock = pygame.time.Clock()
 gui_font = pygame.font.Font(None,30)
 myfont = pygame.font.SysFont('corbel', 20, bold=True)
 Gus_font = pygame.font.SysFont('corbel', 16, bold=True)
-big_font = pygame.font.SysFont('corbel', 40, bold=True)
+big_font = pygame.font.SysFont('corbel', 60, bold=True)
 
 clock = pygame.time.Clock()
 
@@ -49,33 +49,10 @@ def zone_dialogue(screen,texte_zone,action,liste_phrases,var_iter,max_iter):
         if var_iter >= max_iter and action.click == True:
             i -= max_iter
             
-def pause(screen,gameExit,Gus,sac,tr):
-    keys=pygame.key.get_pressed()
-    
-    screen.blit(poze, (50 , 150))
-    
-    if keys[pygame.K_s]:
-        other_s.play()
-        gus_save = Gus.iter_objects()
-        sac_save = sac.iter_objects()
-        trigger_save = tr.iter_objects()
-        with open('Story/saves/Gus.pkl', 'wb') as f:
-            pickle.dump(gus_save, f, pickle.HIGHEST_PROTOCOL)
-        with open('Story/saves/Sac.pkl', 'wb') as fi:
-            pickle.dump(sac_save, fi, pickle.HIGHEST_PROTOCOL)       
-        with open('Story/saves/Trigger.pkl', 'wb') as tr:
-            pickle.dump(trigger_save, tr, pickle.HIGHEST_PROTOCOL)
-            
-        pygame.font.init()
- 
-        myfont = pygame.font.SysFont('corbel', 25, bold=True)
-        
-        textsurface = myfont.render("Partie sauvegardée", False, (0, 0, 0))
-        screen.blit(textsurface,(135,350))
+def pause(screen,buttons_pause):
 
-    if keys[pygame.K_q]: 
-        other_s.play()
-        pygame.quit()
+    buttons_draw(buttons_pause,screen)
+                
         
 def load(Gus,sac,tr):
     with open('Story/saves/Gus.pkl', 'rb') as f:
@@ -102,7 +79,8 @@ def accueil(jeu):
     
     multijoueur = Button('Multijoueur',200,100,(250,175),5,buttons,screen)
     hist = Button('Histoire',200,100,(250,300),5,buttons,screen)
-    options = Button('Options',200,50,(250,425),5,buttons,screen)    
+    options = Button('Options',200,50,(250,425),5,buttons,screen) 
+    quitter = Button('Quitter le jeu',200,50,(25,425),5,buttons,screen)
     
     a = 0
     frame_count = 0
@@ -129,7 +107,7 @@ def accueil(jeu):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                sys.exit()
+                sys.exit(0)
     
         decors = lvl.anim_level[a]
         screen.blit(decors,(0,0))
@@ -137,6 +115,8 @@ def accueil(jeu):
         
         if multijoueur.pressed:
             jeu.selected = "multi_lvl"
+        if quitter.pressed:
+            pygame.quit()
             
         pygame.display.update()
         clock.tick(60)
@@ -177,7 +157,7 @@ def Choix_level(jeu):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                sys.exit()
+                sys.exit(0)
     
         decors = lvl.anim_level[a]
         screen.blit(decors,(0,0))
@@ -233,7 +213,7 @@ def Choix_joueur1(jeu):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                sys.exit()
+                sys.exit(0)
     
         decors = lvl.anim_level[a]
         screen.blit(decors,(0,0))
@@ -290,7 +270,7 @@ def Choix_joueur2(jeu):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                sys.exit()
+                sys.exit(0)
     
         decors = lvl.anim_level[a]
         screen.blit(decors,(0,0))

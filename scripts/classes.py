@@ -15,6 +15,7 @@ class Jeu():
         self.nivo = nivo
         self.temps = 30
         self.selected = "none"
+        self.pause = 0
         
         ###MULTI
         
@@ -554,3 +555,130 @@ class Image_select:
             self.bottom_color = '#3D615E'
         else:
             self.dynamic_elecation = self.elevation
+            
+class Slider:
+    def __init__(self,width,height,pos,elevation,liste,block = True):
+        self.width = width
+        self.height = height
+        
+		#Core attributes 
+        self.pressed = False
+        self.elevation = elevation
+        self.dynamic_moins = elevation
+        self.dynamic_plus = elevation
+        self.original_y_pos = pos[1]
+        self.block = block
+        
+        self.pos = pos        
+        self.pos_plus = pos
+        self.pos_plus = ((width + self.pos[0])-(width/5),self.pos[1])
+        self.original_y_plus = self.pos_plus[1]
+        
+        self.barre_pos = ((pos[0]+(width/5)),(pos[1]+(height/2 - 5)))
+        self.curseur_pos_list = [self.pos[0] + ((width/2)-(width/20)),self.pos[1]]
+        self.curseur_pos = tuple(self.curseur_pos_list)
+        
+		# top rectangle 
+        self.top_rect_moins = pygame.Rect(pos,(width/5,height))
+        self.top_rect_plus = pygame.Rect(self.pos_plus,(width/5,height))
+        self.top_moins_color = '#475F77'
+        self.top_plus_color = '#475F77'
+        self.top_color = '#475F77'
+        
+        self.barre_rect = pygame.Rect(self.barre_pos,((width/5)*3,(10)))
+        self.curseur_rect = pygame.Rect(self.curseur_pos,((width/10),height))
+
+		# bottom rectangle 
+        self.bottom_rect_moins = pygame.Rect(pos,(width/5,height))
+        self.bottom_rect_plus = pygame.Rect(self.pos_plus,(width/5,height))
+        self.bottom_color = '#354B5E'
+		#text
+        self.text_moins = "-"
+        self.text_plus = "+"
+        self.val_curseur = (self.curseur_pos_list[0] - self.barre_pos[0] +(width/20))/((width/5)*3)
+        self.text_moins_surf = gui_font.render(self.text_moins,True,'#FFFFFF')
+        self.text_plus_surf = gui_font.render(self.text_plus,True,'#FFFFFF')
+        self.text_moins_rect = self.text_moins_surf.get_rect(center = self.top_rect_moins.center)
+        self.text_plus_rect = self.text_plus_surf.get_rect(center = self.top_rect_plus.center)
+        liste.append(self)
+
+    def draw(self):
+		# elevation logic 
+        self.top_rect_moins.y = self.original_y_pos - self.dynamic_moins
+        self.top_rect_plus.y = self.original_y_plus - self.dynamic_plus
+        self.text_moins_rect.center = self.top_rect_moins.center 
+        self.text_plus_rect.center = self.top_rect_plus.center 
+
+        self.bottom_rect_moins.midtop = self.top_rect_moins.midtop
+        self.bottom_rect_plus.midtop = self.top_rect_plus.midtop
+        
+        self.bottom_rect_moins.height = self.top_rect_moins.height + self.dynamic_moins
+        self.bottom_rect_plus.height = self.top_rect_plus.height + self.dynamic_plus
+
+        pygame.draw.rect(screen,self.bottom_color, self.bottom_rect_moins,border_radius = 12)
+        pygame.draw.rect(screen,self.bottom_color, self.bottom_rect_plus,border_radius = 12)
+
+        pygame.draw.rect(screen,self.top_moins_color, self.top_rect_moins,border_radius = 12)
+        pygame.draw.rect(screen,self.top_plus_color, self.top_rect_plus,border_radius = 12)
+
+        pygame.draw.rect(screen,self.bottom_color,self.barre_rect)
+        
+        screen.blit(self.text_moins_surf, self.text_moins_rect)
+        screen.blit(self.text_plus_surf, self.text_plus_rect)
+        self.check_click()
+        self.update()
+
+        pygame.draw.rect(screen,self.top_color,self.curseur_rect,border_radius = 12)
+
+    def check_click(self):
+        mouse_pos = pygame.mouse.get_pos()
+        
+        if self.top_rect_moins.collidepoint(mouse_pos) and not self.pressed:
+            self.top_moins_color = '#DE0B0B'
+        elif not self.top_rect_moins.collidepoint(mouse_pos) and not self.pressed:
+            self.dynamic_moins = self.elevation
+            self.top_moins_color = '#94B3C1'
+        elif self.top_rect_plus.collidepoint(mouse_pos) and not self.pressed:
+            self.top_plus_color = '#DE0B0B'
+        elif not self.top_rect_plus.collidepoint(mouse_pos) and not self.pressed:
+            self.dynamic_plus = self.elevation
+            self.top_plus_color = '#94B3C1'
+            
+    def update(self):
+        mouse_pos = pygame.mouse.get_pos()
+        if pygame.mouse.get_pressed()[0] and self.top_rect_moins.collidepoint(mouse_pos) and not self.top_rect_plus.collidepoint(mouse_pos):
+            self.dynamic_moins = 0
+            self.pressed = True
+            self.top_moins_color = '#D74B4B'
+            if self.curseur_pos_list[0] > (self.pos[0] + (self.width/5)):
+                self.curseur_pos_list[0] -= 1
+                self.curseur_pos = tuple(self.curseur_pos_list)
+                self.curseur_rect = pygame.Rect(self.curseur_pos,((self.width/10),self.height))
+                self.val_curseur = (self.curseur_pos_list[0] - self.barre_pos[0] +(self.width/20))/((self.width/5)*3)
+            else:
+                self.curseur_pos_list[0] -= 0
+                self.curseur_pos = tuple(self.curseur_pos_list)
+                self.curseur_rect = pygame.Rect(self.curseur_pos,((self.width/10),self.height))
+                self.val_curseur = 0
+
+            pygame.draw.rect(screen,self.top_color,self.curseur_rect,border_radius = 12)
+            
+        elif pygame.mouse.get_pressed()[0] and self.top_rect_plus.collidepoint(mouse_pos) and not self.top_rect_moins.collidepoint(mouse_pos):
+            self.dynamic_plus = 0
+            self.pressed = True
+            self.top_plus_color = '#D74B4B'
+            if self.curseur_pos_list[0] < (self.pos_plus[0] - (self.width/10)):
+                self.curseur_pos_list[0] += 1
+                self.curseur_pos = tuple(self.curseur_pos_list)
+                self.curseur_rect = pygame.Rect(self.curseur_pos,((self.width/10),self.height))
+                self.val_curseur = (self.curseur_pos_list[0] - self.barre_pos[0] +(self.width/20))/((self.width/5)*3)
+            else:
+                self.curseur_pos_list[0] += 0
+                self.curseur_pos = tuple(self.curseur_pos_list)
+                self.curseur_rect = pygame.Rect(self.curseur_pos,((self.width/10),self.height))
+                self.val_curseur = 1
+        else:
+            self.dynamic_moins = self.elevation
+            self.dynamic_plus = self.elevation
+            self.top_plus_color = '#475F77'
+            self.top_moins_color = '#475F77' 

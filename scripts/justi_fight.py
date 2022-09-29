@@ -21,9 +21,16 @@ pygame.mixer.pre_init(44100, -16, 1, 4096)
 jeu = Jeu("none")
 
 gameExit = False
-
+        
 def launch_jeu(jeu):
+    
     if jeu.selected == "none" :
+        pygame.mixer.music.load ( playlist[0])
+        pygame.mixer.music.play() 
+        accueil(jeu)
+    elif jeu.selected == "none" :
+        pygame.mixer.music.load ( playlist[0])
+        pygame.mixer.music.play() 
         accueil(jeu)
     elif jeu.selected == "multi_lvl" :
         Choix_level(jeu)
@@ -32,15 +39,18 @@ def launch_jeu(jeu):
     elif jeu.selected == "choix_joueur2" :
         Choix_joueur2(jeu)
     elif jeu.selected == "multi" :
+        pygame.mixer.music.load ( playlist[level_tracks[jeu.nivo]])
+        pygame.mixer.music.play() 
         Multi(jeu)
+        menu = False
 
 while not gameExit :
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            gameExit = True 
-    
-    launch_jeu(jeu)
+            gameExit = True  
+
+    launch_jeu(jeu)      
     
     pygame.display.update()
     

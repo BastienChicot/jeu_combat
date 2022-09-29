@@ -8,10 +8,22 @@ import pygame
 pygame.init()
 pygame.font.init()
 
+pygame.mixer.pre_init(44100, -16, 1, 4096)
+pygame.mixer.init()
+pygame.mixer.music.set_volume(0.1)
+
 gui_font = pygame.font.Font(None,30)
 
 display_width = 500
 display_height = 500
+
+
+playlist = []
+
+playlist.append("..\\_bank\\bo\\track0.wav")
+playlist.append("..\\_bank\\bo\\track1.wav")
+playlist.append("..\\_bank\\bo\\track2.wav")
+playlist.append("..\\_bank\\bo\\track3.wav")
 
 hauteur = {
     "basti":35,
@@ -92,6 +104,22 @@ level_lim_max = {
     "parc":440,
     "metro":280
     }
+
+level_tracks = {
+    "centre_com":1,
+    "practice":2,
+    "espace":3,
+    "gare":3,
+    "montagne":2,
+    "theatre":1,
+    "ferme":2,
+    "usine":3,
+    "lac":3,
+    "toit":1,
+    "parc":2,
+    "metro":1
+    }
+
 
 
 power_bar0 = pygame.image.load("..\\_bank\\image\\super_power0.png")
