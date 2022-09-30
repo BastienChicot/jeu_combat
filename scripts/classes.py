@@ -13,9 +13,11 @@ pygame.font.init()
 class Jeu():
     def __init__(self,nivo = "none"):
         self.nivo = nivo
-        self.temps = 30
         self.selected = "none"
         self.pause = 0
+        
+        self.vol_music_menu = 0.5
+        self.vol_music_fight = 0.5
         
         ###MULTI
         
@@ -47,6 +49,9 @@ class Jeu():
             "lac":(375,175),
             "espace":(75,300)
             }
+        
+    def iter_objects(self):
+        return (self.__dict__) 
 
 class level():
     def __init__ (self,nivo):
@@ -557,7 +562,7 @@ class Image_select:
             self.dynamic_elecation = self.elevation
             
 class Slider:
-    def __init__(self,width,height,pos,elevation,liste,block = True):
+    def __init__(self,width,height,pos,elevation,liste,volume,block = True):
         self.width = width
         self.height = height
         
@@ -575,7 +580,7 @@ class Slider:
         self.original_y_plus = self.pos_plus[1]
         
         self.barre_pos = ((pos[0]+(width/5)),(pos[1]+(height/2 - 5)))
-        self.curseur_pos_list = [self.pos[0] + ((width/2)-(width/20)),self.pos[1]]
+        self.curseur_pos_list = [self.pos[0] + ((width*volume)-(width/20)),self.pos[1]]
         self.curseur_pos = tuple(self.curseur_pos_list)
         
 		# top rectangle 
@@ -595,14 +600,14 @@ class Slider:
 		#text
         self.text_moins = "-"
         self.text_plus = "+"
-        self.val_curseur = (self.curseur_pos_list[0] - self.barre_pos[0] +(width/20))/((width/5)*3)
+        self.val_curseur = volume
         self.text_moins_surf = gui_font.render(self.text_moins,True,'#FFFFFF')
         self.text_plus_surf = gui_font.render(self.text_plus,True,'#FFFFFF')
         self.text_moins_rect = self.text_moins_surf.get_rect(center = self.top_rect_moins.center)
         self.text_plus_rect = self.text_plus_surf.get_rect(center = self.top_rect_plus.center)
         liste.append(self)
 
-    def draw(self):
+    def draw(self,screen):
 		# elevation logic 
         self.top_rect_moins.y = self.original_y_pos - self.dynamic_moins
         self.top_rect_plus.y = self.original_y_plus - self.dynamic_plus
@@ -626,7 +631,7 @@ class Slider:
         screen.blit(self.text_moins_surf, self.text_moins_rect)
         screen.blit(self.text_plus_surf, self.text_plus_rect)
         self.check_click()
-        self.update()
+        self.update(screen)
 
         pygame.draw.rect(screen,self.top_color,self.curseur_rect,border_radius = 12)
 
@@ -644,7 +649,7 @@ class Slider:
             self.dynamic_plus = self.elevation
             self.top_plus_color = '#94B3C1'
             
-    def update(self):
+    def update(self,screen):
         mouse_pos = pygame.mouse.get_pos()
         if pygame.mouse.get_pressed()[0] and self.top_rect_moins.collidepoint(mouse_pos) and not self.top_rect_plus.collidepoint(mouse_pos):
             self.dynamic_moins = 0
@@ -682,3 +687,82 @@ class Slider:
             self.dynamic_plus = self.elevation
             self.top_plus_color = '#475F77'
             self.top_moins_color = '#475F77' 
+
+class Affiche_texte:
+    def __init__(self,text,width,height,pos,elevation,liste,screen,saisie = False):
+        
+        self.saisie = saisie
+        self.active = False
+        self.user_text = 'a'
+        self.color_active = pygame.Color('lightskyblue3')
+        self.click = -1
+
+		#Core attributes 
+        self.elevation = elevation
+        self.original_y_pos = pos[1]
+        self.screen = screen
+        self.dynamic_elecation = elevation
+        
+		# top rectangle 
+        self.top_rect = pygame.Rect(pos,(width,height))
+        self.top_color = '#94B3C1'
+
+		# bottom rectangle 
+        self.bottom_rect = pygame.Rect(pos,(width,height))
+        self.bottom_color = '#3D615E'
+		#text
+        if self.saisie:
+            self.text = self.user_text
+        else:
+            self.text = text
+        self.text_surf = gui_font.render(text,True,'#FFFFFF')
+        self.text_rect = self.text_surf.get_rect(center = self.top_rect.center)
+        liste.append(self)
+
+    def change_text(self, newtext):
+        self.text_surf = gui_font.render(newtext, True,'#FFFFFF')
+        self.text_rect = self.text_surf.get_rect(center = self.top_rect.center)
+
+    def draw(self,screen):
+		# elevation logic 
+        self.top_rect.y = self.original_y_pos - self.dynamic_elecation
+        self.text_rect.center = self.top_rect.center 
+
+        self.bottom_rect.midtop = self.top_rect.midtop
+        self.bottom_rect.height = self.top_rect.height + self.dynamic_elecation
+
+        pygame.draw.rect(screen,self.bottom_color, self.bottom_rect,border_radius = 8)
+        pygame.draw.rect(screen,self.top_color, self.top_rect,border_radius = 8)
+
+        if self.saisie :
+            self.update_text()        
+        screen.blit(self.text_surf, self.text_rect)
+    
+    def update_text(self):
+        mouse_pos = pygame.mouse.get_pos()
+        if pygame.mouse.get_pressed()[0] and self.top_rect.collidepoint(mouse_pos) :
+            self.click += 1
+        else:
+            self.dynamic_elecation = self.elevation         
+
+            
+        if (self.click%2) != 1:
+            self.dynamic_elecation = 0
+            self.active = True
+            self.top_color = self.color_active
+            self.bottom_color = '#DE0B0B'
+            self.text_color = '#000000'
+            for event in pygame.event.get():
+  
+                if event.type == pygame.KEYDOWN :
+                                            
+                    if event.key != pygame.K_RETURN:
+         
+                        self.text = str(pygame.key.name(event.key))
+                        
+                        self.change_text(self.text) 
+        else:
+            self.active = False
+            
+        
+

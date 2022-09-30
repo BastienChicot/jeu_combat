@@ -30,15 +30,17 @@ def Multi(jeu):
     restart = Button('Recommencer',200,30,(25,450),5,buttons,screen)
     
     buttons_pause = []
-    retour2 = Button('Retour au menu',200,30,(25,450),5,buttons_pause,screen)
-    quitter = Button('Quitter le jeu',200,30,(275,450),5,buttons_pause,screen)
-    
+    retour2 = Button('Retour au menu',200,30,(150,400),5,buttons_pause,screen)
+    quitter = Button('Quitter le jeu',200,30,(150,450),5,buttons_pause,screen)
+    vol_music_jeu = Slider(250, 50, (125,250), 5, buttons_pause,jeu.vol_music_fight)
+
     gameExit=False
     
     a = 0
     b = 0
     frame_count_1 = 0
     frame_count_2 = 0
+    seconds = 0
     
     compteur = big_font.render("5", False, (255, 20, 20))
     compteur_fond = big_font.render("5", False, (0, 0, 0))
@@ -60,6 +62,8 @@ def Multi(jeu):
     clock = pygame.time.Clock()
     
     while not gameExit and jeu.selected == "multi" :
+        
+        pygame.mixer.music.set_volume(jeu.vol_music_fight)
         
         pause_text = big_font.render("PAUSE", False, (255, 20, 20))
         pause_fond = big_font.render("PAUSE", False, (0, 0, 0))
@@ -210,6 +214,10 @@ def Multi(jeu):
                 buttons_draw(buttons_pause,screen)                
                 screen.blit(pause_fond,(157,203))
                 screen.blit(pause_text,(160,200))
+
+                if vol_music_jeu.pressed:
+                    jeu.vol_music_fight = vol_music_jeu.val_curseur
+                    update_vol_fight(jeu)
                 
         elif seconds >= 180 and p1.vie > 0 and p2.vie > 0:
             if frame_count_1 <= 100:
@@ -549,7 +557,10 @@ def Multi(jeu):
             Multi(jeu)
         
         if retour.pressed:
-            jeu.selected = "none"
+            jeu.selected = "multi_lvl"
+            pygame.mixer.music.set_volume(jeu.vol_music_menu)
+            pygame.mixer.music.load ( playlist[0])
+            pygame.mixer.music.play(-1) 
             
         if retour2.pressed :
             retour.pressed = True

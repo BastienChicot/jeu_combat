@@ -10,7 +10,6 @@ pygame.font.init()
 
 pygame.mixer.pre_init(44100, -16, 1, 4096)
 pygame.mixer.init()
-pygame.mixer.music.set_volume(0.1)
 
 gui_font = pygame.font.Font(None,30)
 
