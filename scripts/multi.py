@@ -45,8 +45,8 @@ def Multi(jeu):
     compteur = big_font.render("5", False, (255, 20, 20))
     compteur_fond = big_font.render("5", False, (0, 0, 0))
     
-    p1 = joueur(str(jeu.joueur1), 1, lenivo)
-    p2 = joueur(str(jeu.joueur2),2,lenivo)
+    p1 = joueur(str(jeu.joueur1), 1, lenivo,jeu)
+    p2 = joueur(str(jeu.joueur2),2,lenivo,jeu)
     perso1 = p1.fr[0]
     perso2 = p2.fl[0]
     
@@ -557,7 +557,7 @@ def Multi(jeu):
             Multi(jeu)
         
         if retour.pressed:
-            jeu.selected = "multi_lvl"
+            jeu.selected = "none"
             pygame.mixer.music.set_volume(jeu.vol_music_menu)
             pygame.mixer.music.load ( playlist[0])
             pygame.mixer.music.play(-1) 

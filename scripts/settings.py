@@ -16,6 +16,8 @@ gui_font = pygame.font.Font(None,30)
 display_width = 500
 display_height = 500
 
+select_boom = pygame.mixer.Sound("..\\_bank\\fx\\boom.wav")
+
 
 playlist = []
 
@@ -135,4 +137,5 @@ ko_2 = pygame.image.load("..\\_bank\\image\\autres\\ko_2.png")
 ko_3 = pygame.image.load("..\\_bank\\image\\autres\\ko_3.png")
 ko_4 = pygame.image.load("..\\_bank\\image\\autres\\ko_4.png")
 ko = [ko_1,ko_2,ko_3,ko_4]
+
 

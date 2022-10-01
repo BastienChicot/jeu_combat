@@ -18,7 +18,46 @@ class Jeu():
         
         self.vol_music_menu = 0.5
         self.vol_music_fight = 0.5
+        self.vol_fx = 0.5
         
+        ##JOUEUR 1
+        self.touche_j1_1 = pygame.key.key_code("t")
+        self.touche_j1_1_text = pygame.key.name(self.touche_j1_1)
+
+        self.touche_j1_2 = pygame.key.key_code("y")
+        self.touche_j1_2_text = pygame.key.name(self.touche_j1_2)        
+
+        self.touche_j1_L = pygame.key.key_code("q")
+        self.touche_j1_L_text = pygame.key.name(self.touche_j1_L)
+
+        self.touche_j1_R = pygame.key.key_code("d")
+        self.touche_j1_R_text = pygame.key.name(self.touche_j1_R)        
+
+        self.touche_j1_D = pygame.key.key_code("s")
+        self.touche_j1_D_text = pygame.key.name(self.touche_j1_D)
+
+        self.touche_j1_U = pygame.key.key_code("z")
+        self.touche_j1_U_text = pygame.key.name(self.touche_j1_U)  
+
+        ##JOUEUR 2
+        self.touche_j2_1 = pygame.key.key_code(",")
+        self.touche_j2_1_text = pygame.key.name(self.touche_j2_1)
+
+        self.touche_j2_2 = pygame.key.key_code(";")
+        self.touche_j2_2_text = pygame.key.name(self.touche_j2_2)        
+
+        self.touche_j2_L = pygame.key.key_code("left")
+        self.touche_j2_L_text = pygame.key.name(self.touche_j2_L)
+
+        self.touche_j2_R = pygame.key.key_code("right")
+        self.touche_j2_R_text = pygame.key.name(self.touche_j2_R)        
+
+        self.touche_j2_D = pygame.key.key_code("down")
+        self.touche_j2_D_text = pygame.key.name(self.touche_j2_D)
+
+        self.touche_j2_U = pygame.key.key_code("up")
+        self.touche_j2_U_text = pygame.key.name(self.touche_j2_U)        
+
         ###MULTI
         
         self.joueur1 = "none"
@@ -49,6 +88,69 @@ class Jeu():
             "lac":(375,175),
             "espace":(75,300)
             }
+    
+    def update_touches(self,saisie,objet):
+
+        if saisie == "saisie_1":           
+            self.touche_j1_1 = pygame.key.key_code(str(objet.text))
+            self.touche_j1_1_text = pygame.key.name(self.touche_j1_1)
+        elif saisie == "saisie_2":           
+            self.touche_j1_2 = pygame.key.key_code(str(objet.text))
+            self.touche_j1_2_text = pygame.key.name(self.touche_j1_2) 
+        elif saisie == "saisie_l":           
+            self.touche_j1_L = pygame.key.key_code(str(objet.text))
+            self.touche_j1_L_text = pygame.key.name(self.touche_j1_L)
+        elif saisie == "saisie_r":           
+            self.touche_j1_R = pygame.key.key_code(str(objet.text))
+            self.touche_j1_R_text = pygame.key.name(self.touche_j1_R)
+        elif saisie == "saisie_d":           
+            self.touche_j1_D = pygame.key.key_code(str(objet.text))
+            self.touche_j1_D_text = pygame.key.name(self.touche_j1_D)
+        elif saisie == "saisie_u":           
+            self.touche_j1_U = pygame.key.key_code(str(objet.text))
+            self.touche_j1_U_text = pygame.key.name(self.touche_j1_U)
+                
+    def reinitialise_options(self):
+        self.vol_music_menu = 0.5
+        self.vol_music_fight = 0.5
+        self.vol_fx = 0.5
+        
+        self.touche_j1_1 = pygame.key.key_code("t")
+        self.touche_j1_1_text = pygame.key.name(self.touche_j1_1)
+        
+        self.touche_j1_2 = pygame.key.key_code("y")
+        self.touche_j1_2_text = pygame.key.name(self.touche_j1_2)        
+
+        self.touche_j1_L = pygame.key.key_code("q")
+        self.touche_j1_L_text = pygame.key.name(self.touche_j1_L)
+
+        self.touche_j1_R = pygame.key.key_code("d")
+        self.touche_j1_R_text = pygame.key.name(self.touche_j1_R)        
+
+        self.touche_j1_D = pygame.key.key_code("s")
+        self.touche_j1_D_text = pygame.key.name(self.touche_j1_D)
+
+        self.touche_j1_U = pygame.key.key_code("z")
+        self.touche_j1_U_text = pygame.key.name(self.touche_j1_U)        
+
+        ##JOUEUR 2
+        self.touche_j2_1 = pygame.key.key_code(",")
+        self.touche_j2_1_text = pygame.key.name(self.touche_j2_1)
+
+        self.touche_j2_2 = pygame.key.key_code(";")
+        self.touche_j2_2_text = pygame.key.name(self.touche_j2_2)        
+
+        self.touche_j2_L = pygame.key.key_code("left")
+        self.touche_j2_L_text = pygame.key.name(self.touche_j2_L)
+
+        self.touche_j2_R = pygame.key.key_code("right")
+        self.touche_j2_R_text = pygame.key.name(self.touche_j2_R)        
+
+        self.touche_j2_D = pygame.key.key_code("down")
+        self.touche_j2_D_text = pygame.key.name(self.touche_j2_D)
+
+        self.touche_j2_U = pygame.key.key_code("up")
+        self.touche_j2_U_text = pygame.key.name(self.touche_j2_U)     
         
     def iter_objects(self):
         return (self.__dict__) 
@@ -67,7 +169,7 @@ class level():
         self.anim_level = [self.img1,self.img2,self.img3,self.img4]
 
 class joueur():
-    def __init__(self,nom,joueur,nivo):
+    def __init__(self,nom,joueur,nivo,jeu):
         self.path = "..\\_bank\\perso\\"+str(nom)
         
         self.name = nom 
@@ -173,8 +275,8 @@ class joueur():
             self.descend = pygame.K_s
             self.gauche = pygame.K_q
             self.droite = pygame.K_d
-        
-            self.action = pygame.K_t
+            
+            self.action = jeu.touche_j1_1
             self.coup = pygame.K_y
         elif self.joueur == 2:
             self.saut = pygame.K_UP
@@ -689,11 +791,13 @@ class Slider:
             self.top_moins_color = '#475F77' 
 
 class Affiche_texte:
-    def __init__(self,text,width,height,pos,elevation,liste,screen,saisie = False):
+    def __init__(self,text,width,height,pos,elevation,liste,screen,nom = "",saisie = False):
         
+        self.name = nom
         self.saisie = saisie
         self.active = False
-        self.user_text = 'a'
+        self.user_text = text
+        self.key = ""
         self.color_active = pygame.Color('lightskyblue3')
         self.click = -1
 
@@ -757,6 +861,8 @@ class Affiche_texte:
                 if event.type == pygame.KEYDOWN :
                                             
                     if event.key != pygame.K_RETURN:
+                        
+                        self.key = event.key
          
                         self.text = str(pygame.key.name(event.key))
                         

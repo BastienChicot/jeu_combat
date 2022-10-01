@@ -8,6 +8,7 @@ import pygame
 from settings import *
 from classes import *
 import pickle
+import os
 
 pygame.init()
 pygame.font.init()
@@ -97,9 +98,11 @@ def accueil(jeu):
         
         if multijoueur.pressed:
             jeu.selected = "multi_lvl"
+            select_boom.play()
         if quitter.pressed:
             pygame.quit()
         if options.pressed :
+            select_boom.play()
             jeu.selected = "options"
             
         pygame.display.update()
@@ -150,10 +153,12 @@ def Choix_level(jeu):
         
         for img in images:
             if img.pressed:
+                select_boom.play()
                 jeu.selected = "choix_joueur1"
                 jeu.nivo = img.text
         
         if retour.pressed:
+            select_boom.play()
             jeu.selected = "none"
             
         pygame.display.update()
@@ -281,6 +286,9 @@ def update_vol_fight(jeu):
     liste_slider = []
     vol_music_jeu = Slider(250, 50, (125,100), 5, liste_slider,jeu.vol_music_fight)
 
+def update_vol_fx(jeu):
+    liste_slider = []
+    vol_fx_jeu = Slider(250, 50, (125,100), 5, liste_slider,jeu.vol_fx)
         
 def Options(jeu):
     pygame.init()
@@ -288,19 +296,33 @@ def Options(jeu):
     buttons = []
     liste_slider = []
     textes = []
+    saisie_j1 = []
 
-    Titre = Affiche_texte('Options',350,30,(75,25),5,textes,screen)
+    Titre = Affiche_texte('Options',350,30,(75,25),5,textes,screen,"Titre")
+    
+    reinit = Button('Reinitialiser',200,15,(150,65),5,buttons,screen)
+    
+    joueur1 = Button("Joueur 1",200,20,(30,325),5,buttons,screen)
+    joueur1.pressed = True
+    joueur2 = Button('Joueur 2',200,20,(270,325),5,buttons,screen)
     
     retour = Button('Retour',200,30,(30,450),5,buttons,screen)
     save = Button("Sauvegarder",200,30,(270,450),5,buttons,screen)
     
     vol_music_menu = Slider(180, 50, (300,100), 5, liste_slider,jeu.vol_music_menu)
     vol_music_jeu = Slider(180, 50, (300,175), 5, liste_slider,jeu.vol_music_fight)
+    vol_fx_jeu = Slider(180, 50, (300,250), 5, liste_slider,jeu.vol_fx)
 
     vol_menu = Affiche_texte('Volume musique menu',275,30,(20,110),5,textes,screen)
     vol_fight = Affiche_texte('Volume musique jeu',275,30,(20,185),5,textes,screen)
+    vol_fx = Affiche_texte('Volume des effets',275,30,(20,260),5,textes,screen)
 
-    saisie_1 = Affiche_texte('',30,30,(20,250),5,textes,screen,saisie = True)
+    saisie_1 = Affiche_texte(str(jeu.touche_j1_1_text),75,20,(155,355),5,saisie_j1,screen,"saisie_1",saisie = True)
+    saisie_2 = Affiche_texte(str(jeu.touche_j1_2_text),75,20,(400,355),5,saisie_j1,screen,"saisie_2",saisie = True)
+    saisie_l = Affiche_texte(str(jeu.touche_j1_L_text),75,20,(155,385),5,saisie_j1,screen,"saisie_l",saisie = True)
+    saisie_r = Affiche_texte(str(jeu.touche_j1_R_text),75,20,(400,385),5,saisie_j1,screen,"saisie_r",saisie = True)
+    saisie_d = Affiche_texte(str(jeu.touche_j1_D_text),75,20,(155,415),5,saisie_j1,screen,"saisie_d",saisie = True)
+    saisie_u = Affiche_texte(str(jeu.touche_j1_U_text),75,20,(400,415),5,saisie_j1,screen,"saisie_u",saisie = True)
     
     a = 0
     frame_count = 0
@@ -310,6 +332,7 @@ def Options(jeu):
     gameExit = False
 
     while not gameExit and jeu.selected == "options":
+        
         if frame_count <= 100:
             frame_count += 1
         else:
@@ -331,15 +354,36 @@ def Options(jeu):
  
             if event.type == pygame.KEYDOWN :
             
-                if event.key == pygame.K_RETURN and saisie_1.active :
-                    saisie_1.click += 1 
-
-# pygame.key.key_code("return") == pygame.K_RETURN
+                if event.key == pygame.K_RETURN :
+                    select_boom.play()
+                    for s in saisie_j1:
+                        if s.active:
+                            s.click += 1
+                            jeu.update_touches(s.name,s)
+                            
+        if reinit.pressed:
+            if os.path.exists("saves/options_jeu.pkl."):
+                os.remove("saves/options_jeu.pkl.")
+            jeu.reinitialise_options()
+            retour = Button('Retour',200,30,(30,450),5,buttons,screen)
+            save = Button("Sauvegarder",200,30,(270,450),5,buttons,screen)
+            
+            vol_music_menu = Slider(180, 50, (300,100), 5, liste_slider,jeu.vol_music_menu)
+            vol_music_jeu = Slider(180, 50, (300,175), 5, liste_slider,jeu.vol_music_fight)
+            vol_fx_jeu = Slider(180, 50, (300,250), 5, liste_slider,jeu.vol_fx)
+        
+            vol_menu = Affiche_texte('Volume musique menu',275,30,(20,110),5,textes,screen)
+            vol_fight = Affiche_texte('Volume musique jeu',275,30,(20,185),5,textes,screen)
+            vol_fx = Affiche_texte('Volume des effets',275,30,(20,260),5,textes,screen)
+        
+            saisie_1 = Affiche_texte(str(jeu.touche_j1_1_text),80,30,(350,350),5,textes,screen,saisie = True)
+            
         decors = lvl.anim_level[a]
         screen.blit(decors,(0,0))
         buttons_draw(buttons,screen)
         buttons_draw(liste_slider,screen)
         buttons_draw(textes,screen)
+        buttons_draw(saisie_j1,screen)
         
         if vol_music_menu.pressed:
             jeu.vol_music_menu = vol_music_menu.val_curseur
@@ -348,8 +392,13 @@ def Options(jeu):
         if vol_music_jeu.pressed:
             jeu.vol_music_fight = vol_music_jeu.val_curseur
             update_vol_fight(jeu)
+            
+        if vol_fx_jeu.pressed:
+            jeu.vol_fx = vol_fx_jeu.val_curseur
+            update_vol_fx(jeu)
                 
         if retour.pressed:
+            select_boom.play()
             jeu.selected = "none"
             
         if save.pressed:
@@ -357,9 +406,9 @@ def Options(jeu):
             options_save = jeu.iter_objects()
             with open('saves/options_jeu.pkl', 'wb') as f:
                 pickle.dump(options_save, f, pickle.HIGHEST_PROTOCOL)
-        
-        print(pygame.key.key_code(str(saisie_1.text)),saisie_1.text)
+                    
         pygame.display.update()
+        # print(jeu.touche_j1_1,jeu.touche_j1_2)
         clock.tick(60)
         
     

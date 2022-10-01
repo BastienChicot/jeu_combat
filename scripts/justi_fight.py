@@ -31,6 +31,7 @@ gameExit = False
 pygame.mixer.music.load ( playlist[0])
 pygame.mixer.music.play(-1) 
 pygame.mixer.music.set_volume(jeu.vol_music_menu)
+select_boom.set_volume(jeu.vol_fx)
         
 def launch_jeu(jeu):
     if jeu.selected == "none" :      
