@@ -109,6 +109,25 @@ class Jeu():
         elif saisie == "saisie_u":           
             self.touche_j1_U = pygame.key.key_code(str(objet.text))
             self.touche_j1_U_text = pygame.key.name(self.touche_j1_U)
+
+        elif saisie == "saisie_1_2":           
+            self.touche_j2_1 = pygame.key.key_code(str(objet.text))
+            self.touche_j2_1_text = pygame.key.name(self.touche_j2_1)
+        elif saisie == "saisie_2_2":           
+            self.touche_j2_2 = pygame.key.key_code(str(objet.text))
+            self.touche_j2_2_text = pygame.key.name(self.touche_j2_2) 
+        elif saisie == "saisie_l_2":           
+            self.touche_j2_L = pygame.key.key_code(str(objet.text))
+            self.touche_j2_L_text = pygame.key.name(self.touche_j2_L)
+        elif saisie == "saisie_r_2":           
+            self.touche_j2_R = pygame.key.key_code(str(objet.text))
+            self.touche_j2_R_text = pygame.key.name(self.touche_j2_R)
+        elif saisie == "saisie_d_2":           
+            self.touche_j2_D = pygame.key.key_code(str(objet.text))
+            self.touche_j2_D_text = pygame.key.name(self.touche_j2_D)
+        elif saisie == "saisie_u_2":           
+            self.touche_j2_U = pygame.key.key_code(str(objet.text))
+            self.touche_j2_U_text = pygame.key.name(self.touche_j2_U)
                 
     def reinitialise_options(self):
         self.vol_music_menu = 0.5
@@ -271,22 +290,21 @@ class joueur():
         
         ##CONTROLES
         if self.joueur == 1:
-            self.saut = pygame.K_z
-            self.descend = pygame.K_s
-            self.gauche = pygame.K_q
-            self.droite = pygame.K_d
+            self.saut = jeu.touche_j1_U
+            self.descend = jeu.touche_j1_D
+            self.gauche = jeu.touche_j1_L
+            self.droite = jeu.touche_j1_R
             
             self.action = jeu.touche_j1_1
-            self.coup = pygame.K_y
+            self.coup = jeu.touche_j1_2
         elif self.joueur == 2:
-            self.saut = pygame.K_UP
-            self.descend = pygame.K_DOWN
-            self.gauche = pygame.K_LEFT
-            self.droite = pygame.K_RIGHT
-        
-            self.action = pygame.K_KP1
-            self.coup = pygame.K_KP2
-        
+            self.saut = jeu.touche_j2_U
+            self.descend = jeu.touche_j2_D
+            self.gauche = jeu.touche_j2_L
+            self.droite = jeu.touche_j2_R
+            
+            self.action = jeu.touche_j2_1
+            self.coup = jeu.touche_j2_2        
         ##ATTRIBUTS
         self.vie = 100
         self.move_y = 0
@@ -427,20 +445,20 @@ class joueur():
         return(self.move_y,self.move_x) 
     
     def punch_anim(self,frame_count):
-        if self.attack and not self.super_attack and self.clean_hit < 5:
+        if self.attack and not self.super_attack and self.clean_hit < 5 and self.type_anim == "none":
             self.animation = True
             self.type_anim = "punch"
             frame_count = 1
-        elif self.attack and self.super_attack and self.clean_hit < 5: 
+        elif self.attack and self.super_attack and self.clean_hit < 5 and self.type_anim == "none": 
             self.animation = True
             self.type_anim = "kick"
             frame_count = 1
-        elif self.super_attack and self.move_x != 0 and self.clean_hit >= 5 and not self.attack:
+        elif self.super_attack and self.move_x != 0 and self.clean_hit >= 5 and not self.attack and self.type_anim == "none":
             self.clean_hit = 0
             self.animation = True
             self.type_anim = "super_punch"
             frame_count = 1
-        elif self.attack and 10 < self.air_time < 35 :
+        elif self.attack and 10 < self.air_time < 35 and self.type_anim == "none":
             self.animation = True
             self.type_anim = "jump_punch"
             frame_count = 1
@@ -452,62 +470,81 @@ class joueur():
         if  abs(perso_rect.left - perso_rect2.right) <= 5 and self.attack and not self.super_attack and self.move_x != 0:
             if self.clean_hit < 5:
                 self.clean_hit += 1
-            p2.vie -=punch[self.name]
+            if p2.type_anim == "none":
+                p2.vie -=punch[self.name]
+            else:
+                p2.vie -=punch[self.name]/2
             p2.x -= 20
             p2.clean_hit = 0 
             p2.type_anim = "hit"              
         if  abs(perso_rect.right - perso_rect2.left) <= 5 and self.attack and not self.super_attack and self.move_x != 0:
             if self.clean_hit < 5:
                 self.clean_hit += 1
-            p2.vie -=punch[self.name]
+            if p2.type_anim == "none":
+                p2.vie -=punch[self.name]
+            else:
+                p2.vie -=punch[self.name]/2
             p2.x += 20
             p2.clean_hit = 0    
             p2.type_anim = "hit"              
 
         if  abs(perso_rect.left - perso_rect2.right) <= 5 and self.attack and not self.super_attack and self.move_x == 0:
-            p2.vie -=punch[self.name]/2
+            p2.vie -=punch[self.name]/4
             p2.x -= 5
             p2.type_anim = "hit"              
         if  abs(perso_rect.right - perso_rect2.left) <= 5 and self.attack and not self.super_attack and self.move_x == 0:
-            p2.vie -=punch[self.name]/2
+            p2.vie -=punch[self.name]/4
             p2.x += 5
             p2.type_anim = "hit"              
             
         if  abs(perso_rect.left - perso_rect2.right) <= 10 and self.attack and self.super_attack and self.move_x != 0:
             if self.clean_hit < 5:
                 self.clean_hit += 1
-            p2.vie -=kicks[self.name]
+            if p2.type_anim == "none":
+                p2.vie -=kicks[self.name]
+            else:
+                p2.vie -=kicks[self.name]/2
             p2.x -= 30
             p2.clean_hit = 0 
             p2.type_anim = "hit"              
         if  abs(perso_rect.right - perso_rect2.left) <= 10 and self.attack and self.super_attack and self.move_x != 0:
             if self.clean_hit < 5:
                 self.clean_hit += 1
-            p2.vie -=kicks[self.name]
+            if p2.type_anim == "none":
+                p2.vie -=kicks[self.name]
+            else:
+                p2.vie -=kicks[self.name]/2
             p2.x += 30
             p2.clean_hit = 0    
             p2.type_anim = "hit"              
 
         if  abs(perso_rect.left - perso_rect2.right) <= 5 and self.attack and self.super_attack and self.move_x == 0:
-            p2.vie -=kicks[self.name]/2
+            p2.vie -=kicks[self.name]/3
             p2.x -= 5
             p2.type_anim = "hit"              
         if  abs(perso_rect.right - perso_rect2.left) <= 5 and self.attack and self.super_attack and self.move_x == 0:
-            p2.vie -=kicks[self.name]/2
+            p2.vie -=kicks[self.name]/3
             p2.x += 5
             p2.type_anim = "hit"  
             
         if  abs(perso_rect.left - perso_rect2.right) <= 25 and not self.attack and self.super_attack and self.move_x != 0 and self.clean_hit >= 5:
             if self.clean_hit < 5:
                 self.clean_hit += 1
-            p2.vie -=supers[self.name]
+            if p2.type_anim == "none":
+                p2.vie -=supers[self.name]
+            else:
+                p2.vie -=supers[self.name]/1.5
+
             p2.x -= 50
             p2.clean_hit = 0 
             p2.type_anim = "hit"              
         if  abs(perso_rect.right - perso_rect2.left) <= 25 and not self.attack and self.super_attack and self.move_x != 0 and self.clean_hit >= 5:
             if self.clean_hit < 5:
                 self.clean_hit += 1
-            p2.vie -=supers[self.name]
+            if p2.type_anim == "none":
+                p2.vie -=supers[self.name]
+            else:
+                p2.vie -=supers[self.name]/1.5
             p2.x += 50
             p2.clean_hit = 0    
             p2.type_anim = "hit"              
@@ -515,14 +552,20 @@ class joueur():
         if  abs(perso_rect.left - perso_rect2.right) <= 15 and self.attack and 10 < self.air_time < 35:
             if self.clean_hit < 5:
                 self.clean_hit += 1
-            p2.vie -=sauter[self.name]
+            if p2.type_anim == "none":
+                p2.vie -=sauter[self.name]
+            else:
+                p2.vie -=sauter[self.name]/2
             p2.x -=10
             p2.clean_hit = 0 
             p2.type_anim = "hit"              
         if  abs(perso_rect.right - perso_rect2.left) <= 15 and self.attack and 10 < self.air_time < 35:
             if self.clean_hit < 5:
                 self.clean_hit += 1
-            p2.vie -=sauter[self.name]
+            if p2.type_anim == "none":
+                p2.vie -=sauter[self.name]
+            else:
+                p2.vie -=sauter[self.name]/2
             p2.x += 10
             p2.clean_hit = 0    
             p2.type_anim = "hit"

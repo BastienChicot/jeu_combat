@@ -297,13 +297,13 @@ def Options(jeu):
     liste_slider = []
     textes = []
     saisie_j1 = []
-
+    saisie_j2 = []
+    
     Titre = Affiche_texte('Options',350,30,(75,25),5,textes,screen,"Titre")
     
     reinit = Button('Reinitialiser',200,15,(150,65),5,buttons,screen)
     
     joueur1 = Button("Joueur 1",200,20,(30,325),5,buttons,screen)
-    joueur1.pressed = True
     joueur2 = Button('Joueur 2',200,20,(270,325),5,buttons,screen)
     
     retour = Button('Retour',200,30,(30,450),5,buttons,screen)
@@ -317,13 +317,29 @@ def Options(jeu):
     vol_fight = Affiche_texte('Volume musique jeu',275,30,(20,185),5,textes,screen)
     vol_fx = Affiche_texte('Volume des effets',275,30,(20,260),5,textes,screen)
 
+    touche1 = Affiche_texte("Coup 1",100,20,(30,355),5,textes,screen)
+    touche2 = Affiche_texte("Coup 2",100,20,(270,355),5,textes,screen)
+    touche3 = Affiche_texte("Gauche",100,20,(30,385),5,textes,screen)
+    touche4 = Affiche_texte("Droite",100,20,(270,385),5,textes,screen)
+    touche5 = Affiche_texte("Retomber",100,20,(30,415),5,textes,screen)
+    touche6 = Affiche_texte("Sauter",100,20,(270,415),5,textes,screen)
+
+
     saisie_1 = Affiche_texte(str(jeu.touche_j1_1_text),75,20,(155,355),5,saisie_j1,screen,"saisie_1",saisie = True)
     saisie_2 = Affiche_texte(str(jeu.touche_j1_2_text),75,20,(400,355),5,saisie_j1,screen,"saisie_2",saisie = True)
     saisie_l = Affiche_texte(str(jeu.touche_j1_L_text),75,20,(155,385),5,saisie_j1,screen,"saisie_l",saisie = True)
     saisie_r = Affiche_texte(str(jeu.touche_j1_R_text),75,20,(400,385),5,saisie_j1,screen,"saisie_r",saisie = True)
     saisie_d = Affiche_texte(str(jeu.touche_j1_D_text),75,20,(155,415),5,saisie_j1,screen,"saisie_d",saisie = True)
     saisie_u = Affiche_texte(str(jeu.touche_j1_U_text),75,20,(400,415),5,saisie_j1,screen,"saisie_u",saisie = True)
-    
+
+
+    saisie_1_2 = Affiche_texte(str(jeu.touche_j2_1_text),75,20,(155,355),5,saisie_j2,screen,"saisie_1_2",saisie = True)
+    saisie_2_2 = Affiche_texte(str(jeu.touche_j2_2_text),75,20,(400,355),5,saisie_j2,screen,"saisie_2_2",saisie = True)
+    saisie_l_2 = Affiche_texte(str(jeu.touche_j2_L_text),75,20,(155,385),5,saisie_j2,screen,"saisie_l_2",saisie = True)
+    saisie_r_2 = Affiche_texte(str(jeu.touche_j2_R_text),75,20,(400,385),5,saisie_j2,screen,"saisie_r_2",saisie = True)
+    saisie_d_2 = Affiche_texte(str(jeu.touche_j2_D_text),75,20,(155,415),5,saisie_j2,screen,"saisie_d_2",saisie = True)
+    saisie_u_2 = Affiche_texte(str(jeu.touche_j2_U_text),75,20,(400,415),5,saisie_j2,screen,"saisie_u_2",saisie = True)
+        
     a = 0
     frame_count = 0
     
@@ -356,6 +372,7 @@ def Options(jeu):
             
                 if event.key == pygame.K_RETURN :
                     select_boom.play()
+
                     for s in saisie_j1:
                         if s.active:
                             s.click += 1
@@ -377,13 +394,33 @@ def Options(jeu):
             vol_fx = Affiche_texte('Volume des effets',275,30,(20,260),5,textes,screen)
         
             saisie_1 = Affiche_texte(str(jeu.touche_j1_1_text),80,30,(350,350),5,textes,screen,saisie = True)
-            
+            saisie_2 = Affiche_texte(str(jeu.touche_j1_2_text),75,20,(400,355),5,saisie_j1,screen,"saisie_2",saisie = True)
+            saisie_l = Affiche_texte(str(jeu.touche_j1_L_text),75,20,(155,385),5,saisie_j1,screen,"saisie_l",saisie = True)
+            saisie_r = Affiche_texte(str(jeu.touche_j1_R_text),75,20,(400,385),5,saisie_j1,screen,"saisie_r",saisie = True)
+            saisie_d = Affiche_texte(str(jeu.touche_j1_D_text),75,20,(155,415),5,saisie_j1,screen,"saisie_d",saisie = True)
+            saisie_u = Affiche_texte(str(jeu.touche_j1_U_text),75,20,(400,415),5,saisie_j1,screen,"saisie_u",saisie = True)
+        
+        
+            saisie_1_2 = Affiche_texte(str(jeu.touche_j2_1_text),75,20,(155,355),5,saisie_j2,screen,"saisie_1_2",saisie = True)
+            saisie_2_2 = Affiche_texte(str(jeu.touche_j2_2_text),75,20,(400,355),5,saisie_j2,screen,"saisie_2_2",saisie = True)
+            saisie_l_2 = Affiche_texte(str(jeu.touche_j2_L_text),75,20,(155,385),5,saisie_j2,screen,"saisie_l_2",saisie = True)
+            saisie_r_2 = Affiche_texte(str(jeu.touche_j2_R_text),75,20,(400,385),5,saisie_j2,screen,"saisie_r_2",saisie = True)
+            saisie_d_2 = Affiche_texte(str(jeu.touche_j2_D_text),75,20,(155,415),5,saisie_j2,screen,"saisie_d_2",saisie = True)
+            saisie_u_2 = Affiche_texte(str(jeu.touche_j2_U_text),75,20,(400,415),5,saisie_j2,screen,"saisie_u_2",saisie = True)
+                            
         decors = lvl.anim_level[a]
         screen.blit(decors,(0,0))
         buttons_draw(buttons,screen)
         buttons_draw(liste_slider,screen)
         buttons_draw(textes,screen)
-        buttons_draw(saisie_j1,screen)
+
+        if joueur2.pressed:
+            joueur1.pressed = False
+            buttons_draw(saisie_j2,screen)
+        
+        elif joueur1.pressed:
+            buttons_draw(saisie_j1,screen)
+            joueur2.pressed = False       
         
         if vol_music_menu.pressed:
             jeu.vol_music_menu = vol_music_menu.val_curseur
@@ -408,7 +445,6 @@ def Options(jeu):
                 pickle.dump(options_save, f, pickle.HIGHEST_PROTOCOL)
                     
         pygame.display.update()
-        # print(jeu.touche_j1_1,jeu.touche_j1_2)
         clock.tick(60)
         
     

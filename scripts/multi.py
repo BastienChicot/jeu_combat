@@ -26,13 +26,22 @@ def Multi(jeu):
     lenivo = jeu.nivo
     
     buttons=[]
+    liste_slider = []
+    textes = []
+    
     retour = Button('Retour au menu',200,30,(275,450),5,buttons,screen)
     restart = Button('Recommencer',200,30,(25,450),5,buttons,screen)
     
     buttons_pause = []
     retour2 = Button('Retour au menu',200,30,(150,400),5,buttons_pause,screen)
     quitter = Button('Quitter le jeu',200,30,(150,450),5,buttons_pause,screen)
-    vol_music_jeu = Slider(250, 50, (125,250), 5, buttons_pause,jeu.vol_music_fight)
+    
+    vol_music_jeu = Slider(180, 50, (300,225), 5, liste_slider,jeu.vol_music_fight)
+    vol_fx_jeu = Slider(180, 50, (300,300), 5, liste_slider,jeu.vol_fx)
+
+
+    vol_fight = Affiche_texte('Volume musique jeu',275,30,(20,225),5,textes,screen)
+    vol_fx = Affiche_texte('Volume des effets',275,30,(20,300),5,textes,screen)
 
     gameExit=False
     
@@ -212,12 +221,18 @@ def Multi(jeu):
 
             if (jeu.pause%2) == 1:
                 buttons_draw(buttons_pause,screen)                
-                screen.blit(pause_fond,(157,203))
-                screen.blit(pause_text,(160,200))
+                buttons_draw(liste_slider,screen) 
+                buttons_draw(textes,screen) 
+                screen.blit(pause_fond,(157,153))
+                screen.blit(pause_text,(160,150))
 
                 if vol_music_jeu.pressed:
                     jeu.vol_music_fight = vol_music_jeu.val_curseur
                     update_vol_fight(jeu)
+                    
+                if vol_fx_jeu.pressed:
+                    jeu.vol_fx = vol_fx_jeu.val_curseur
+                    update_vol_fx(jeu)
                 
         elif seconds >= 180 and p1.vie > 0 and p2.vie > 0:
             if frame_count_1 <= 100:
@@ -554,6 +569,7 @@ def Multi(jeu):
             jeu.selected = "multi"
             p1.vie = 100
             p2.vie = 100
+            jeu.pause = 0
             Multi(jeu)
         
         if retour.pressed:
@@ -561,6 +577,7 @@ def Multi(jeu):
             pygame.mixer.music.set_volume(jeu.vol_music_menu)
             pygame.mixer.music.load ( playlist[0])
             pygame.mixer.music.play(-1) 
+            jeu.pause = 0
             
         if retour2.pressed :
             retour.pressed = True
