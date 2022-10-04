@@ -18,6 +18,36 @@ display_height = 500
 
 select_boom = pygame.mixer.Sound("..\\_bank\\fx\\boom.wav")
 
+##SELECTION PERSO
+haan = pygame.mixer.Sound("..\\_bank\\fx\\voices\\haan.wav")
+haanhigh = pygame.mixer.Sound("..\\_bank\\fx\\voices\\haanhigh.wav")
+ohyeahlow = pygame.mixer.Sound("..\\_bank\\fx\\voices\\ohyeahlow.wav")
+ohyeahmid = pygame.mixer.Sound("..\\_bank\\fx\\voices\\ohyeahmid.wav")
+selectvil = pygame.mixer.Sound("..\\_bank\\fx\\voices\\selectvillager.wav")
+selectvil2 = pygame.mixer.Sound("..\\_bank\\fx\\voices\\selectvillager2.wav")
+selectvil3 = pygame.mixer.Sound("..\\_bank\\fx\\voices\\selectvillager3.wav")
+selectvil4 = pygame.mixer.Sound("..\\_bank\\fx\\voices\\selectvillager4.wav")
+selectvil = pygame.mixer.Sound("..\\_bank\\fx\\voices\\selectvillager.wav")
+letsgolow = pygame.mixer.Sound("..\\_bank\\fx\\voices\\letsgolow.wav")
+letsgomid = pygame.mixer.Sound("..\\_bank\\fx\\voices\\letsgomid.wav")
+letsgohigh = pygame.mixer.Sound("..\\_bank\\fx\\voices\\letsgohigh.wav")
+
+##FX COUP PRIS
+ohhigh = pygame.mixer.Sound("..\\_bank\\fx\\voices\\ohhigh.wav")
+ohmid = pygame.mixer.Sound("..\\_bank\\fx\\voices\\ohmid.wav")
+ohlow = pygame.mixer.Sound("..\\_bank\\fx\\voices\\ohlow.wav")
+ohtraphigh = pygame.mixer.Sound("..\\_bank\\fx\\voices\\ohtraphigh.wav")
+ohtrapmid = pygame.mixer.Sound("..\\_bank\\fx\\voices\\ohtrapmid.wav")
+ohtraplow = pygame.mixer.Sound("..\\_bank\\fx\\voices\\ohtraplow.wav")
+touche = pygame.mixer.Sound("..\\_bank\\fx\\voices\\touche.wav")
+touche_2 = pygame.mixer.Sound("..\\_bank\\fx\\voices\\touche_2.wav")
+touche_3 = pygame.mixer.Sound("..\\_bank\\fx\\voices\\touche_3.wav")
+touchehigh = pygame.mixer.Sound("..\\_bank\\fx\\voices\\touchehigh.wav")
+touchelow = pygame.mixer.Sound("..\\_bank\\fx\\voices\\touchelow.wav")
+
+
+##FX COUP DONNE
+
 
 playlist = []
 
@@ -25,6 +55,20 @@ playlist.append("..\\_bank\\bo\\track0.wav")
 playlist.append("..\\_bank\\bo\\track1.wav")
 playlist.append("..\\_bank\\bo\\track2.wav")
 playlist.append("..\\_bank\\bo\\track3.wav")
+
+hit_fx_sound = {
+    "basti" : touche,
+    "clou" : ohtraphigh,
+    "coach" : touchelow,
+    "justi" : touchehigh
+    }
+
+select_sounds = {
+    "basti" : haan,
+    "clou" : ohtraphigh,
+    "coach" : ohyeahlow,
+    "justi" : haanhigh
+    }
 
 hauteur = {
     "basti":35,
@@ -34,31 +78,31 @@ hauteur = {
     }
 
 punch = {
-    "basti":2,
-    "clou":1,
-    "coach":3,
-    "justi":1
+    "basti":8,
+    "clou":4,
+    "coach":12,
+    "justi":4
     }
 
 kicks = {
-    "basti":1,
-    "clou":2,
-    "coach":3,
-    "justi":2
+    "basti":4,
+    "clou":8,
+    "coach":12,
+    "justi":8
     }
 
 supers = {
-    "basti":4,
-    "clou":4,
-    "coach":4,
-    "justi":4
+    "basti":15,
+    "clou":15,
+    "coach":15,
+    "justi":15
     }
 
 sauter = {
-    "basti":2,
-    "clou":2,
-    "coach":3,
-    "justi":4
+    "basti":8,
+    "clou":8,
+    "coach":12,
+    "justi":12
     }
 
 level_sol ={

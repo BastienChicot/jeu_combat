@@ -164,8 +164,8 @@ def Multi(jeu):
             p1.move_y,p1.move_x =p1.collision_joueur(perso1_rect,perso2_rect,p2)
             p2.move_y,p2.move_x =p2.collision_joueur(perso2_rect,perso1_rect,p1)
             
-            p2 = p1.damage(perso1_rect,perso2_rect,p2)
-            p1 = p2.damage(perso2_rect,perso1_rect,p1)
+            p2 = p1.damage(perso1_rect,perso2_rect,p2,jeu,frame_count_1)
+            p1 = p2.damage(perso2_rect,perso1_rect,p1,jeu,frame_count_2)
                 
             frame_count_1 = p1.punch_anim(frame_count_1)
             frame_count_2 = p2.punch_anim(frame_count_2)

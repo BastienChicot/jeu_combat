@@ -55,7 +55,7 @@ def launch_jeu(jeu):
 
 while not gameExit :
 
-    
+    select_boom.set_volume(jeu.vol_fx)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             gameExit = True  

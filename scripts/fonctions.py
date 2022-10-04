@@ -211,6 +211,9 @@ def Choix_joueur1(jeu):
         
         for img in images:
             if img.pressed:
+                a = select_sounds[str(img.text)]
+                a.set_volume(jeu.vol_fx)
+                a.play()
                 jeu.selected = "choix_joueur2"
                 jeu.joueur1 = str(img.text)
         
@@ -268,6 +271,9 @@ def Choix_joueur2(jeu):
         
         for img in images:
             if img.pressed:
+                a = select_sounds[str(img.text)]
+                a.set_volume(jeu.vol_fx)
+                a.play()
                 jeu.selected = "multi"
                 jeu.joueur2 = str(img.text)
         
