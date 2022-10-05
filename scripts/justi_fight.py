@@ -20,6 +20,13 @@ pygame.init()
 pygame.font.init()
 pygame.mixer.pre_init(44100, -16, 1, 4096)
 
+story = Story()
+
+if os.path.exists("saves/histoire.pkl."):
+    story = load_story(story)
+else:
+    story = Story()
+
 jeu = Jeu("none")
 
 if os.path.exists("saves/options_jeu.pkl."):
@@ -39,11 +46,11 @@ def launch_jeu(jeu):
     elif jeu.selected == "none" :
         accueil(jeu)
     elif jeu.selected == "multi_lvl" :
-        Choix_level(jeu)
+        Choix_level(jeu,story)
     elif jeu.selected == "choix_joueur1" :
-        Choix_joueur1(jeu)
+        Choix_joueur1(jeu,story)
     elif jeu.selected == "choix_joueur2" :
-        Choix_joueur2(jeu)
+        Choix_joueur2(jeu,story)
     elif jeu.selected == "options" :
         Options(jeu)
     elif jeu.selected == "multi" :
@@ -52,7 +59,10 @@ def launch_jeu(jeu):
         pygame.mixer.music.play(-1) 
         Multi(jeu)
         menu = False
-
+    elif jeu.selected == "accueil_histoire":
+        Launch_histoire(jeu,story)
+    
+    
 while not gameExit :
 
     select_boom.set_volume(jeu.vol_fx)

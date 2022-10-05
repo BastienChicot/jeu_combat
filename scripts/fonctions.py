@@ -105,19 +105,23 @@ def accueil(jeu):
             select_boom.play()
             jeu.selected = "options"
             
+        if hist.pressed : 
+            select_boom.play()
+            jeu.selected = "accueil_histoire"
+            
         pygame.display.update()
         clock.tick(60)
 
-def Choix_level(jeu):
+def Choix_level(jeu,story):
     pygame.init()
 
     buttons = []
     images = []
     
     retour = Button('Retour',200,30,(50,400),5,buttons,screen)
-    for key in jeu.unlock_nivo:
+    for key in story.unlock_nivo:
         #globals()['%s' % key] = 
-        Image_select(str(key),jeu.unlock_nivo[key],5,images)
+        Image_select(str(key),story.unlock_nivo[key],5,images)
 
     a = 0
     frame_count = 0
@@ -165,7 +169,7 @@ def Choix_level(jeu):
         clock.tick(60)
         
         
-def Choix_joueur1(jeu):
+def Choix_joueur1(jeu,story):
     pygame.init()
 
     buttons = []
@@ -173,9 +177,9 @@ def Choix_joueur1(jeu):
     
     Titre = Button('Joueur 1 : choisi ton combattant',350,30,(75,25),5,buttons,screen)
     retour = Button('Retour',200,30,(50,400),5,buttons,screen)
-    for key in jeu.unlock_perso:
+    for key in story.unlock_perso:
         #globals()['%s' % key] = 
-        Image_select(str(key),jeu.unlock_perso[key],5,images)        
+        Image_select(str(key),story.unlock_perso[key],5,images)        
 
     a = 0
     frame_count = 0
@@ -223,7 +227,7 @@ def Choix_joueur1(jeu):
         pygame.display.update()
         clock.tick(60)
         
-def Choix_joueur2(jeu):
+def Choix_joueur2(jeu,story):
     pygame.init()
 
     buttons = []
@@ -232,9 +236,9 @@ def Choix_joueur2(jeu):
     Titre = Button('Joueur 2 : choisi ton combattant',350,30,(75,25),5,buttons,screen)
     
     retour = Button('Retour',200,30,(50,400),5,buttons,screen)
-    for key in jeu.unlock_perso2:
+    for key in story.unlock_perso2:
         #globals()['%s' % key] = 
-        Image_select(str(key),jeu.unlock_perso2[key],5,images)
+        Image_select(str(key),story.unlock_perso2[key],5,images)
         
 
     a = 0
@@ -453,6 +457,88 @@ def Options(jeu):
         pygame.display.update()
         clock.tick(60)
         
+def Launch_histoire(jeu,story):
+    
+    pygame.init()
+
+    buttons = []
+    loads = []
+    textes = []
+    images = []
+    perso = 0
+    
+    Titre = Affiche_texte('Mode histoire',350,30,(75,25),5,textes,screen,"Titre")
+    
+    new = Button('Nouvelle partie',250,50,(25,200),5,buttons,screen)      
+    retour = Button('Retour',200,30,(30,450),5,buttons,screen)
+    arrow_l = Button('<',30,30,(290,300),5,buttons,screen)
+    arrow_r = Button('>',30,30,(470,300),5,buttons,screen)
+    load = Button('Continuer une partie',250,50,(25,300),5,loads,screen)      
+
+    a = 0
+    frame_count = 0
+    
+    lvl = level("centre_com")
+    
+    gameExit = False
+
+    while not gameExit and jeu.selected == "accueil_histoire":
+        if frame_count <= 100:
+            frame_count += 1
+        else:
+            frame_count = 0
+            
+        if frame_count <= 25:
+            a=0
+        elif 25 < frame_count <= 50:
+            a=1
+        elif 50 < frame_count <= 75:
+            a=2
+        elif 75 < frame_count <= 100 :
+            a=3
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit(0)
+                
+        decors = lvl.anim_level[a]
+        screen.blit(decors,(0,0))
+        buttons_draw(buttons,screen)
+        buttons_draw(textes,screen)
+        
+        screen.blit(mega_story_perso[perso], mega_rect[perso])
+        
+        if arrow_r.pressed and perso < 1:
+            perso += 1
+        elif arrow_r.pressed and perso >= 1:
+            perso = 1
+
+        if arrow_l.pressed and perso > 0:
+            perso -= 1
+        elif arrow_r.pressed and perso <= 0:
+            perso = 0
+                
+        if new.pressed:
+            jeu.selected = "none"
+            story_save = story.iter_objects()
+            with open('saves/histoire.pkl', 'wb') as f:
+                pickle.dump(story_save, f, pickle.HIGHEST_PROTOCOL)
+                
+        if retour.pressed:
+            select_boom.play()
+            jeu.selected = "none"
+            
+        if os.path.exists("saves/histoire.pkl."): 
+            buttons_draw(loads, screen)
+            if load.pressed:
+                jeu.selected = "none"
+                story = load_story(jeu)
+            
+        pygame.display.update()
+        clock.tick(60)   
+    
+        
     
 def load(jeu):
     with open('saves/options_jeu.pkl', 'rb') as f:
@@ -462,6 +548,12 @@ def load(jeu):
         
     return(jeu)
 
-            
+def load_story(story):
+    with open('saves/histoire.pkl', 'rb') as f:
+        histoire_load = pickle.load(f)
+    for key,value in histoire_load.items():
+        setattr(story,key,value)
+        
+    return(story)            
 
             

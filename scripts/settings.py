@@ -45,8 +45,25 @@ touche_3 = pygame.mixer.Sound("..\\_bank\\fx\\voices\\touche_3.wav")
 touchehigh = pygame.mixer.Sound("..\\_bank\\fx\\voices\\touchehigh.wav")
 touchelow = pygame.mixer.Sound("..\\_bank\\fx\\voices\\touchelow.wav")
 
-
 ##FX COUP DONNE
+kick_1 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\07_Kick_11_SP.wav")
+kick_2 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\07_Kick_14_SP.wav")
+kick_3 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\Boom-Bap Kick 70.wav")
+kick_4 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\Boom-Bap Kick 73.wav")
+kick_5 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\Boom-Bap Kick 82.wav")
+kick_6 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\break_kick_8.wav")
+kick_7 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\Break_kick_14.wav")
+kick_8 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\brka_kick.wav")
+kick_9 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\dfs_kick.wav")
+kick_10 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\Kick (155).wav")
+kick_11 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\KICK IIIII.wav")
+kick_12 = pygame.mixer.Sound("..\\_bank\\fx\\kicks\\Medicated Kick 4.wav")
+
+slap_1 = pygame.mixer.Sound("..\\_bank\\fx\\slaps\\07_Clap_13_SP.wav")
+slap_2 = pygame.mixer.Sound("..\\_bank\\fx\\slaps\\clap_tamb.wav")
+slap_3 = pygame.mixer.Sound("..\\_bank\\fx\\slaps\\FX (7).wav")
+slap_4 = pygame.mixer.Sound("..\\_bank\\fx\\slaps\\pcp_clap05.wav")
+slap_5 = pygame.mixer.Sound("..\\_bank\\fx\\slaps\\pcp_rim02.wav")
 
 
 playlist = []
@@ -61,6 +78,20 @@ hit_fx_sound = {
     "clou" : ohtraphigh,
     "coach" : touchelow,
     "justi" : touchehigh
+    }
+
+touche_point_sound = {
+    "basti" : kick_1,
+    "clou" : slap_1,
+    "coach" : slap_2,
+    "justi" : slap_3
+    }
+
+touche_autre_sound = {
+    "basti" : kick_2,
+    "clou" : kick_3,
+    "coach" : kick_4,
+    "justi" : kick_5
     }
 
 select_sounds = {
@@ -182,4 +213,14 @@ ko_3 = pygame.image.load("..\\_bank\\image\\autres\\ko_3.png")
 ko_4 = pygame.image.load("..\\_bank\\image\\autres\\ko_4.png")
 ko = [ko_1,ko_2,ko_3,ko_4]
 
+justinouille = pygame.image.load("..\\_bank\\image\\justi_mega.png")
+justi_mega = pygame.transform.flip(justinouille, True, False)
+bastinouille = pygame.image.load("..\\_bank\\image\\basti_mega.png")
+basti_mega = pygame.transform.flip(bastinouille, True, False)
+mega_story_perso = [justi_mega,basti_mega]
 
+justi_mega_rect = justi_mega.get_rect()
+justi_mega_rect.topleft = (325,196),
+basti_mega_rect = basti_mega.get_rect()
+basti_mega_rect.topleft = (325,193)
+mega_rect = [justi_mega_rect,basti_mega_rect]
