@@ -30,15 +30,17 @@ class Story:
             }
         
         self.unlock_nivo = {
-            "gare":(75,50),
-            "metro":(175,50),
-            "parc":(275,50),
-            "toit":(375,50),
-            "theatre":(75,175),
-            "usine":(175,175),
-            "montagne":(275,175),
-            "lac":(375,175),
-            "espace":(75,300)
+            "practice" : (75,50),
+            "gare":(175,50),
+            "metro":(275,50),
+            "parc":(375,50),
+            "toit":(75,175),
+            "theatre":(175,175),
+            "usine":(275,175),
+            "ferme":(375,175),
+            "montagne":(75,300),
+            "lac":(175,300),
+            "espace":(275,300)
             }
     
     def iter_objects(self):
@@ -480,7 +482,7 @@ class joueur():
             
             
     def damage(self,perso_rect,perso_rect2,p2,jeu,frame_count):
-        if frame_count <= 4:
+        if frame_count <= 1:
             if  abs(perso_rect.left - perso_rect2.right) <= 5 and self.attack and not self.super_attack :#/ and self.move_x != 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()

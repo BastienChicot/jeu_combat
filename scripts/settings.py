@@ -138,7 +138,7 @@ sauter = {
 
 level_sol ={
     "centre_com":470,
-    "practice":440,
+    "practice":400,
     "espace":465,
     "gare":460,
     "montagne":440,
