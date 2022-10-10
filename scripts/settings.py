@@ -136,6 +136,14 @@ sauter = {
     "justi":12
     }
 
+low = {
+    "basti":3,
+    "clou":6,
+    "coach":10,
+    "justi":6
+    }
+
+
 level_sol ={
     "centre_com":470,
     "practice":400,
