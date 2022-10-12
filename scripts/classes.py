@@ -447,6 +447,7 @@ class joueur():
         return(self.move_x,self.move_y)
         
     def maj_anim(self,a):
+
         if self.side:
             if self.type_anim == "none":
                 perso=self.fr[a]
@@ -489,7 +490,7 @@ class joueur():
                 perso = self.downl[a]
             elif self.type_anim =="punch2":
                 perso = self.punch2_l[a]
-                
+        
         return(perso)
         
     def collision_joueur(self,perso_rect,perso_rect2,p2):
@@ -984,7 +985,7 @@ class Slider:
         self.original_y_plus = self.pos_plus[1]
         
         self.barre_pos = ((pos[0]+(width/5)),(pos[1]+(height/2 - 5)))
-        self.curseur_pos_list = [self.pos[0] + ((width*volume)-(width/20)),self.pos[1]]
+        self.curseur_pos_list = [(pos[0]+(width/5)) + (((width/5*3)*volume)-(width/20)),self.pos[1]]
         self.curseur_pos = tuple(self.curseur_pos_list)
         
 		# top rectangle 

@@ -142,7 +142,7 @@ def Multi(jeu):
             
             perso1 = p1.maj_anim(a)
             perso2 = p2.maj_anim(b)
-                    
+                               
             for p in liste_p:
                 if (p.y < p.limite and not p.interact) or p.jump :#and not rect_gugus.colliderect(fightrect)) 
                     
@@ -169,6 +169,13 @@ def Multi(jeu):
                 
             frame_count_1 = p1.punch_anim(frame_count_1)
             frame_count_2 = p2.punch_anim(frame_count_2)
+            
+            if (p1.y + perso1.get_rect().height) < level_sol[jeu.nivo] and p1.air_time == 1: 
+                p1.move_y += level_sol[jeu.nivo] - (p1.y + perso1.get_rect().height)
+                p1.y += p1.move_y
+            if (p2.y + perso2.get_rect().height) < level_sol[jeu.nivo] and p2.air_time == 1: 
+                p2.move_y += level_sol[jeu.nivo] - (p2.y + perso2.get_rect().height)
+                p2.y += p2.move_y
                        
             p1.x += p1.move_x
             p1.y += p1.move_y  

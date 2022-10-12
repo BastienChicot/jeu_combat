@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.993266"
-     inkscape:cx="518.66423"
-     inkscape:cy="620.8937"
+     inkscape:zoom="8.4662347"
+     inkscape:cx="349.09261"
+     inkscape:cy="585.20702"
      inkscape:window-width="2400"
      inkscape:window-height="1271"
      inkscape:window-x="2391"
@@ -42,14 +42,14 @@
     <path
        id="rect6710"
        style="opacity:0.99;fill:#003d4c;fill-opacity:1;stroke-width:0.2"
-       d="m 93.378142,159.04119 3.826909,0.0567 -2.737822,4.71109 -1.409781,-0.0193 z"
+       d="m 94.058162,158.42729 3.226218,0.93432 -4.479832,3.79288 -1.239009,-0.67284 z"
        sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="..\_bank\perso\clou\clou_punch2_4.png"
+       inkscape:export-filename="..\_bank\perso\clou\clou_punch2_1.png"
        inkscape:export-xdpi="66.560806"
        inkscape:export-ydpi="66.560806" />
     <g
        id="g7283-2"
-       transform="rotate(-0.37899282,-141.07039,736.37892)">
+       transform="rotate(33.423811,99.232354,155.1995)">
       <path
          id="rect7223-8"
          style="opacity:0.99;fill:#ff54db;fill-opacity:1;stroke-width:0.2;stop-color:#000000;stop-opacity:1"
@@ -64,18 +64,18 @@
     <path
        id="rect6710-0"
        style="opacity:0.99;fill:#006680;stroke-width:0.2"
-       d="m 97.205051,159.09787 c -1.32521,-0.26079 -2.629842,-0.42117 -3.826909,-0.0567 l 4.428567,4.65497 1.407793,-0.0769 z"
+       d="m 97.28438,159.36161 c -1.051817,-0.84727 -1.996992,-0.70017 -3.226209,-0.93433 l 1.953972,5.82709 1.171506,-0.032 z"
        sodipodi:nodetypes="ccccc" />
     <path
        id="rect6840-5-9"
        style="opacity:0.99;fill:#350f0f;fill-opacity:1;stroke-width:0.2;stop-color:#000000"
-       d="m 96.219801,154.74226 c 0.878074,0.23673 3.853819,0.88484 4.911689,0.52507 l -0.10087,1.3744 c -1.086428,0.28274 -3.736693,-0.93162 -4.762378,-1.51765 -1.742735,-1.18565 -2.351027,-1.41046 -1.343499,-1.52116 z"
+       d="m 98.252837,153.35806 c 0.878074,0.23673 3.853823,0.88484 4.911693,0.52507 l -0.10087,1.3744 c -1.08643,0.28274 -3.736697,-0.93162 -4.762382,-1.51765 -1.742735,-1.18565 -2.351027,-1.41046 -1.343499,-1.52116 z"
        sodipodi:nodetypes="cccccc" />
     <ellipse
        style="fill:#ffd3b5;fill-opacity:1;stroke-width:0.148545"
        id="path9819-9-5-9"
-       cx="-64.134796"
-       cy="167.66377"
+       cx="-61.798645"
+       cy="168.65851"
        rx="0.50140768"
        ry="0.56023592"
        inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\bank\pnj\hooker\hooker_r1.png"
@@ -90,11 +90,47 @@
        inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\bank\pnj\hooker\hooker_r1.png"
        inkscape:export-xdpi="8.2899275"
        inkscape:export-ydpi="8.2899275" />
+    <path
+       sodipodi:type="star"
+       style="opacity:0.99;fill:#554400;stroke-width:0.184718;stop-color:#000000"
+       id="path465-7"
+       inkscape:flatsided="false"
+       sodipodi:sides="5"
+       sodipodi:cx="108.06801"
+       sodipodi:cy="152.21873"
+       sodipodi:r1="1.9333421"
+       sodipodi:r2="0.74504471"
+       sodipodi:arg1="0.92968289"
+       sodipodi:arg2="1.5580014"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 109.22432,153.76817 -1.14678,-0.80445 -1.12582,0.83353 0.41071,-1.33924 -1.14063,-0.81314 1.40061,-0.0232 0.42086,-1.33608 0.45492,1.32488 1.40074,-0.0126 -1.11945,0.84206 z"
+       inkscape:transform-center-x="-0.0037413984"
+       inkscape:transform-center-y="0.19121902"
+       transform="matrix(0.87392294,0.65724765,-0.64437844,0.85681113,109.08688,-47.544935)" />
+    <path
+       sodipodi:type="star"
+       style="opacity:0.99;fill:#ffeeaa;stroke-width:0.2;stop-color:#000000"
+       id="path465"
+       inkscape:flatsided="false"
+       sodipodi:sides="5"
+       sodipodi:cx="108.06801"
+       sodipodi:cy="152.21873"
+       sodipodi:r1="1.9333421"
+       sodipodi:r2="0.74504471"
+       sodipodi:arg1="0.92968289"
+       sodipodi:arg2="1.5580014"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 109.22432,153.76817 -1.14678,-0.80445 -1.12582,0.83353 0.41071,-1.33924 -1.14063,-0.81314 1.40061,-0.0232 0.42086,-1.33608 0.45492,1.32488 1.40074,-0.0126 -1.11945,0.84206 z"
+       inkscape:transform-center-x="0.0022134926"
+       inkscape:transform-center-y="0.1825075"
+       transform="rotate(36.945578,104.18866,149.3261)" />
     <ellipse
        style="fill:#ffcdac;fill-opacity:1;stroke-width:0.382129"
        id="path9819-5-3-2"
-       cx="43.660534"
-       cy="177.09691"
+       cx="46.05621"
+       cy="176.22728"
        rx="1.4712201"
        ry="1.3976225"
        inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\bank\pnj\hooker\hooker_r1.png"
@@ -104,8 +140,8 @@
     <ellipse
        style="fill:#ffcdac;fill-opacity:1;stroke-width:0.148545"
        id="path9819-9-5-9-0"
-       cx="60.956764"
-       cy="180.19044"
+       cx="63.276932"
+       cy="179.54912"
        rx="0.50140768"
        ry="0.56023592"
        inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\bank\pnj\hooker\hooker_r1.png"
@@ -115,8 +151,8 @@
     <ellipse
        style="fill:#ffd3b5;fill-opacity:1;stroke-width:0.382129"
        id="path9819-5-3"
-       cx="-80.728058"
-       cy="176.20647"
+       cx="-78.475044"
+       cy="176.98071"
        rx="1.4712201"
        ry="1.3976225"
        inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\bank\pnj\hooker\hooker_r1.png"
@@ -183,12 +219,12 @@
     <path
        id="rect6840"
        style="opacity:0.99;fill:#a02c2c;fill-opacity:1;stroke-width:0.2;stop-color:#000000;stop-opacity:1"
-       d="m 95.862739,154.97506 c 1.203815,0.40181 2.708252,1.15373 3.987443,0.53056 0.506848,0.5046 0.694088,1.08032 0.946588,1.64152 l -4.554024,-0.0973 c -2.578921,-2.02734 -2.143343,-2.72775 -0.863422,-2.92312 z"
+       d="m 97.895775,153.59086 c 1.203815,0.40181 2.708255,1.15373 3.987445,0.53056 0.50685,0.5046 0.69409,1.08032 0.94659,1.64152 l -4.554028,-0.0973 c -2.578921,-2.02734 -2.143343,-2.72775 -0.863422,-2.92312 z"
        sodipodi:nodetypes="cccccc" />
     <path
        id="rect6840-5"
        style="opacity:0.99;fill:#7e2323;fill-opacity:1;stroke-width:0.2;stop-color:#000000"
-       d="m 96.674387,155.26607 c 0.878072,0.23672 2.051134,0.37315 3.109015,0.0134 l 0.13355,0.45236 c -1.08644,0.28274 -2.216869,0.12029 -3.242565,-0.46572 -1.742726,-1.18566 -2.302577,-1.02868 -1.295063,-1.13935 z"
+       d="m 98.707423,153.88187 c 0.878072,0.23672 2.051137,0.37315 3.109017,0.0134 l 0.13355,0.45236 c -1.08644,0.28274 -2.216871,0.12029 -3.242567,-0.46572 -1.742726,-1.18566 -2.302577,-1.02868 -1.295063,-1.13935 z"
        sodipodi:nodetypes="cccccc" />
     <path
        id="path1496"
@@ -200,7 +236,7 @@
        inkscape:export-ydpi="8.2899275" />
     <g
        id="g7283"
-       transform="rotate(-4.2890622,75.228323,151.61314)">
+       transform="rotate(-2.7351166,73.102336,185.81781)">
       <path
          id="rect7223"
          style="opacity:0.99;fill:#ff54db;fill-opacity:1;stroke-width:0.2;stop-color:#000000;stop-opacity:1"
