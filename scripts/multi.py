@@ -170,10 +170,10 @@ def Multi(jeu):
             frame_count_1 = p1.punch_anim(frame_count_1)
             frame_count_2 = p2.punch_anim(frame_count_2)
             
-            if (p1.y + perso1.get_rect().height) < level_sol[jeu.nivo] and p1.air_time == 1: 
+            if (p1.y + perso1.get_rect().height) < level_sol[jeu.nivo] and not p.interact and p1.air_time == 1: 
                 p1.move_y += level_sol[jeu.nivo] - (p1.y + perso1.get_rect().height)
                 p1.y += p1.move_y
-            if (p2.y + perso2.get_rect().height) < level_sol[jeu.nivo] and p2.air_time == 1: 
+            if (p2.y + perso2.get_rect().height) < level_sol[jeu.nivo] and not p.interact and p2.air_time == 1: 
                 p2.move_y += level_sol[jeu.nivo] - (p2.y + perso2.get_rect().height)
                 p2.y += p2.move_y
                        

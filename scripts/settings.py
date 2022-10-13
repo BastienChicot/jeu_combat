@@ -102,10 +102,10 @@ select_sounds = {
     }
 
 hauteur = {
-    "basti":35,
-    "clou":20,
-    "coach":30,
-    "justi":25
+    "basti":40,
+    "clou":35,
+    "coach":40,
+    "justi":40
     }
 
 punch = {

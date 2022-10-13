@@ -541,7 +541,7 @@ class joueur():
             self.animation = True
             self.type_anim = "jump_punch"
             frame_count = 1
-        elif self.attack and self.super_attack and 0 < self.air_time < 25 and self.fall and self.type_anim == "none":
+        elif self.attack and self.super_attack and self.air_time > 1 and self.fall and self.type_anim == "none":
             self.animation = True
             self.type_anim = "down"
             frame_count = 1
@@ -801,7 +801,7 @@ class joueur():
                 p2.type_anim = "hit"
 
             ##DOWN    
-            if  abs(perso_rect.left - perso_rect2.right) <= 15 and self.attack and self.super_attack and 0 < self.air_time < 25 and self.fall:
+            if  abs(perso_rect.bottom - perso_rect2.top) <= 15 and self.attack and self.super_attack and 0 < self.air_time < 25 and self.fall:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.coup_fx.set_volume(jeu.vol_fx/2)
@@ -814,21 +814,7 @@ class joueur():
                     p2.vie -=sauter[self.name]
                 p2.x -=int(self.jump_move)
                 p2.clean_hit = 0 
-                p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 15 and self.attack and self.super_attack and 0 < self.air_time < 25 and self.fall:
-                p2.hit_fx.set_volume(jeu.vol_fx/2)
-                p2.hit_fx.play()
-                self.coup_fx.set_volume(jeu.vol_fx/2)
-                self.coup_fx.play()
-                if self.clean_hit < 5:
-                    self.clean_hit += 1
-                if p2.type_anim == "none":
-                    p2.vie -=sauter[self.name]*2
-                else:
-                    p2.vie -=sauter[self.name]
-                p2.x += int(self.jump_move)
-                p2.clean_hit = 0    
-                p2.type_anim = "hit"            
+                p2.type_anim = "hit"                         
 
         return(p2)
 
