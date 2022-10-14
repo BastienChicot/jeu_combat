@@ -12,6 +12,7 @@ pygame.font.init()
 
 class Story:
     def __init__(self):
+        self.stage = 0
 
         self.selected_perso = "justi"
         

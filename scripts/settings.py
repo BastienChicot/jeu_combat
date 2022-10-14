@@ -204,8 +204,24 @@ level_tracks = {
     "metro":1
     }
 
+stage_liste = [
+    "practice",
+    "ferme"
+    # "metro",
+    # "parc",
+    # "toit",
+    # "theatre",
+    # "usine",
+    # "gare",
+    # "montagne",
+    # "lac",
+    # "espace"
+    ]
 
-
+adv_liste = [
+    "coach",
+    "clou"
+    ]
 power_bar0 = pygame.image.load("..\\_bank\\image\\super_power0.png")
 power_bar1 = pygame.image.load("..\\_bank\\image\\super_power1.png")
 power_bar2 = pygame.image.load("..\\_bank\\image\\super_power2.png")

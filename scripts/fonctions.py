@@ -520,8 +520,13 @@ def Launch_histoire(jeu,story):
             perso = 0
                 
         if new.pressed:
-            jeu.selected = "none"
+            jeu.selected = "histoire"
             story_save = story.iter_objects()
+            if perso == 0:
+                story.selected_perso = "justi"
+            elif perso == 1:
+                story.selected_perso = "basti"
+                
             with open('saves/histoire.pkl', 'wb') as f:
                 pickle.dump(story_save, f, pickle.HIGHEST_PROTOCOL)
                 
@@ -532,7 +537,7 @@ def Launch_histoire(jeu,story):
         if os.path.exists("saves/histoire.pkl."): 
             buttons_draw(loads, screen)
             if load.pressed:
-                jeu.selected = "none"
+                jeu.selected = "histoire"
                 story = load_story(jeu)
             
         pygame.display.update()

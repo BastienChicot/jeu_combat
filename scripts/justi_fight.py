@@ -10,6 +10,7 @@ import pygame
 from fonctions import *
 from classes import *
 from settings import *
+from mode_histoire import * 
 from multi import Multi
 
 import os
@@ -61,7 +62,11 @@ def launch_jeu(jeu):
         menu = False
     elif jeu.selected == "accueil_histoire":
         Launch_histoire(jeu,story)
-    
+    elif jeu.selected == "histoire":
+        pygame.mixer.music.set_volume(jeu.vol_music_fight)
+        pygame.mixer.music.load ( playlist[level_tracks[stage_liste[story.stage]]])
+        pygame.mixer.music.play(-1) 
+        Histoire(jeu,story)    
     
 while not gameExit :
 
