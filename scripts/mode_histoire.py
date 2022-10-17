@@ -9,6 +9,7 @@ from classes import *
 from settings import *
 from fonctions import *
 import pygame, sys
+from strategies import *
 
 pygame.init()
 
@@ -46,7 +47,7 @@ def Histoire(jeu,story):
     compteur_fond = big_font.render("5", False, (0, 0, 0))
     
     p1 = joueur(str(story.selected_perso), 1, lenivo,jeu)
-    p2 = joueur(str(adv_liste[story.stage]),2,lenivo,jeu)
+    p2 = Pnj(str(adv_liste[story.stage]),2,lenivo,jeu)
     perso1 = p1.fr[0]
     perso2 = p2.fl[0]
     
@@ -129,7 +130,7 @@ def Histoire(jeu,story):
                 if seconds > 5 :
                     if (jeu.pause%2) != 1:
                         p1.move_x,p1.move_y = p1.move(event)
-                        # p2.move_x,p2.move_y = p2.move(event)
+                        p2.move_x,p2.move_y = p2.move(p1,frame_count_2,perso2_rect,perso1_rect)
             
             perso1 = p1.maj_anim(a)
             perso2 = p2.maj_anim(b)
@@ -153,7 +154,7 @@ def Histoire(jeu,story):
                     p.air_time = 1
                 
             p1.move_y,p1.move_x =p1.collision_joueur(perso1_rect,perso2_rect,p2)
-            # p2.move_y,p2.move_x =p2.collision_joueur(perso2_rect,perso1_rect,p1)
+            p2.move_y,p2.move_x =p2.collision_joueur(perso2_rect,perso1_rect,p1)
             
             p2 = p1.damage(perso1_rect,perso2_rect,p2,jeu,frame_count_1)
             p1 = p2.damage(perso2_rect,perso1_rect,p1,jeu,frame_count_2)
@@ -161,12 +162,12 @@ def Histoire(jeu,story):
             frame_count_1 = p1.punch_anim(frame_count_1)
             frame_count_2 = p2.punch_anim(frame_count_2)
             
-            if (p1.y + perso1.get_rect().height) < level_sol[lenivo] and not p.interact and p1.air_time == 1: 
-                p1.move_y += level_sol[lenivo] - (p1.y + perso1.get_rect().height)
+            if (p1.y + perso1.get_rect().height) < level_sol[stage_liste[story.stage]] and not p.interact and p1.air_time == 1: 
+                p1.move_y += level_sol[stage_liste[story.stage]] - (p1.y + perso1.get_rect().height)
                 p1.y += p1.move_y
-            # if (p2.y + perso2.get_rect().height) < level_sol[lenivo] and not p.interact and p2.air_time == 1: 
-            #     p2.move_y += level_sol[lenivo] - (p2.y + perso2.get_rect().height)
-            #     p2.y += p2.move_y
+            if (p2.y + perso2.get_rect().height) < level_sol[stage_liste[story.stage]] and not p.interact and p2.air_time == 1: 
+                p2.move_y += level_sol[stage_liste[story.stage]] - (p2.y + perso2.get_rect().height)
+                p2.y += p2.move_y
                        
             p1.x += p1.move_x
             p1.y += p1.move_y  
