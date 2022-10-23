@@ -129,8 +129,8 @@ def Histoire(jeu,story):
             
                 if seconds > 5 :
                     if (jeu.pause%2) != 1:
-                        p1.move_x,p1.move_y = p1.move(event)
                         p2.move_x,p2.move_y = p2.move(p1,frame_count_2,perso2_rect,perso1_rect)
+                        p1.move_x,p1.move_y = p1.move(event)
             
             perso1 = p1.maj_anim(a)
             perso2 = p2.maj_anim(b)
