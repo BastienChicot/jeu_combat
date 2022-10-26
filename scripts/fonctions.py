@@ -520,7 +520,12 @@ def Launch_histoire(jeu,story):
             perso = 0
                 
         if new.pressed:
+
+            if os.path.exists("saves/histoire.pkl."):
+                os.remove("saves/histoire.pkl.")
+            story = Story()
             jeu.selected = "histoire"
+            story.stage = 0
             story_save = story.iter_objects()
             if perso == 0:
                 story.selected_perso = "justi"

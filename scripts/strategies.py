@@ -15,6 +15,11 @@ class Pnj():
         self.name = nom 
         self.interact = False
         
+        self.dist = adv_dist[nom]
+        self.range = range_adv[nom]
+        self.prob_jump = adv_proba_jump[nom]
+        self.speed = adv_speed[nom]
+        
         self.joueur = joueur
         
         self.hit_fx = hit_fx_sound[self.name]
@@ -202,20 +207,31 @@ class Pnj():
         
         if p1.side and perso_rect.left - perso_rect2.right > 0:
             self.side = False
-            self.move_x = -1
+            if not self.interact :
+                self.move_x = -self.speed
+            elif self.interact and frame_count < 10 :
+                self.move_x = -self.speed
+            elif self.interact and frame_count >= 10 :
+                self.move_x = self.speed
+            
         elif not p1.side and perso_rect.left - perso_rect2.right < 0:
             self.side = True
-            self.move_x = 1
+            if not self.interact:
+                self.move_x = self.speed
+            elif self.interact and frame_count < 10:
+                self.move_x = self.speed
+            elif self.interact and frame_count >= 10:
+                self.move_x = -self.speed
         
-        if p1.type_anim == "low" and abs(perso_rect.left - perso_rect2.right) <= 15:
-            a = random.randint(1,9)
+        if p1.type_anim == "low" and abs(perso_rect.left - perso_rect2.right) <= self.dist*3:
+            a = random.randint(1,self.prob_jump)
             if (a%2) != 1 :            
                 self.jump = True
                 self.move_x = 10
             elif a == 5:
                 self.move_x = 10
-        if p1.type_anim == "low" and abs(perso_rect.right - perso_rect2.left) <= 15:
-            a = random.randint(1,9)
+        if p1.type_anim == "low" and abs(perso_rect.right - perso_rect2.left) <= self.dist*3:
+            a = random.randint(1,self.prob_jump)
             if (a%2) != 1 :            
                 self.jump = True
                 self.move_x = -10
@@ -224,9 +240,9 @@ class Pnj():
                 
         if p1.move_x != 0 and self.vie < 100:
             if p1.move_x > 0:
-                self.move_x = 1
+                self.move_x = self.speed
             elif p1.move_x < 0:
-                self.move_x = -1
+                self.move_x = -self.speed
                                     
         return(self.move_x,self.move_y)
         
@@ -279,18 +295,18 @@ class Pnj():
         
     def collision_joueur(self,perso_rect,perso_rect2,p2):
         if perso_rect.colliderect(perso_rect2):
-            if abs(perso_rect.bottom - perso_rect2.top) <= 10 :
+            if abs(perso_rect.bottom - perso_rect2.top) <= self.dist*2 :
                 self.move_y = 0
                 self.air_time = 1
                 self.jump = False
                 self.interact = True
-            if abs(perso_rect.top - perso_rect2.bottom) <= 10 :
+            if abs(perso_rect.top - perso_rect2.bottom) <= self.dist*2 :
                 self.move_y = 0
                 self.interact = True
-            if abs(perso_rect.left - perso_rect2.right) <= 10 :
+            if abs(perso_rect.left - perso_rect2.right) <= self.dist*2 :
                 self.move_x = 0             
                 self.interact = True
-            if abs(perso_rect.right - perso_rect2.left) <= 10 :
+            if abs(perso_rect.right - perso_rect2.left) <= self.dist*2 :
                 self.move_x = 0
                 self.interact = True
                 
@@ -299,9 +315,10 @@ class Pnj():
     
         return(self.move_y,self.move_x) 
     
-    def punch_anim(self,frame_count):
-        if self.interact :
-            a = random.randint(1,4)
+    def punch_anim(self,frame_count,p2):
+        if self.interact and frame_count <= 1 and p2.type_anim == "none":
+            a = random.randint(1,self.range)
+            
             if a == 1 and self.clean_hit < 5 and self.type_anim == "none":
                 self.animation = True
                 self.type_anim = "punch"
@@ -318,7 +335,7 @@ class Pnj():
                 self.animation = True
                 self.type_anim = "low"
                 frame_count = 1
-            elif (a%2) != 1 and self.move_x != 0 and self.clean_hit >= 5 and self.type_anim == "none":
+            elif (a%2) != 1 and a < 8 and self.move_x != 0 and self.clean_hit >= 5 and self.type_anim == "none":
                 self.clean_hit = 0
                 self.animation = True
                 self.type_anim = "super_punch"
@@ -331,6 +348,8 @@ class Pnj():
                 self.animation = True
                 self.type_anim = "down"
                 frame_count = 1
+            else:
+                self.type_anim = "none"
                 
         return(frame_count)
             
@@ -338,9 +357,9 @@ class Pnj():
     def damage(self,perso_rect,perso_rect2,p2,jeu,frame_count):
             
         if frame_count <= 1:
-            a = random.randint(1,4)
+            a = random.randint(1,self.range)
             ##PUNCH
-            if  abs(perso_rect.left - perso_rect2.right) <= 5 and p2.type_anim == "none" and a == 1:
+            if  abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 1:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -354,7 +373,7 @@ class Pnj():
                 p2.x -= int(self.punch_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 5 and p2.type_anim == "none" and a == 1:
+            if  abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 1:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -387,7 +406,7 @@ class Pnj():
                 p2.type_anim = "hit"            
 
             ##PUNCH2                
-            if  abs(perso_rect.left - perso_rect2.right) <= 5 and p2.type_anim == "none" and a == 2:
+            if  abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 2:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -401,7 +420,7 @@ class Pnj():
                 p2.x -= int(self.punch_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 5 and p2.type_anim == "none" and a == 2:
+            if  abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 2:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -434,7 +453,7 @@ class Pnj():
                 p2.type_anim = "hit"                   
                 
             ##KICK    
-            if  abs(perso_rect.left - perso_rect2.right) <= 5 and p2.type_anim == "none" and a == 3:
+            if  abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 3:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -448,7 +467,7 @@ class Pnj():
                 p2.x -= int(self.kick_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 5 and p2.type_anim == "none" and a == 3:
+            if  abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 3:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -481,7 +500,7 @@ class Pnj():
                 p2.type_anim = "hit"  
 
             ##LOW
-            if  abs(perso_rect.left - perso_rect2.right) <= 5 and p2.type_anim == "none" and a == 4:
+            if  abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 4:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -495,7 +514,7 @@ class Pnj():
                 p2.x -= int(self.low_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 5 and p2.type_anim == "none" and a == 4:
+            if  abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 4:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -528,7 +547,7 @@ class Pnj():
                 p2.type_anim = "hit"  
                 
             ##SPE    
-            if  abs(perso_rect.left - perso_rect2.right) <= 25 and p2.type_anim == "none" and (a%2) != 1 and self.clean_hit >= 5:
+            if  abs(perso_rect.left - perso_rect2.right) <= self.dist*4 and p2.type_anim == "none" and (a%2) != 1 and a < 8 and self.clean_hit >= 5:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.coup_fx.set_volume(jeu.vol_fx/2)
@@ -543,7 +562,7 @@ class Pnj():
                 p2.x -= int(self.super_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 25 and p2.type_anim == "none" and (a%2) != 1 and self.clean_hit >= 5:
+            if  abs(perso_rect.right - perso_rect2.left) <= self.dist*4 and p2.type_anim == "none" and (a%2) != 1 and a < 8 and self.clean_hit >= 5:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.coup_fx.set_volume(jeu.vol_fx/2)
@@ -559,7 +578,7 @@ class Pnj():
                 p2.type_anim = "hit"              
 
             ##JUMP    
-            if  abs(perso_rect.left - perso_rect2.right) <= 15 and a == 4 and 10 < self.air_time < 35:
+            if  abs(perso_rect.left - perso_rect2.right) <= self.dist*3 and a == 4 and 10 < self.air_time < 35:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.coup_fx.set_volume(jeu.vol_fx/2)
@@ -573,7 +592,7 @@ class Pnj():
                 p2.x -=int(self.jump_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 15 and a == 4 and 10 < self.air_time < 35:
+            if  abs(perso_rect.right - perso_rect2.left) <= self.dist*3 and a == 4 and 10 < self.air_time < 35:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.coup_fx.set_volume(jeu.vol_fx/2)
@@ -589,7 +608,7 @@ class Pnj():
                 p2.type_anim = "hit"
 
             ##DOWN    
-            if  abs(perso_rect.bottom - perso_rect2.top) <= 15 and a == 2 and 0 < self.air_time < 25:
+            if  abs(perso_rect.bottom - perso_rect2.top) <= self.dist*2 and a == 2 and 0 < self.air_time < 25:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.coup_fx.set_volume(jeu.vol_fx/2)

@@ -109,38 +109,38 @@ hauteur = {
     }
 
 punch = {
-    "basti":8,
-    "clou":4,
-    "coach":12,
-    "justi":4
+    "basti":12,
+    "clou":6,
+    "coach":16,
+    "justi":6
     }
 
 kicks = {
-    "basti":4,
-    "clou":8,
-    "coach":12,
-    "justi":8
+    "basti":8,
+    "clou":14,
+    "coach":16,
+    "justi":14
     }
 
 supers = {
-    "basti":15,
-    "clou":15,
-    "coach":15,
-    "justi":15
+    "basti":20,
+    "clou":20,
+    "coach":20,
+    "justi":20
     }
 
 sauter = {
-    "basti":8,
-    "clou":8,
-    "coach":12,
-    "justi":12
+    "basti":12,
+    "clou":12,
+    "coach":16,
+    "justi":16
     }
 
 low = {
-    "basti":3,
-    "clou":6,
-    "coach":10,
-    "justi":6
+    "basti":6,
+    "clou":9,
+    "coach":12,
+    "justi":9
     }
 
 
@@ -222,6 +222,27 @@ adv_liste = [
     "coach",
     "clou"
     ]
+
+range_adv = {
+    "coach":64,
+    "clou":32
+    }
+
+adv_dist = {
+            "coach" : 5,
+            "clou" : 7
+            }
+
+adv_proba_jump = {
+    "coach" : 9,
+    "clou" : 8
+    }
+
+adv_speed = {
+    "coach" : 1,
+    "clou" : 2
+    }
+
 power_bar0 = pygame.image.load("..\\_bank\\image\\super_power0.png")
 power_bar1 = pygame.image.load("..\\_bank\\image\\super_power1.png")
 power_bar2 = pygame.image.load("..\\_bank\\image\\super_power2.png")

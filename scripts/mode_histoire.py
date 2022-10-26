@@ -23,6 +23,7 @@ def Histoire(jeu,story):
     
     retour = Button('Retour au menu',200,30,(275,450),5,buttons,screen)
     restart = Button('Recommencer',200,30,(25,450),5,buttons,screen)
+    continuer = Button('Continuer',300,30,(100,410),5,buttons,screen)
     
     buttons_pause = []
     retour2 = Button('Retour au menu',200,30,(150,400),5,buttons_pause,screen)
@@ -36,6 +37,8 @@ def Histoire(jeu,story):
     vol_fx = Affiche_texte('Volume des effets',275,30,(20,300),5,textes,screen)
 
     gameExit=False
+    
+    Victoire = False
     
     a = 0
     b = 0
@@ -134,7 +137,7 @@ def Histoire(jeu,story):
             
             perso1 = p1.maj_anim(a)
             perso2 = p2.maj_anim(b)
-                               
+                                           
             for p in liste_p:
                 if (p.y < p.limite and not p.interact) or p.jump :#and not rect_gugus.colliderect(fightrect)) 
                     
@@ -160,7 +163,7 @@ def Histoire(jeu,story):
             p1 = p2.damage(perso2_rect,perso1_rect,p1,jeu,frame_count_2)
                 
             frame_count_1 = p1.punch_anim(frame_count_1)
-            frame_count_2 = p2.punch_anim(frame_count_2)
+            frame_count_2 = p2.punch_anim(frame_count_2,p1)
             
             if (p1.y + perso1.get_rect().height) < level_sol[stage_liste[story.stage]] and not p.interact and p1.air_time == 1: 
                 p1.move_y += level_sol[stage_liste[story.stage]] - (p1.y + perso1.get_rect().height)
@@ -299,7 +302,7 @@ def Histoire(jeu,story):
                     p.air_time = 1
                 
             p1.move_y,p1.move_x =p1.collision_joueur(perso1_rect,perso2_rect,p2)
-            # p2.move_y,p2.move_x =p2.collision_joueur(perso2_rect,perso1_rect,p1)
+            p2.move_y,p2.move_x =p2.collision_joueur(perso2_rect,perso1_rect,p1)
             
             p2 = p1.damage(perso1_rect,perso2_rect,p2)
             p1 = p2.damage(perso2_rect,perso1_rect,p1)
@@ -341,13 +344,14 @@ def Histoire(jeu,story):
             if p1.vie >= p2.vie:                
                 text_victoire = ("JOUEUR 1 GAGNE")
                 text_surf = gui_font.render(text_victoire,True,'#DE0B0B')
-                story.stage += 1
+                Victoire = True
                 
             else:                
                 text_victoire = ("TU AS PERDU")
                 text_surf = gui_font.render(text_victoire,True,'#DE0B0B')
+                Victoire = False
                 
-            screen.blit(text_surf,(150,400))
+            screen.blit(text_surf,(150,380))
         
             if (jeu.pause%2) == 1:
                 buttons_draw(buttons_pause,screen)
@@ -455,7 +459,8 @@ def Histoire(jeu,story):
             
             text_victoire = ("TU AS PERDU")
             text_surf = gui_font.render(text_victoire,True,'#DE0B0B')
-            screen.blit(text_surf,(150,400))
+            screen.blit(text_surf,(150,380))
+            Victoire = False
             
             anim = ko[b]
             screen.blit(anim,(150,200))
@@ -560,7 +565,8 @@ def Histoire(jeu,story):
             
             text_victoire = ("JOUEUR 1 GAGNE")
             text_surf = gui_font.render(text_victoire,True,'#DE0B0B')
-            screen.blit(text_surf,(150,400))
+            screen.blit(text_surf,(150,380))
+            Victoire = True
             
             anim = ko[a]
             screen.blit(anim,(150,200))            
@@ -578,6 +584,21 @@ def Histoire(jeu,story):
             pygame.mixer.music.load ( playlist[0])
             pygame.mixer.music.play(-1) 
             jeu.pause = 0
+            
+        if continuer.pressed:
+            if Victoire:
+                story.stage += 1
+
+                story_save = story.iter_objects()
+                with open('saves/histoire.pkl', 'wb') as f:
+                    pickle.dump(story_save, f, pickle.HIGHEST_PROTOCOL)
+                jeu.selected = "histoire"
+                p1.vie = 100
+                p2.vie = 100
+                jeu.pause = 0
+                Histoire(jeu,story)
+            elif not Victoire:
+                restart.pressed
             
         if retour2.pressed :
             retour.pressed = True
