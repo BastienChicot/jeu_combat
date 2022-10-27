@@ -18,30 +18,16 @@ class Story:
         
         self.unlock_perso = {
             "basti":(75,75),
-            "clou":(175,75),
-            "coach":(275,75),
-            "justi":(375,75)
+            "justi":(175,75)
             }
 
         self.unlock_perso2 = {
             "basti":(125,75),
-            "clou":(225,75),
-            "coach":(325,75),
-            "justi":(425,75)
+            "justi":(225,75)
             }
         
         self.unlock_nivo = {
-            "practice" : (75,50),
-            "gare":(175,50),
-            "metro":(275,50),
-            "parc":(375,50),
-            "toit":(75,175),
-            "theatre":(175,175),
-            "usine":(275,175),
-            "ferme":(375,175),
-            "montagne":(75,300),
-            "lac":(175,300),
-            "espace":(275,300)
+            "practice" : (75,50)
             }
     
     def iter_objects(self):
@@ -49,6 +35,35 @@ class Story:
     
 class Jeu():
     def __init__(self,nivo = "none"):
+        
+        self.unlock_perso = {
+            "basti":(75,75),
+            "justi":(175,75),
+            "coach":(275,75),
+            "clou":(375,75)
+            }
+
+        self.unlock_perso2 = {
+            "basti":(125,75),
+            "justi":(225,75),
+            "coach":(325,75),
+            "clou":(425,75)
+            }
+        
+        self.unlock_nivo = {
+            "practice" : (75,50),
+            "ferme":(175,50),
+            "metro":(275,50),
+            "parc":(375,50),
+            "toit":(75,175),
+            "theatre":(175,175),
+            "usine":(275,175),
+            "gare":(375,175),
+            "montagne":(75,300),
+            "lac":(175,300),
+            "espace":(275,300)
+            }
+        
         self.nivo = nivo
         self.selected = "none"
         self.pause = 0
@@ -496,18 +511,18 @@ class joueur():
         
     def collision_joueur(self,perso_rect,perso_rect2,p2):
         if perso_rect.colliderect(perso_rect2):
-            if abs(perso_rect.bottom - perso_rect2.top) <= 10 and self.move_y > 0:
+            if abs(perso_rect.bottom - perso_rect2.top) <= 10 and self.move_y >= 0:
                 self.move_y = 0
                 self.air_time = 1
                 self.jump = False
                 self.interact = True
-            if abs(perso_rect.top - perso_rect2.bottom) <= 10 and self.move_y < 0:
+            if abs(perso_rect.top - perso_rect2.bottom) <= 10 and self.move_y <= 0:
                 self.move_y = 0
                 self.interact = True
-            if abs(perso_rect.left - perso_rect2.right) <= 10 and self.move_x < 0:
+            if abs(perso_rect.left - perso_rect2.right) <= 10 and self.move_x <= 0:
                 self.move_x = 0             
                 self.interact = True
-            if abs(perso_rect.right - perso_rect2.left) <= 10 and self.move_x > 0:
+            if abs(perso_rect.right - perso_rect2.left) <= 10 and self.move_x >= 0:
                 self.move_x = 0
                 self.interact = True
                 
@@ -517,43 +532,46 @@ class joueur():
         return(self.move_y,self.move_x) 
     
     def punch_anim(self,frame_count):
-        if self.attack and not self.super_attack and not self.fall and self.clean_hit < 5 and self.type_anim == "none":
-            self.animation = True
-            self.type_anim = "punch"
-            frame_count = 1
-        elif not self.attack and self.super_attack and self.clean_hit < 5 and self.type_anim == "none":
-            self.animation = True
-            self.type_anim = "punch2"
-            frame_count = 1
-        elif self.attack and self.super_attack and self.clean_hit < 5 and not self.fall and self.type_anim == "none": 
-            self.animation = True
-            self.type_anim = "kick"
-            frame_count = 1
-        elif self.attack and not self.super_attack and self.fall and self.type_anim == "none": 
-            self.animation = True
-            self.type_anim = "low"
-            frame_count = 1
-        elif self.super_attack and self.move_x != 0 and self.clean_hit >= 5 and not self.attack and self.type_anim == "none":
-            self.clean_hit = 0
-            self.animation = True
-            self.type_anim = "super_punch"
-            frame_count = 1
-        elif self.attack and 10 < self.air_time < 35 and not self.fall and self.type_anim == "none":
-            self.animation = True
-            self.type_anim = "jump_punch"
-            frame_count = 1
-        elif self.attack and self.super_attack and self.air_time > 1 and self.fall and self.type_anim == "none":
-            self.animation = True
-            self.type_anim = "down"
-            frame_count = 1
+        
+        if self.interact :
+            if self.attack and not self.super_attack and not self.fall and self.clean_hit < 5 and self.type_anim == "none":
+                self.animation = True
+                self.type_anim = "punch"
+                frame_count = 1
+            elif not self.attack and self.super_attack and self.clean_hit < 5 and self.type_anim == "none":
+                self.animation = True
+                self.type_anim = "punch2"
+                frame_count = 1
+            elif self.attack and self.super_attack and self.clean_hit < 5 and not self.fall and self.type_anim == "none": 
+                self.animation = True
+                self.type_anim = "kick"
+                frame_count = 1
+            elif self.attack and not self.super_attack and self.fall and self.type_anim == "none": 
+                self.animation = True
+                self.type_anim = "low"
+                frame_count = 1
+            elif self.super_attack and self.move_x != 0 and self.clean_hit >= 5 and not self.attack and self.type_anim == "none":
+                self.clean_hit = 0
+                self.animation = True
+                self.type_anim = "super_punch"
+                frame_count = 1
+            elif self.attack and 10 < self.air_time < 35 and not self.fall and self.type_anim == "none":
+                self.animation = True
+                self.type_anim = "jump_punch"
+                frame_count = 1
+            elif self.attack and self.super_attack and self.air_time > 1 and self.fall and self.type_anim == "none":
+                self.animation = True
+                self.type_anim = "down"
+                frame_count = 1
             
         return(frame_count)
             
             
     def damage(self,perso_rect,perso_rect2,p2,jeu,frame_count):
+        
         if frame_count <= 1:
             ##PUNCH
-            if  abs(perso_rect.left - perso_rect2.right) <= 5 and self.attack and not self.super_attack and not self.fall:#/ and self.move_x != 0:
+            if  0 < abs(perso_rect.left - perso_rect2.right) <= 5 and self.attack and not self.super_attack and not self.fall:#/ and self.move_x != 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -567,7 +585,7 @@ class joueur():
                 p2.x -= int(self.punch_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 5 and self.attack and not self.super_attack and not self.fall:# and self.move_x != 0:
+            elif  0 < abs(perso_rect.right - perso_rect2.left) < 3 and self.attack and not self.super_attack and not self.fall:# and self.move_x != 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -582,7 +600,7 @@ class joueur():
                 p2.clean_hit = 0    
                 p2.type_anim = "hit"              
     
-            if  abs(perso_rect.left - perso_rect2.right) == 0 and self.attack and not self.super_attack and not self.fall:# and self.move_x == 0:
+            elif  abs(perso_rect.left - perso_rect2.right) == 0 and self.attack and not self.super_attack and not self.fall:# and self.move_x == 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -590,7 +608,7 @@ class joueur():
                 p2.vie -=punch[self.name]/4
                 p2.x -= int(self.punch_move/4)
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) == 0 and self.attack and not self.super_attack and not self.fall: # and self.move_x == 0:
+            elif  abs(perso_rect.right - perso_rect2.left) == 0 and self.attack and not self.super_attack and not self.fall: # and self.move_x == 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -600,7 +618,7 @@ class joueur():
                 p2.type_anim = "hit"            
 
             ##PUNCH2                
-            if  abs(perso_rect.left - perso_rect2.right) <= 5 and not self.attack and self.super_attack :#/ and self.move_x != 0:
+            if  0 < abs(perso_rect.left - perso_rect2.right) <= 5 and not self.attack and self.super_attack :#/ and self.move_x != 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -614,7 +632,7 @@ class joueur():
                 p2.x -= int(self.punch_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 5 and not self.attack and self.super_attack :# and self.move_x != 0:
+            elif 0 < abs(perso_rect.right - perso_rect2.left) <= 5 and not self.attack and self.super_attack :# and self.move_x != 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -629,7 +647,7 @@ class joueur():
                 p2.clean_hit = 0    
                 p2.type_anim = "hit"              
     
-            if  abs(perso_rect.left - perso_rect2.right) == 0 and not self.attack and self.super_attack :# and self.move_x == 0:
+            elif  abs(perso_rect.left - perso_rect2.right) == 0 and not self.attack and self.super_attack :# and self.move_x == 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -637,7 +655,7 @@ class joueur():
                 p2.vie -=punch[self.name]/4
                 p2.x -= int(self.punch_move/4)
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) == 0 and not self.attack and self.super_attack : # and self.move_x == 0:
+            elif  abs(perso_rect.right - perso_rect2.left) == 0 and not self.attack and self.super_attack : # and self.move_x == 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -647,7 +665,7 @@ class joueur():
                 p2.type_anim = "hit"                   
                 
             ##KICK    
-            if  abs(perso_rect.left - perso_rect2.right) <= 10 and self.attack and self.super_attack : #and self.move_x != 0:
+            if 0 < abs(perso_rect.left - perso_rect2.right) <= 10 and self.attack and self.super_attack : #and self.move_x != 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -661,7 +679,7 @@ class joueur():
                 p2.x -= int(self.kick_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 10 and self.attack and self.super_attack : #and self.move_x != 0:
+            elif 0 < abs(perso_rect.right - perso_rect2.left) <= 10 and self.attack and self.super_attack : #and self.move_x != 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -676,7 +694,7 @@ class joueur():
                 p2.clean_hit = 0    
                 p2.type_anim = "hit"              
     
-            if  abs(perso_rect.left - perso_rect2.right) == 0 and self.attack and self.super_attack : #and self.move_x == 0:
+            elif  abs(perso_rect.left - perso_rect2.right) == 0 and self.attack and self.super_attack : #and self.move_x == 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -684,7 +702,7 @@ class joueur():
                 p2.vie -=kicks[self.name]/3
                 p2.x -= int(self.kick_move/4)
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) == 0 and self.attack and self.super_attack : #and self.move_x == 0:
+            elif  abs(perso_rect.right - perso_rect2.left) == 0 and self.attack and self.super_attack : #and self.move_x == 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -694,7 +712,7 @@ class joueur():
                 p2.type_anim = "hit"  
 
             ##LOW
-            if  abs(perso_rect.left - perso_rect2.right) <= 10 and self.attack and self.fall: #and self.move_x != 0:
+            if 0 < abs(perso_rect.left - perso_rect2.right) <= 10 and self.attack and self.fall: #and self.move_x != 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -708,7 +726,7 @@ class joueur():
                 p2.x -= int(self.low_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 10 and self.attack and self.fall: #and self.move_x != 0:
+            elif  0 < abs(perso_rect.right - perso_rect2.left) <= 10 and self.attack and self.fall: #and self.move_x != 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -723,7 +741,7 @@ class joueur():
                 p2.clean_hit = 0    
                 p2.type_anim = "hit"              
     
-            if  abs(perso_rect.left - perso_rect2.right) == 0 and self.attack and not self.super_attack : # and self.fall: #and self.move_x == 0:
+            elif  abs(perso_rect.left - perso_rect2.right) == 0 and self.attack and not self.super_attack : # and self.fall: #and self.move_x == 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -731,7 +749,7 @@ class joueur():
                 p2.vie -=kicks[self.name]/3
                 p2.x -= int(self.low_move/4)
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) == 0 and self.attack and not self.super_attack and self.fall: #and self.move_x == 0:
+            elif  abs(perso_rect.right - perso_rect2.left) == 0 and self.attack and not self.super_attack and self.fall: #and self.move_x == 0:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -756,7 +774,7 @@ class joueur():
                 p2.x -= int(self.super_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 25 and not self.attack and self.super_attack and self.clean_hit >= 5: #and self.move_x != 0 
+            elif  abs(perso_rect.right - perso_rect2.left) <= 25 and not self.attack and self.super_attack and self.clean_hit >= 5: #and self.move_x != 0 
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.coup_fx.set_volume(jeu.vol_fx/2)
@@ -786,7 +804,7 @@ class joueur():
                 p2.x -=int(self.jump_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= 15 and self.attack and 10 < self.air_time < 35:
+            elif  abs(perso_rect.right - perso_rect2.left) <= 15 and self.attack and 10 < self.air_time < 35:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.coup_fx.set_volume(jeu.vol_fx/2)

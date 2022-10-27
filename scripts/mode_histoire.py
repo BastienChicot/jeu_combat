@@ -343,15 +343,20 @@ def Histoire(jeu,story):
             
             if p1.vie >= p2.vie:                
                 text_victoire = ("JOUEUR 1 GAGNE")
+                text_unlock = ("Tu débloques un niveau et un personnage")
                 text_surf = gui_font.render(text_victoire,True,'#DE0B0B')
+                unlok_surf = gui_font.render(text_unlock,True,'#DE0B0B')
                 Victoire = True
                 
             else:                
                 text_victoire = ("TU AS PERDU")
+                text_unlock = ("")
                 text_surf = gui_font.render(text_victoire,True,'#DE0B0B')
+                unlok_surf = gui_font.render(text_unlock,True,'#DE0B0B')
                 Victoire = False
                 
-            screen.blit(text_surf,(150,380))
+            screen.blit(text_surf,(150,350))
+            screen.blit(unlok_surf,(50,380))
         
             if (jeu.pause%2) == 1:
                 buttons_draw(buttons_pause,screen)
@@ -564,8 +569,12 @@ def Histoire(jeu,story):
             buttons_draw(buttons,screen)
             
             text_victoire = ("JOUEUR 1 GAGNE")
+            text_unlock = ("Tu débloques un niveau et un personnage")
             text_surf = gui_font.render(text_victoire,True,'#DE0B0B')
-            screen.blit(text_surf,(150,380))
+            unlok_surf = gui_font.render(text_unlock,True,'#DE0B0B')
+            
+            screen.blit(text_surf,(150,350))
+            screen.blit(unlok_surf,(50,380))
             Victoire = True
             
             anim = ko[a]
@@ -587,8 +596,13 @@ def Histoire(jeu,story):
             
         if continuer.pressed:
             if Victoire:
+                
+                story.unlock_perso.update({str(adv_liste[story.stage]) : jeu.unlock_perso[adv_liste[story.stage]]})
+                story.unlock_perso2.update({str(adv_liste[story.stage]) : jeu.unlock_perso2[adv_liste[story.stage]]})
+                if story.stage > 0:
+                    story.unlock_nivo.update({str(stage_liste[story.stage]) : jeu.unlock_nivo[stage_liste[story.stage]]})
+                
                 story.stage += 1
-
                 story_save = story.iter_objects()
                 with open('saves/histoire.pkl', 'wb') as f:
                     pickle.dump(story_save, f, pickle.HIGHEST_PROTOCOL)

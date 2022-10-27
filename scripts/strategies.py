@@ -359,7 +359,7 @@ class Pnj():
         if frame_count <= 1:
             a = random.randint(1,self.range)
             ##PUNCH
-            if  abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 1:
+            if  0 < abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 1:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -373,7 +373,7 @@ class Pnj():
                 p2.x -= int(self.punch_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 1:
+            elif 0 < abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 1:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -388,7 +388,7 @@ class Pnj():
                 p2.clean_hit = 0    
                 p2.type_anim = "hit"              
     
-            if  abs(perso_rect.left - perso_rect2.right) == 0 and p2.type_anim == "none" and a == 1:
+            elif  abs(perso_rect.left - perso_rect2.right) == 0 and p2.type_anim == "none" and a == 1:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -396,7 +396,7 @@ class Pnj():
                 p2.vie -=punch[self.name]/4
                 p2.x -= int(self.punch_move/4)
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) == 0 and p2.type_anim == "none" and a == 1:
+            elif  abs(perso_rect.right - perso_rect2.left) == 0 and p2.type_anim == "none" and a == 1:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -406,7 +406,7 @@ class Pnj():
                 p2.type_anim = "hit"            
 
             ##PUNCH2                
-            if  abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 2:
+            if 0 < abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 2:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -420,7 +420,7 @@ class Pnj():
                 p2.x -= int(self.punch_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 2:
+            elif 0 < abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 2:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -435,7 +435,7 @@ class Pnj():
                 p2.clean_hit = 0    
                 p2.type_anim = "hit"              
     
-            if  abs(perso_rect.left - perso_rect2.right) == 0 and p2.type_anim == "none" and a == 2:
+            elif  abs(perso_rect.left - perso_rect2.right) == 0 and p2.type_anim == "none" and a == 2:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -443,7 +443,7 @@ class Pnj():
                 p2.vie -=punch[self.name]/4
                 p2.x -= int(self.punch_move/4)
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) == 0 and p2.type_anim == "none" and a == 2:
+            elif  abs(perso_rect.right - perso_rect2.left) == 0 and p2.type_anim == "none" and a == 2:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -453,7 +453,7 @@ class Pnj():
                 p2.type_anim = "hit"                   
                 
             ##KICK    
-            if  abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 3:
+            if 0 < abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 3:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -467,7 +467,7 @@ class Pnj():
                 p2.x -= int(self.kick_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 3:
+            elif 0 < abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 3:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -482,7 +482,7 @@ class Pnj():
                 p2.clean_hit = 0    
                 p2.type_anim = "hit"              
     
-            if  abs(perso_rect.left - perso_rect2.right) == 0 and p2.type_anim == "none" and a == 3:
+            elif  abs(perso_rect.left - perso_rect2.right) == 0 and p2.type_anim == "none" and a == 3:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -490,7 +490,7 @@ class Pnj():
                 p2.vie -=kicks[self.name]/3
                 p2.x -= int(self.kick_move/4)
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) == 0 and p2.type_anim == "none" and a == 3:
+            elif  abs(perso_rect.right - perso_rect2.left) == 0 and p2.type_anim == "none" and a == 3:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -500,7 +500,7 @@ class Pnj():
                 p2.type_anim = "hit"  
 
             ##LOW
-            if  abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 4:
+            if 0 < abs(perso_rect.left - perso_rect2.right) <= self.dist and p2.type_anim == "none" and a == 4:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -514,7 +514,7 @@ class Pnj():
                 p2.x -= int(self.low_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 4:
+            elif 0 < abs(perso_rect.right - perso_rect2.left) <= self.dist and p2.type_anim == "none" and a == 4:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -529,7 +529,7 @@ class Pnj():
                 p2.clean_hit = 0    
                 p2.type_anim = "hit"              
     
-            if  abs(perso_rect.left - perso_rect2.right) == 0 and p2.type_anim == "none" and a == 4:
+            elif  abs(perso_rect.left - perso_rect2.right) == 0 and p2.type_anim == "none" and a == 4:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -537,7 +537,7 @@ class Pnj():
                 p2.vie -=kicks[self.name]/3
                 p2.x -= int(self.low_move/4)
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) == 0 and p2.type_anim == "none" and a == 4:
+            elif  abs(perso_rect.right - perso_rect2.left) == 0 and p2.type_anim == "none" and a == 4:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.punch_fx.set_volume(jeu.vol_fx/2)
@@ -562,7 +562,7 @@ class Pnj():
                 p2.x -= int(self.super_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= self.dist*4 and p2.type_anim == "none" and (a%2) != 1 and a < 8 and self.clean_hit >= 5:
+            elif  abs(perso_rect.right - perso_rect2.left) <= self.dist*4 and p2.type_anim == "none" and (a%2) != 1 and a < 8 and self.clean_hit >= 5:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.coup_fx.set_volume(jeu.vol_fx/2)
@@ -592,7 +592,7 @@ class Pnj():
                 p2.x -=int(self.jump_move)
                 p2.clean_hit = 0 
                 p2.type_anim = "hit"              
-            if  abs(perso_rect.right - perso_rect2.left) <= self.dist*3 and a == 4 and 10 < self.air_time < 35:
+            elif  abs(perso_rect.right - perso_rect2.left) <= self.dist*3 and a == 4 and 10 < self.air_time < 35:
                 p2.hit_fx.set_volume(jeu.vol_fx/2)
                 p2.hit_fx.play()
                 self.coup_fx.set_volume(jeu.vol_fx/2)
