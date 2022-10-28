@@ -77,70 +77,80 @@ hit_fx_sound = {
     "basti" : touche,
     "clou" : ohtraphigh,
     "coach" : touchelow,
-    "justi" : touchehigh
+    "justi" : touchehigh,
+    "gus" : ohtrapmid
     }
 
 touche_point_sound = {
     "basti" : kick_1,
     "clou" : slap_1,
     "coach" : slap_2,
-    "justi" : slap_3
+    "justi" : slap_3,
+    "gus" : kick_6
     }
 
 touche_autre_sound = {
     "basti" : kick_2,
     "clou" : kick_3,
     "coach" : kick_4,
-    "justi" : kick_5
+    "justi" : kick_5,
+    "gus" : kick_7
     }
 
 select_sounds = {
     "basti" : haan,
     "clou" : ohtraphigh,
     "coach" : ohyeahlow,
-    "justi" : haanhigh
+    "justi" : haanhigh,
+    "gus" : letsgomid
     }
 
 hauteur = {
     "basti":40,
     "clou":35,
     "coach":40,
-    "justi":40
+    "justi":40,
+    "gus" : 35
     }
 
 punch = {
     "basti":12,
     "clou":6,
     "coach":16,
-    "justi":6
+    "justi":6,
+    "gus" : 8
     }
 
 kicks = {
     "basti":8,
     "clou":14,
     "coach":16,
-    "justi":14
+    "justi":14,
+    "gus" : 10
     }
 
 supers = {
     "basti":20,
     "clou":20,
     "coach":20,
-    "justi":20
+    "justi":20,
+    "gus" : 20
     }
 
 sauter = {
     "basti":12,
     "clou":12,
     "coach":16,
-    "justi":16
+    "justi":16,
+    "gus" : 12
     }
 
 low = {
     "basti":6,
     "clou":9,
     "coach":12,
-    "justi":9
+    "justi":9,
+    "gus" : 6
     }
 
 
@@ -206,9 +216,9 @@ level_tracks = {
 
 stage_liste = [
     "practice",
+    "parc",
     "ferme"
     # "metro",
-    # "parc",
     # "toit",
     # "theatre",
     # "usine",
@@ -220,26 +230,31 @@ stage_liste = [
 
 adv_liste = [
     "coach",
+    "gus",
     "clou"
     ]
 
 range_adv = {
     "coach":64,
+    "gus" : 64,
     "clou":32
     }
 
 adv_dist = {
             "coach" : 5,
+            "gus" : 6,
             "clou" : 7
             }
 
 adv_proba_jump = {
     "coach" : 9,
+    "gus" : 9,
     "clou" : 8
     }
 
 adv_speed = {
     "coach" : 1,
+    "gus" : 1,
     "clou" : 2
     }
 

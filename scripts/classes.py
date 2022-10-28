@@ -40,21 +40,23 @@ class Jeu():
             "basti":(75,75),
             "justi":(175,75),
             "coach":(275,75),
-            "clou":(375,75)
+            "gus" : (375,95),
+            "clou":(75,150)
             }
 
         self.unlock_perso2 = {
             "basti":(125,75),
             "justi":(225,75),
             "coach":(325,75),
-            "clou":(425,75)
+            "gus":(425,95),
+            "clou":(125,150)
             }
         
         self.unlock_nivo = {
             "practice" : (75,50),
-            "ferme":(175,50),
-            "metro":(275,50),
-            "parc":(375,50),
+            "parc":(175,50),
+            "ferme":(275,50),
+            "metro":(375,50),
             "toit":(75,175),
             "theatre":(175,175),
             "usine":(275,175),

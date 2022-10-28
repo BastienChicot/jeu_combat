@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="194mm"
+   height="215mm"
+   viewBox="0 0 194 215"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="gus_punch2.svg"
+   inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_punch_r1.png"
+   inkscape:export-xdpi="5.9319429"
+   inkscape:export-ydpi="5.9319429"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.51150168"
+     inkscape:cx="257.08615"
+     inkscape:cy="354.83754"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     height="296mm"
+     width="209mm"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient30040">
+      <stop
+         style="stop-color:#1c1f24;stop-opacity:1;"
+         offset="0"
+         id="stop30036" />
+      <stop
+         style="stop-color:#1c1f24;stop-opacity:0;"
+         offset="1"
+         id="stop30038" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient29840">
+      <stop
+         style="stop-color:#535d6c;stop-opacity:1;"
+         offset="0"
+         id="stop29836" />
+      <stop
+         style="stop-color:#535d6c;stop-opacity:0;"
+         offset="1"
+         id="stop29838" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5194">
+      <stop
+         style="stop-color:#800000;stop-opacity:1;"
+         offset="0"
+         id="stop5190" />
+      <stop
+         style="stop-color:#800000;stop-opacity:0;"
+         offset="1"
+         id="stop5192" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5194"
+       id="linearGradient7905"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.73841257,0.14169097,-0.21338083,1.4006094,81.067085,-9.2918855)"
+       x1="51.572659"
+       y1="126.18843"
+       x2="51.572659"
+       y2="126.18843" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5194"
+       id="linearGradient14432"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0212644,-0.69985869,1.1058599,0.60661395,-123.73834,81.543194)"
+       x1="51.572659"
+       y1="126.18843"
+       x2="51.572659"
+       y2="126.18843" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5194"
+       id="linearGradient27326"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.16920842,0.10335877,-0.04889656,1.0216973,122.14733,39.109825)"
+       x1="51.572659"
+       y1="126.18843"
+       x2="51.572659"
+       y2="126.18843" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient29840"
+       id="linearGradient29842"
+       x1="-227.65132"
+       y1="-227.23926"
+       x2="-227.67598"
+       y2="-223.42758"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.99983109,0.01837916,0.35337912,-0.9354802,4.6066667e-6,0)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient30040"
+       id="linearGradient30042"
+       x1="213.05557"
+       y1="-59.214508"
+       x2="213.22256"
+       y2="-61.33345"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.99948305,0.00417173,-0.00417173,1.0004998,-3.4634876e-8,0)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient29840"
+       id="linearGradient29842-7"
+       x1="-227.65132"
+       y1="-227.23926"
+       x2="-227.67598"
+       y2="-223.42758"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.99983109,0.01837916,0.35337912,-0.9354802,4.6109615e-6,0)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient30040"
+       id="linearGradient30042-2"
+       x1="213.05557"
+       y1="-59.214508"
+       x2="213.22256"
+       y2="-61.33345"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.99948305,0.00417173,-0.00417173,1.0004998,-1.5346349e-6,0)" />
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path11385-7"
+       style="fill:#45323f;fill-opacity:1;stroke-width:0.602877"
+       d="m 158.63528,204.74428 c 7.30962,10.60313 -2.0012,10.08627 -59.945316,9.84814 -58.297308,-0.23957 -52.690142,0.24277 -52.519783,-11.45154 0.115721,-7.94338 13.23457,-6.79701 51.402333,-6.95506 38.167676,-0.15804 56.530916,1.98466 61.062766,8.55846 z"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="..\_bank\image\gus_mini.png"
+       inkscape:export-xdpi="8.2525206"
+       inkscape:export-ydpi="8.2525206" />
+    <path
+       id="rect10620-2"
+       style="fill:#414477;fill-opacity:1;stroke-width:0.561253"
+       d="m 40.234557,189.77513 88.468403,-1.27156 c 0.28667,-0.91361 5.44926,5.95748 4.22722,9.85223 l -83.233723,0.0674 z"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="rect20539-9-5-5"
+       style="fill:url(#linearGradient29842-7);fill-opacity:1;stroke-width:0.184944"
+       inkscape:transform-center-x="-4.223255"
+       inkscape:transform-center-y="-2.9256739"
+       d="m 153.99266,209.67803 c -4.80348,0.66785 -17.75421,0.64545 -30.06609,0.67723 -0.0284,8e-5 -0.006,-0.0464 -0.0334,-0.0469 -16.53496,-0.24877 -80.679593,2.21799 1.36281,-3.6534 0.0281,-10e-4 0.0408,-0.0485 0.0692,-0.0492 10.02249,-0.23319 20.20035,-2.42582 30.06608,-0.67722 0.028,0.005 0.01,0.0302 0.0334,0.047 1.18224,0.86682 3.73072,1.44062 -1.36281,3.65341 -0.026,0.0113 -0.0411,0.0453 -0.0692,0.0492 z"
+       sodipodi:nodetypes="sssssssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <rect
+       style="fill:url(#linearGradient30042-2);fill-opacity:1;stroke-width:0.45445"
+       id="rect11065-9-7"
+       width="8.7783976"
+       height="3.2693968"
+       x="209.19226"
+       y="-57.119976"
+       transform="matrix(0.00425356,0.99999095,-0.99202081,0.12607422,0,0)"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="path11385"
+       style="fill:#373748;stroke-width:0.602877"
+       d="m 141.99055,205.64455 c 7.30961,10.60314 -2.0012,10.08627 -59.945434,9.84815 -58.297216,-0.23957 -52.690047,0.24277 -52.519688,-11.45155 0.115721,-7.94337 13.23456,-6.79701 51.402233,-6.95505 38.167799,-0.15804 56.531039,1.98466 61.062889,8.55845 z"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="rect10620"
+       style="fill:#0044aa;stroke-width:0.561253"
+       d="m 34.729397,189.70432 96.748363,-0.40059 c 0.28667,-0.91362 -18.73281,6.0576 -19.95485,9.95235 l -76.690892,-0.63092 z"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <ellipse
+       style="fill:#a05a2c;fill-opacity:1;stroke-width:0.148273"
+       id="path9819-9-5-6"
+       cx="161.46895"
+       cy="107.8604"
+       rx="5.6022215"
+       ry="5.1560364"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065"
+       transform="rotate(6.9249746)" />
+    <ellipse
+       style="fill:#a05a2c;fill-opacity:1;stroke-width:0.381028"
+       id="path9819-5-4"
+       cx="152.05684"
+       cy="142.13724"
+       rx="13.358972"
+       ry="14.278785"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065"
+       transform="rotate(-0.23724187)" />
+    <path
+       id="rect8523-3"
+       style="fill:#aa0000;fill-opacity:1;stroke-width:0.391005"
+       d="m 38.301825,156.60557 c 40.540531,-13.12535 66.934945,-17.67308 103.078015,-27.11695 3.03512,5.34211 7.45005,14.29674 5.36755,21.64857 L 38.659697,178.09265 c -9.143296,-4.55652 0.902308,-14.86445 -0.357872,-21.48708 z"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="rect8523"
+       style="fill:#d40000;stroke-width:0.391005"
+       d="m 29.415801,113.2733 c 42.50604,-9.14939 69.904447,6.92193 107.261109,6.87121 11.89866,24.38028 4.65364,48.83984 0.87646,73.28503 L 24.635147,190.75569 c -7.792624,-24.92459 4.423965,-52.52408 4.780654,-77.48239 z"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="rect10620-1"
+       style="fill:#00446c;fill-opacity:0.998403;stroke-width:0.198579"
+       d="m 37.721709,190.5511 90.998781,2.1858 -3.5223,1.46849 -82.84685,-1.98999 z"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <ellipse
+       style="fill:#c87137;stroke-width:0.381028"
+       id="path9819-5"
+       cx="148.72421"
+       cy="152.3577"
+       rx="13.358972"
+       ry="14.278785"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065"
+       transform="rotate(-0.23724187)" />
+    <ellipse
+       style="fill:#c87137;stroke-width:0.148273"
+       id="path9819-9-5"
+       cx="143.7235"
+       cy="137.65685"
+       rx="5.6022215"
+       ry="5.1560364"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065"
+       transform="rotate(-0.23724187)" />
+    <rect
+       style="fill:#217821;stroke-width:0.319807"
+       id="rect20539-9"
+       width="59.05151"
+       height="5.6798477"
+       x="267.32748"
+       y="311.83978"
+       ry="0.072818741"
+       transform="matrix(-0.91010092,0.41438668,0.99995934,-0.0090172,0,0)"
+       inkscape:transform-center-x="-9.9488496"
+       inkscape:transform-center-y="-2.5958613"
+       rx="0.072818741"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <rect
+       style="fill:#217821;stroke-width:0.275565"
+       id="rect20539-9-6"
+       width="30.301662"
+       height="3.9757664"
+       x="-237.83308"
+       y="-285.8963"
+       ry="0.064277701"
+       transform="matrix(-0.9277882,0.37310729,0.56055219,-0.8281191,0,0)"
+       inkscape:transform-center-x="-4.6378716"
+       inkscape:transform-center-y="-3.693373"
+       rx="0.069366395"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="rect20539-9-5"
+       style="fill:url(#linearGradient29842);fill-opacity:1;stroke-width:0.184944"
+       inkscape:transform-center-x="-4.223267"
+       inkscape:transform-center-y="-2.9256691"
+       d="m 137.34793,210.57831 c -4.80347,0.66784 -17.7542,0.64545 -30.06616,0.67723 -0.0284,8e-5 -0.005,-0.0464 -0.0334,-0.0469 -16.534987,-0.24877 -80.679552,2.21799 1.36282,-3.6534 0.0281,-0.001 0.0408,-0.0486 0.0692,-0.0492 10.02255,-0.23318 20.20041,-2.42581 30.06614,-0.67722 0.028,0.005 0.01,0.0302 0.0334,0.047 1.18223,0.86681 3.73071,1.44061 -1.36282,3.65341 -0.026,0.0113 -0.0411,0.0453 -0.0692,0.0492 z"
+       sodipodi:nodetypes="sssssssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="path31-6"
+       style="fill:#d38d5f;fill-rule:evenodd;stroke-width:0.357437"
+       d="m 88.52283,73.510744 c -6.247396,58.899656 -43.679537,19.472212 -3.781835,40.449536 37.844815,19.898 69.786295,-0.009 72.209285,-15.985509 C 165.75083,39.947328 142.38308,13.922774 104.03031,9.2646191 65.677427,4.6064648 93.280812,28.652754 88.52283,73.510744 Z"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="path32024"
+       style="fill-opacity:0.998403;stroke-width:0.264583"
+       d="M 131.79564,22.328784 C 126.68714,27.502599 98.349348,24.96462 99.350971,37.20479 107.38023,135.32564 75.81389,28.391623 76.823218,18.968152 77.771306,10.116519 92.121799,4.5888182 108.59616,6.5897141 c 16.47431,2.0008957 29.45422,9.4043619 23.19948,15.7390699 z"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="path31"
+       style="fill:#d40000;fill-rule:evenodd;stroke-width:0.398876"
+       d="M 95.192292,67.135985 C 86.939513,125.79209 194.98201,138.20634 76.008716,119.26271 17.36794,109.92558 5.2924298,135.31224 -2.6751951,71.402589 -8.2574626,26.626269 45.891227,-4.9814823 93.652434,0.81936737 141.41355,6.6202149 101.47761,22.463499 95.192292,67.135985 Z"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="path4257-0-5-7"
+       style="fill:url(#linearGradient27326);fill-opacity:1;stroke-width:0.111607"
+       d="m 129.93936,141.71555 c 6.55949,0.24642 5.1091,-0.61666 8.07824,1.22517 2.41143,1.49582 -11.6157,0.32685 -22.95851,0.43609 -22.672929,0.21832 -31.334718,-3.39765 -7.78666,-2.5129 z"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="path4257-0"
+       style="fill:url(#linearGradient14432);fill-opacity:1;stroke-width:0.312327"
+       d="m 19.426578,82.630129 c 10.605545,21.316501 36.830403,28.929591 23.365494,35.176631 0,0 -27.908897,-1.01086 -39.2731055,-22.719664 -8.2988613,-15.853108 -2.2007212,-30.413541 6.5704005,-40.548233 7.994434,-9.23723 2.716076,14.78319 9.337211,28.091266 z"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <rect
+       style="fill:url(#linearGradient30042);fill-opacity:1;stroke-width:0.45445"
+       id="rect11065-9"
+       width="8.7783976"
+       height="3.2693968"
+       x="207.37288"
+       y="-35.548435"
+       transform="matrix(0.00425356,0.99999095,-0.99202081,0.12607422,0,0)"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="rect17082"
+       style="fill:#00aa00;stroke-width:0.147492"
+       d="m 5.4199057,132.59578 c 7.5760113,-6.87211 14.7292133,-15.22696 28.2047713,-1.40997 3.203822,16.03956 2.77338,29.97287 -1.112441,41.90367 -8.46289,3.53877 -16.596242,4.49317 -24.5912957,0.61908 C 1.7803735,160.90266 3.364358,146.78914 5.4199057,132.59578 Z"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <rect
+       style="fill:#00aa00;stroke-width:0.368834"
+       id="rect17663"
+       width="2.1983922"
+       height="10.199855"
+       x="17.722918"
+       y="122.26762"
+       ry="3.3260343"
+       rx="3.3260343"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065"
+       transform="rotate(-0.23724187)" />
+    <path
+       id="rect17811"
+       style="fill:#0b280b;stroke-width:0.0561649"
+       d="m 5.1428749,141.36763 c 0.822394,-6.92705 1.564089,-7.22456 2.2143216,-0.009 0.038991,0.43231 0.2222057,6.50968 0.2260617,7.44102 0.00386,0.93134 -0.1742178,-3.59765 -0.2121401,-4.07882 -0.8735647,-11.08471 -1.5545685,-6.68381 -2.2143216,0.009 -0.036851,0.37419 -0.2273121,5.19486 -0.2311684,4.26353 -0.00386,-0.93133 0.1791641,-7.30503 0.2172466,-7.62574 z"
+       sodipodi:nodetypes="sssssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="rect17813"
+       style="fill:#002b00;stroke-width:0.117925"
+       d="m 3.7945956,158.92343 c 1.840121,-0.1653 3.6746984,-1.67194 5.5223423,-0.0229 0.050988,0.0454 0.093665,0.40204 0.095736,0.90193 0.00207,0.49988 -0.037355,0.95271 -0.088263,0.90269 -1.8483328,-1.81537 -3.6821393,-0.12263 -5.5223424,0.0229 -0.050999,0.004 -0.093666,-0.40204 -0.095736,-0.90193 -0.00207,-0.49988 0.037382,-0.89811 0.088263,-0.90268 z"
+       sodipodi:nodetypes="sssssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="rect19198"
+       style="fill:#217821;stroke-width:0.190509"
+       d="m 17.962624,132.32676 -0.385589,33.3365 c -4.33e-4,0.0371 -0.101746,0.0328 -0.130092,0.0671 -0.516944,0.62333 1.940066,11.03906 -2.11878,-2.1e-4 -0.01335,-0.0364 -0.111958,-0.0309 -0.128539,-0.0671 -4.65183,-10.12353 -3.490866,-21.44921 0.385599,-33.3365 0.01195,-0.0366 0.112004,-0.031 0.130083,-0.0671 3.670226,-7.30717 3.147132,-4.27633 2.118779,2.1e-4 -0.0088,0.0368 0.128968,0.03 0.128539,0.0671 z"
+       sodipodi:nodetypes="sssssssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="rect19198-2"
+       style="fill:#217821;stroke-width:0.176999"
+       d="m 29.383853,133.54119 0.590013,33.33246 c 6.54e-4,0.0371 0.08803,0.032 0.112803,0.066 0.451018,0.61931 -1.885019,2.13195 1.828856,-0.0166 0.03302,-0.0191 2.036677,0.0895 2.050698,0.0532 3.937208,-10.15909 3.096186,-23.93352 -0.341549,-35.79052 0,0 -2.015831,-0.5805 -2.054679,-0.57526 -3.580216,0.48194 -2.996347,-1.40589 -2.075715,2.86259 0.0072,0.0368 -0.111091,0.031 -0.110427,0.0681 z"
+       sodipodi:nodetypes="sssssssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="rect1430"
+       style="fill:#28170b;stroke-width:0.147509"
+       d="m 147.107,43.069496 6.60191,4.310585 2.62028,6.184437 c -4.961,-4.502031 -9.65311,-9.199058 -18.15513,-11.132949 1.39321,-1.28336 7.73569,1.424967 8.93294,0.637927 z"
+       sodipodi:nodetypes="ccccc"
+       inkscape:transform-center-x="4.4205769"
+       inkscape:transform-center-y="-0.3352006"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="path2169-5-4-0"
+       style="fill:#ffccaa;stroke-width:0.456428"
+       d="m 142.17512,60.980952 c -1.13813,3.052594 3.05798,6.12203 7.20613,6.625846 4.14815,0.503817 8.1641,-2.882013 8.24546,-5.135743 0.10014,-2.773551 -2.51189,-6.345652 -6.77634,-6.960247 -4.13649,-0.596083 -7.32839,1.85766 -8.67525,5.470144 z"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <path
+       id="path3219-1"
+       style="fill:#241c1c;stroke-width:0.479567"
+       d="m 157.56812,93.422831 c -0.0148,0.582692 -0.20847,0.474597 -3.80453,0.38359 -3.5962,-0.09101 -4.42434,1.106909 -4.4096,0.523445 0.0148,-0.582701 1.27424,-1.850452 4.87045,-1.759441 3.59624,0.09101 3.35844,0.269732 3.34368,0.852406 z"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+    <ellipse
+       style="fill:#28170b;stroke-width:0.285998"
+       id="path2169"
+       ry="3.7418122"
+       rx="4.8368506"
+       cy="43.192211"
+       cx="157.92055"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065"
+       transform="rotate(6.9249746)" />
+    <ellipse
+       style="fill:#000000;fill-opacity:0.998403;stroke-width:0.433747"
+       id="path31470"
+       cx="166.27025"
+       cy="59.468716"
+       rx="0.24574739"
+       ry="1.0972906"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065"
+       transform="rotate(6.9249746)" />
+    <path
+       id="path4257-0-5"
+       style="fill:url(#linearGradient7905);fill-opacity:1;stroke-width:0.272979"
+       d="m 78.413878,155.78518 c 4.69127,9.96914 68.706332,4.22015 60.871212,8.80181 -6.36331,3.721 -65.113899,-2.24243 -65.113899,-2.24243 -5.67099,-9.34373 -7.201132,-30.87798 -4.379903,-24.88275 z"
+       sodipodi:nodetypes="sssss"
+       inkscape:export-filename="C:\Users\basti\OneDrive\Bureau\Gus veut boire un coup\Gus\gus_fight\gus_lr1.png"
+       inkscape:export-xdpi="5.9230065"
+       inkscape:export-ydpi="5.9230065" />
+  </g>
+</svg>
