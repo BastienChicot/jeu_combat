@@ -41,7 +41,8 @@ class Jeu():
             "justi":(175,75),
             "coach":(275,75),
             "gus" : (375,95),
-            "clou":(75,150)
+            "clou":(75,150),
+            "sam":(175,154)
             }
 
         self.unlock_perso2 = {
@@ -49,7 +50,8 @@ class Jeu():
             "justi":(225,75),
             "coach":(325,75),
             "gus":(425,95),
-            "clou":(125,150)
+            "clou":(125,150),
+            "sam":(225,154)
             }
         
         self.unlock_nivo = {

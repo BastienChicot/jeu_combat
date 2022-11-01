@@ -610,6 +610,9 @@ def Histoire(jeu,story):
                 p1.vie = 100
                 p2.vie = 100
                 jeu.pause = 0
+                pygame.mixer.music.set_volume(jeu.vol_music_fight)
+                pygame.mixer.music.load ( playlist[level_tracks[stage_liste[story.stage]]])
+                pygame.mixer.music.play(-1) 
                 Histoire(jeu,story)
             elif not Victoire:
                 restart.pressed
