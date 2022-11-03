@@ -79,7 +79,8 @@ hit_fx_sound = {
     "coach" : touchelow,
     "justi" : touchehigh,
     "gus" : ohtrapmid,
-    "sam" : ohlow
+    "sam" : ohlow,
+    "dad" : ohmid
     }
 
 touche_point_sound = {
@@ -88,7 +89,8 @@ touche_point_sound = {
     "coach" : slap_2,
     "justi" : slap_3,
     "gus" : kick_6,
-    "sam" : slap_4
+    "sam" : slap_4,
+    "dad" : slap_5
     }
 
 touche_autre_sound = {
@@ -97,7 +99,8 @@ touche_autre_sound = {
     "coach" : kick_4,
     "justi" : kick_5,
     "gus" : kick_7,
-    "sam" : kick_8
+    "sam" : kick_8,
+    "dad" : kick_9
     }
 
 select_sounds = {
@@ -106,7 +109,8 @@ select_sounds = {
     "coach" : ohyeahlow,
     "justi" : haanhigh,
     "gus" : letsgomid,
-    "sam" : letsgolow
+    "sam" : letsgolow,
+    "dad" : ohtrapmid
     }
 
 hauteur = {
@@ -115,7 +119,8 @@ hauteur = {
     "coach":40,
     "justi":40,
     "gus" : 35,
-    "sam" : 40
+    "sam" : 40,
+    "dad" : 35
     }
 
 punch = {
@@ -124,7 +129,8 @@ punch = {
     "coach":16,
     "justi":6,
     "gus" : 8,
-    "sam" : 16
+    "sam" : 16,
+    "dad" : 14
     }
 
 kicks = {
@@ -133,7 +139,8 @@ kicks = {
     "coach":16,
     "justi":14,
     "gus" : 10,
-    "sam" : 12
+    "sam" : 12,
+    "dad" : 14
     }
 
 supers = {
@@ -142,7 +149,8 @@ supers = {
     "coach":20,
     "justi":20,
     "gus" : 20,
-    "sam" : 20
+    "sam" : 20,
+    "dad" : 22
     }
 
 sauter = {
@@ -151,7 +159,8 @@ sauter = {
     "coach":16,
     "justi":16,
     "gus" : 12,
-    "sam" : 14
+    "sam" : 14,
+    "dad": 10
     }
 
 low = {
@@ -160,7 +169,8 @@ low = {
     "coach":12,
     "justi":9,
     "gus" : 6,
-    "sam" : 16
+    "sam" : 16,
+    "dad" : 14
     }
 
 
@@ -228,10 +238,10 @@ stage_liste = [
     "practice",
     "parc",
     "ferme",
-    "metro"
+    "metro",
+    "usine"
     # "toit",
     # "theatre",
-    # "usine",
     # "gare",
     # "montagne",
     # "lac",
@@ -242,35 +252,40 @@ adv_liste = [
     "coach",
     "gus",
     "clou",
-    "sam"
+    "sam",
+    "dad"
     ]
 
 range_adv = {
     "coach":64,
     "gus" : 64,
     "clou":32,
-    "sam": 28
+    "sam": 28,
+    "dad" : 24
     }
 
 adv_dist = {
             "coach" : 5,
             "gus" : 6,
             "clou" : 7,
-            "sam" : 9
+            "sam" : 9,
+            "dad" : 7
             }
 
 adv_proba_jump = {
     "coach" : 9,
     "gus" : 9,
     "clou" : 8,
-    "sam" : 9
+    "sam" : 9,
+    "dad" : 8
     }
 
 adv_speed = {
     "coach" : 1,
     "gus" : 1,
     "clou" : 2,
-    "sam" : 1
+    "sam" : 1,
+    "dad" : 1
     }
 
 power_bar0 = pygame.image.load("..\\_bank\\image\\super_power0.png")
