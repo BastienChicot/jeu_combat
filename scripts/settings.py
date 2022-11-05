@@ -72,6 +72,8 @@ playlist.append("..\\_bank\\bo\\track0.wav")
 playlist.append("..\\_bank\\bo\\track1.wav")
 playlist.append("..\\_bank\\bo\\track2.wav")
 playlist.append("..\\_bank\\bo\\track3.wav")
+playlist.append("..\\_bank\\bo\\track4.wav")
+playlist.append("..\\_bank\\bo\\track5.wav")
 
 hit_fx_sound = {
     "basti" : touche,
@@ -220,18 +222,17 @@ level_lim_max = {
     }
 
 level_tracks = {
-    "centre_com":1,
-    "practice":2,
-    "espace":3,
-    "gare":3,
-    "montagne":2,
-    "theatre":1,
-    "ferme":2,
-    "usine":3,
-    "lac":3,
-    "toit":1,
-    "parc":2,
-    "metro":1
+    "practice" : 1,
+    "parc" : 2,
+    "ferme" : 3,
+    "metro" : 4,
+    "usine" : 5,
+    "toit" : 1,
+    "theatre" : 2,
+    "gare" : 3,
+    "montagne" : 4,
+    "lac" : 5,
+    "espace" : 1
     }
 
 stage_liste = [
