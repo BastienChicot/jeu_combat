@@ -74,6 +74,7 @@ playlist.append("..\\_bank\\bo\\track2.wav")
 playlist.append("..\\_bank\\bo\\track3.wav")
 playlist.append("..\\_bank\\bo\\track4.wav")
 playlist.append("..\\_bank\\bo\\track5.wav")
+playlist.append("..\\_bank\\bo\\track6.wav")
 
 hit_fx_sound = {
     "basti" : touche,
@@ -82,7 +83,8 @@ hit_fx_sound = {
     "justi" : touchehigh,
     "gus" : ohtrapmid,
     "sam" : ohlow,
-    "dad" : ohmid
+    "dad" : ohmid,
+    "villageman" : haanhigh
     }
 
 touche_point_sound = {
@@ -92,7 +94,8 @@ touche_point_sound = {
     "justi" : slap_3,
     "gus" : kick_6,
     "sam" : slap_4,
-    "dad" : slap_5
+    "dad" : slap_5,
+    "villageman" : slap_1
     }
 
 touche_autre_sound = {
@@ -102,7 +105,8 @@ touche_autre_sound = {
     "justi" : kick_5,
     "gus" : kick_7,
     "sam" : kick_8,
-    "dad" : kick_9
+    "dad" : kick_9,
+    "villageman" : kick_10
     }
 
 select_sounds = {
@@ -112,7 +116,8 @@ select_sounds = {
     "justi" : haanhigh,
     "gus" : letsgomid,
     "sam" : letsgolow,
-    "dad" : ohtrapmid
+    "dad" : ohtrapmid,
+    "villageman" : haan
     }
 
 hauteur = {
@@ -122,7 +127,8 @@ hauteur = {
     "justi":40,
     "gus" : 35,
     "sam" : 40,
-    "dad" : 35
+    "dad" : 35,
+    "villageman" : 40
     }
 
 punch = {
@@ -132,7 +138,8 @@ punch = {
     "justi":6,
     "gus" : 8,
     "sam" : 16,
-    "dad" : 14
+    "dad" : 14,
+    "villageman" : 10
     }
 
 kicks = {
@@ -142,7 +149,8 @@ kicks = {
     "justi":14,
     "gus" : 10,
     "sam" : 12,
-    "dad" : 14
+    "dad" : 14,
+    "villageman" : 10
     }
 
 supers = {
@@ -152,7 +160,8 @@ supers = {
     "justi":20,
     "gus" : 20,
     "sam" : 20,
-    "dad" : 22
+    "dad" : 22,
+    "villageman" : 20
     }
 
 sauter = {
@@ -162,7 +171,8 @@ sauter = {
     "justi":16,
     "gus" : 12,
     "sam" : 14,
-    "dad": 10
+    "dad": 10,
+    "villageman" : 12
     }
 
 low = {
@@ -172,7 +182,8 @@ low = {
     "justi":9,
     "gus" : 6,
     "sam" : 16,
-    "dad" : 14
+    "dad" : 14,
+    "villageman" : 9
     }
 
 
@@ -227,10 +238,10 @@ level_tracks = {
     "ferme" : 3,
     "metro" : 4,
     "usine" : 5,
-    "toit" : 1,
+    "montagne" : 6,
     "theatre" : 2,
     "gare" : 3,
-    "montagne" : 4,
+    "toit" : 4,
     "lac" : 5,
     "espace" : 1
     }
@@ -240,11 +251,11 @@ stage_liste = [
     "parc",
     "ferme",
     "metro",
-    "usine"
+    "usine",
+    "montagne"
     # "toit",
     # "theatre",
     # "gare",
-    # "montagne",
     # "lac",
     # "espace"
     ]
@@ -254,7 +265,8 @@ adv_liste = [
     "gus",
     "clou",
     "sam",
-    "dad"
+    "dad",
+    "villageman"
     ]
 
 range_adv = {
@@ -262,7 +274,8 @@ range_adv = {
     "gus" : 64,
     "clou":32,
     "sam": 28,
-    "dad" : 24
+    "dad" : 24,
+    "villageman" : 20
     }
 
 adv_dist = {
@@ -270,7 +283,8 @@ adv_dist = {
             "gus" : 6,
             "clou" : 7,
             "sam" : 9,
-            "dad" : 7
+            "dad" : 7,
+            "villageman" : 10
             }
 
 adv_proba_jump = {
@@ -278,7 +292,8 @@ adv_proba_jump = {
     "gus" : 9,
     "clou" : 8,
     "sam" : 9,
-    "dad" : 8
+    "dad" : 8,
+    "villageman" : 6
     }
 
 adv_speed = {
@@ -286,7 +301,8 @@ adv_speed = {
     "gus" : 1,
     "clou" : 2,
     "sam" : 1,
-    "dad" : 1
+    "dad" : 1,
+    "villageman" : 1
     }
 
 power_bar0 = pygame.image.load("..\\_bank\\image\\super_power0.png")

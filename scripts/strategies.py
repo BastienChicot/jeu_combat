@@ -203,9 +203,9 @@ class Pnj():
         
         self.liste_anim = ["punch","punch2","kick","jump_punch"]
         
-    def move(self,p1,frame_count,perso_rect,perso_rect2):    
+    def move(self,p1,frame_count,perso_rect,perso_rect2):
         
-        if p1.side and perso_rect.left - perso_rect2.right > 0:
+        if p1.side and perso_rect.left - perso_rect2.right > 0 and not p1.jump:
             self.side = False
             if not self.interact :
                 self.move_x = -self.speed
@@ -214,7 +214,7 @@ class Pnj():
             elif self.interact and frame_count >= 10 :
                 self.move_x = self.speed
             
-        elif not p1.side and perso_rect.left - perso_rect2.right < 0:
+        elif not p1.side and perso_rect.left - perso_rect2.right < 0 and not p1.jump:
             self.side = True
             if not self.interact:
                 self.move_x = self.speed
@@ -238,14 +238,14 @@ class Pnj():
             elif a == 5:
                 self.move_x = -10
                 
-        if p1.move_x != 0 and self.vie < 100:
+        if p1.move_x != 0 and self.vie < 100 and not p1.jump:
             if p1.move_x > 0:
                 self.move_x = self.speed
             elif p1.move_x < 0:
                 self.move_x = -self.speed
                                     
         return(self.move_x,self.move_y)
-        
+            
     def maj_anim(self,a):
 
         if self.side:
