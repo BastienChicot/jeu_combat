@@ -44,7 +44,8 @@ class Jeu():
             "clou":(75,150),
             "sam":(175,154),
             "dad" : (275,150),
-            "villageman" : (375,150)
+            "villageman" : (375,150),
+            "bucheron" : (75,225)
             }
 
         self.unlock_perso2 = {
@@ -55,7 +56,8 @@ class Jeu():
             "clou":(125,150),
             "sam":(225,154),
             "dad" : (325,150),
-            "villageman" : (425,150)
+            "villageman" : (425,150),
+            "bucheron" : (125, 225)
             }
         
         self.unlock_nivo = {
@@ -65,10 +67,10 @@ class Jeu():
             "metro":(375,50),
             "usine":(75,175),
             "montagne":(175,175),
-            "toit":(275,175),
+            "lac":(275,175),
             "gare":(375,175),
             "theatre":(75,300),
-            "lac":(175,300),
+            "toit":(175,300),
             "espace":(275,300)
             }
         
