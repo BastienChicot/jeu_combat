@@ -1,0 +1,5 @@
+lac == bucheron
+gare == controleur/euse
+theatre == fantome
+toit == pigeon man
+espace == coach 2

@@ -9,6 +9,7 @@ from settings import *
 from classes import *
 import pickle
 import os
+import time
 
 pygame.init()
 pygame.font.init()
@@ -99,15 +100,19 @@ def accueil(jeu):
         if multijoueur.pressed:
             jeu.selected = "multi_lvl"
             select_boom.play()
+            time.sleep(0.1)
         if quitter.pressed:
             pygame.quit()
+            time.sleep(0.1)
         if options.pressed :
             select_boom.play()
             jeu.selected = "options"
+            time.sleep(0.1)
             
         if hist.pressed : 
             select_boom.play()
             jeu.selected = "accueil_histoire"
+            time.sleep(0.1)
             
         pygame.display.update()
         clock.tick(60)
@@ -160,10 +165,12 @@ def Choix_level(jeu,story):
                 select_boom.play()
                 jeu.selected = "choix_joueur1"
                 jeu.nivo = img.text
+                time.sleep(0.1)
         
         if retour.pressed:
             select_boom.play()
             jeu.selected = "none"
+            time.sleep(0.1)
             
         pygame.display.update()
         clock.tick(60)
@@ -220,9 +227,11 @@ def Choix_joueur1(jeu,story):
                 a.play()
                 jeu.selected = "choix_joueur2"
                 jeu.joueur1 = str(img.text)
+                time.sleep(0.1)
         
         if retour.pressed:
             jeu.selected = "multi_lvl"
+            time.sleep(0.1)
             
         pygame.display.update()
         clock.tick(60)
@@ -280,9 +289,11 @@ def Choix_joueur2(jeu,story):
                 a.play()
                 jeu.selected = "multi"
                 jeu.joueur2 = str(img.text)
+                time.sleep(0.1)
         
         if retour.pressed:
             jeu.selected = "choix_joueur1"
+            time.sleep(0.1)
             
         pygame.display.update()
         clock.tick(60)
@@ -417,6 +428,7 @@ def Options(jeu):
             saisie_r_2 = Affiche_texte(str(jeu.touche_j2_R_text),75,20,(400,385),5,saisie_j2,screen,"saisie_r_2",saisie = True)
             saisie_d_2 = Affiche_texte(str(jeu.touche_j2_D_text),75,20,(155,415),5,saisie_j2,screen,"saisie_d_2",saisie = True)
             saisie_u_2 = Affiche_texte(str(jeu.touche_j2_U_text),75,20,(400,415),5,saisie_j2,screen,"saisie_u_2",saisie = True)
+            time.sleep(0.1)
                             
         decors = lvl.anim_level[a]
         screen.blit(decors,(0,0))
@@ -447,12 +459,14 @@ def Options(jeu):
         if retour.pressed:
             select_boom.play()
             jeu.selected = "none"
+            time.sleep(0.1)
             
         if save.pressed:
             jeu.selected = "none"
             options_save = jeu.iter_objects()
             with open('saves/options_jeu.pkl', 'wb') as f:
                 pickle.dump(options_save, f, pickle.HIGHEST_PROTOCOL)
+            time.sleep(0.1)
                     
         pygame.display.update()
         clock.tick(60)
@@ -536,10 +550,12 @@ def Launch_histoire(jeu,story):
                 pickle.dump(story_save, f, pickle.HIGHEST_PROTOCOL)
                 
             jeu.selected = "histoire"
+            time.sleep(0.1)
                                 
         if retour.pressed:
             select_boom.play()
             jeu.selected = "none"
+            time.sleep(0.1)
             
         if os.path.exists("saves/histoire.pkl."): 
             buttons_draw(loads, screen)
@@ -547,6 +563,7 @@ def Launch_histoire(jeu,story):
                 select_boom.play()
                 story = load_story(jeu)
                 jeu.selected = "histoire"
+                time.sleep(0.1)
                 
             
         pygame.display.update()
