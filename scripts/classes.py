@@ -45,7 +45,8 @@ class Jeu():
             "sam":(175,154),
             "dad" : (275,150),
             "villageman" : (375,150),
-            "bucheron" : (75,225)
+            "bucheron" : (75,225),
+            "controleuz" : (175,225)
             }
 
         self.unlock_perso2 = {
@@ -57,7 +58,8 @@ class Jeu():
             "sam":(225,154),
             "dad" : (325,150),
             "villageman" : (425,150),
-            "bucheron" : (125, 225)
+            "bucheron" : (125, 225),
+            "controleuz" : (225,225)
             }
         
         self.unlock_nivo = {
