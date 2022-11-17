@@ -88,7 +88,8 @@ hit_fx_sound = {
     "dad" : ohmid,
     "villageman" : haanhigh,
     "bucheron" : touche_2,
-    "controleuz" : touche_3
+    "controleuz" : touche_3,
+    "fantom" : ohtraplow
     }
 
 touche_point_sound = {
@@ -101,7 +102,8 @@ touche_point_sound = {
     "dad" : slap_5,
     "villageman" : slap_1,
     "bucheron" : slap_2,
-    "controleuz" : slap_3
+    "controleuz" : slap_3,
+    "fantom" : slap_4
     }
 
 touche_autre_sound = {
@@ -114,7 +116,8 @@ touche_autre_sound = {
     "dad" : kick_9,
     "villageman" : kick_10,
     "bucheron" : kick_11,
-    "controleuz" : kick_12
+    "controleuz" : kick_12,
+    "fantom" : kick_1
     }
 
 select_sounds = {
@@ -127,7 +130,8 @@ select_sounds = {
     "dad" : ohtrapmid,
     "villageman" : haan,
     "bucheron" : ohyeahmid,
-    "controleuz" : letsgohigh
+    "controleuz" : letsgohigh,
+    "fantom" : selectvil2
     }
 
 hauteur = {
@@ -140,7 +144,8 @@ hauteur = {
     "dad" : 35,
     "villageman" : 40,
     "bucheron" : 40,
-    "controleuz" : 38
+    "controleuz" : 38,
+    "fantom" : 44
     }
 
 punch = {
@@ -153,7 +158,8 @@ punch = {
     "dad" : 14,
     "villageman" : 10,
     "bucheron" : 8,
-    "controleuz" : 10
+    "controleuz" : 10,
+    "fantom" : 8
     }
 
 kicks = {
@@ -166,7 +172,8 @@ kicks = {
     "dad" : 14,
     "villageman" : 10,
     "bucheron" : 12,
-    "controleuz" : 14
+    "controleuz" : 14,
+    "fantom" : 12
     }
 
 supers = {
@@ -179,7 +186,8 @@ supers = {
     "dad" : 22,
     "villageman" : 20,
     "bucheron" : 22,
-    "controleuz" : 24
+    "controleuz" : 24,
+    "fantom" : 28
     }
 
 sauter = {
@@ -192,7 +200,8 @@ sauter = {
     "dad": 10,
     "villageman" : 12,
     "bucheron" : 16,
-    "controleuz" : 14
+    "controleuz" : 14,
+    "fantom" : 16
     }
 
 low = {
@@ -205,7 +214,8 @@ low = {
     "dad" : 14,
     "villageman" : 9,
     "bucheron" : 8,
-    "controleuz" : 12
+    "controleuz" : 12,
+    "fantom" : 10
     }
 
 
@@ -276,9 +286,9 @@ stage_liste = [
     "usine",
     "montagne",
     "lac",
-    "gare"
+    "gare",
+    "theatre"
     # "toit",
-    # "theatre",
     # "lac",
     # "espace"
     ]
@@ -291,7 +301,8 @@ adv_liste = [
     "dad",
     "villageman",
     "bucheron",
-    "controleuz"
+    "controleuz",
+    "fantom"
     ]
 
 range_adv = {
@@ -302,7 +313,8 @@ range_adv = {
     "dad" : 24,
     "villageman" : 20,
     "bucheron" : 20,
-    "controleuz" : 18
+    "controleuz" : 18,
+    "fantom" : 16
     }
 
 adv_dist = {
@@ -313,7 +325,8 @@ adv_dist = {
             "dad" : 7,
             "villageman" : 10,
             "bucheron" : 12,
-            "controleuz" : 11
+            "controleuz" : 11,
+            "fantom" : 16
             }
 
 adv_proba_jump = {
@@ -324,7 +337,8 @@ adv_proba_jump = {
     "dad" : 8,
     "villageman" : 6,
     "bucheron" : 7,
-    "controleuz" : 6
+    "controleuz" : 6,
+    "fantom" : 4
     }
 
 adv_speed = {
@@ -335,7 +349,8 @@ adv_speed = {
     "dad" : 1,
     "villageman" : 1,
     "bucheron" : 2,
-    "controleuz" : 1
+    "controleuz" : 1,
+    "fantom" : 2
     }
 
 power_bar0 = pygame.image.load("..\\_bank\\image\\super_power0.png")

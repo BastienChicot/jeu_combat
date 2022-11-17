@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="fantom_ko.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.74831647"
+     inkscape:cx="194.43645"
+     inkscape:cy="552.5737"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="opacity:0.99;fill:#000000;fill-opacity:0.34472933;stroke-width:0.2;stop-color:#000000"
+       id="path1312"
+       cx="91.438225"
+       cy="181.16002"
+       rx="15.120063"
+       ry="3.7244098"
+       inkscape:export-filename="..\_bank\perso\fantom\fantom_ko_2.png"
+       inkscape:export-xdpi="20.131071"
+       inkscape:export-ydpi="20.131071" />
+    <path
+       id="path344-8"
+       style="opacity:0.99;fill:#cccccc;fill-opacity:0.478632;stroke-width:0.2;stop-color:#000000"
+       d="m 117.34482,164.15792 c 0.84315,11.63855 52.6772,34.68195 42.37448,19.61818 -3.84014,-5.61472 -56.46037,-2.0298 -62.585438,4.68303 -1.874834,2.05474 -20.27064,1.9692 -20.753636,-3.09891 -0.331645,-3.48 -34.387236,-1.67365 -45.249744,-0.73473 -15.688004,1.35602 39.992778,-4.46855 39.992777,-19.18658 10e-7,-14.71803 10.416139,-27.04916 23.251187,-26.64935 12.203104,0.38013 21.948234,11.25918 22.970374,25.36836 z"
+       sodipodi:nodetypes="ssssssss"
+       inkscape:export-filename="..\_bank\perso\fantom\fantom_1.png"
+       inkscape:export-xdpi="20.131071"
+       inkscape:export-ydpi="20.131071" />
+    <path
+       id="path344"
+       style="opacity:0.99;fill:#ffffff;stroke-width:0.2;stop-color:#000000"
+       d="m 117.34482,164.15792 c 0,9.36003 58.25111,19.33952 42.37448,19.61818 -6.67455,0.11714 -37.89738,-3.0615 -44.02245,2.32302 -1.87483,1.64816 -33.060879,4.39164 -33.543875,0.32638 -0.331645,-2.79139 -45.416778,-2.27817 -56.635227,-1.54107 -12.813648,0.8419 45.60551,-12.91309 45.605509,-24.71878 1e-6,-11.80569 10.409913,-21.37609 23.251189,-21.37609 12.841264,0 22.970374,13.56267 22.970374,25.36836 z"
+       sodipodi:nodetypes="ssssssss" />
+    <path
+       id="path549"
+       style="opacity:0.99;stroke-width:0.200001;stop-color:#000000"
+       d="m 105,160.37167 c -1e-5,0.17759 -2.49626,0.16955 -4.18772,0.16955 -1.69145,0 -3.06265,-0.14397 -3.06265,-0.32155 0,-0.17759 0.99617,-0.30402 2.68763,-0.30402 1.69146,0 4.56274,0.27843 4.56274,0.45602 z"
+       sodipodi:nodetypes="sssss" />
+    <path
+       id="path549-5"
+       style="opacity:0.99;stroke-width:0.200001;stop-color:#000000"
+       d="m 108.56266,160.37167 c 1e-5,0.17759 2.49626,0.16955 4.18772,0.16955 1.69145,0 3.06265,-0.14397 3.06265,-0.32156 0,-0.17758 -0.99617,-0.30401 -2.68763,-0.30401 -1.69146,0 -4.56274,0.27843 -4.56274,0.45602 z"
+       sodipodi:nodetypes="sssss" />
+    <path
+       id="rect680"
+       style="opacity:0.99;stroke-width:0.2;stop-color:#000000"
+       d="m 116.1568,166.04096 -14.21945,-0.0475 c 3.92515,-0.7852 10.31531,-0.46109 14.21945,0.0475 z"
+       sodipodi:nodetypes="ccc" />
+  </g>
+</svg>
