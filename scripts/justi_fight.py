@@ -14,6 +14,9 @@ from mode_histoire import *
 from multi import Multi
 
 import os
+import random
+
+m = random.choice(random_liste)
 
 
 pygame.mixer.init()
@@ -36,7 +39,7 @@ else:
     jeu = jeu
 
 gameExit = False
-pygame.mixer.music.load ( playlist[0])
+pygame.mixer.music.load ( start_playlist[m])
 pygame.mixer.music.play(-1) 
 pygame.mixer.music.set_volume(jeu.vol_music_menu)
 select_boom.set_volume(jeu.vol_fx)

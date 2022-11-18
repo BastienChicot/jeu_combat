@@ -10,6 +10,7 @@ from settings import *
 from fonctions import *
 import pygame, sys
 from strategies import *
+import random
 
 pygame.init()
 
@@ -589,8 +590,9 @@ def Histoire(jeu,story):
         
         if retour.pressed:
             jeu.selected = "accueil_histoire"
+            m = random.choice(random_liste)
             pygame.mixer.music.set_volume(jeu.vol_music_menu)
-            pygame.mixer.music.load ( playlist[0])
+            pygame.mixer.music.load ( start_playlist[m])
             pygame.mixer.music.play(-1) 
             jeu.pause = 0
             

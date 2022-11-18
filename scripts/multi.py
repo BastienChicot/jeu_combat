@@ -9,6 +9,7 @@ from classes import *
 from settings import *
 from fonctions import *
 import pygame, sys
+import random
 
 pygame.init()
 # pygame.font.init()
@@ -580,9 +581,10 @@ def Multi(jeu):
             Multi(jeu)
         
         if retour.pressed:
+            m = random.choice(random_liste)
             jeu.selected = "none"
             pygame.mixer.music.set_volume(jeu.vol_music_menu)
-            pygame.mixer.music.load ( playlist[0])
+            pygame.mixer.music.load ( start_playlist[m])
             pygame.mixer.music.play(-1) 
             jeu.pause = 0
             
