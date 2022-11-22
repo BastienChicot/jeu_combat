@@ -79,6 +79,7 @@ playlist.append("..\\_bank\\bo\\track5.wav")
 playlist.append("..\\_bank\\bo\\track6.wav")
 playlist.append("..\\_bank\\bo\\track7.wav")
 playlist.append("..\\_bank\\bo\\track8.wav")
+playlist.append("..\\_bank\\bo\\track9.wav")
 
 start_playlist.append("..\\_bank\\bo\\track0.wav")
 start_playlist.append("..\\_bank\\bo\\track-1.wav")
@@ -98,7 +99,9 @@ hit_fx_sound = {
     "villageman" : haanhigh,
     "bucheron" : touche_2,
     "controleuz" : touche_3,
-    "fantom" : ohtraplow
+    "fantom" : ohtraplow,
+    "pijon" : touchelow,
+    "coach_nrv" : touchehigh
     }
 
 touche_point_sound = {
@@ -112,7 +115,9 @@ touche_point_sound = {
     "villageman" : slap_1,
     "bucheron" : slap_2,
     "controleuz" : slap_3,
-    "fantom" : slap_4
+    "fantom" : slap_4,
+    "pijon" : slap_5,
+    "coach_nrv" : slap_2
     }
 
 touche_autre_sound = {
@@ -126,7 +131,9 @@ touche_autre_sound = {
     "villageman" : kick_10,
     "bucheron" : kick_11,
     "controleuz" : kick_12,
-    "fantom" : kick_1
+    "fantom" : kick_1,
+    "pijon" : kick_2,
+    "coach_nrv" : kick_3
     }
 
 select_sounds = {
@@ -140,7 +147,9 @@ select_sounds = {
     "villageman" : haan,
     "bucheron" : ohyeahmid,
     "controleuz" : letsgohigh,
-    "fantom" : selectvil2
+    "fantom" : selectvil2,
+    "pijon" : selectvil3,
+    "coach_nrv" : selectvil4
     }
 
 hauteur = {
@@ -154,7 +163,9 @@ hauteur = {
     "villageman" : 40,
     "bucheron" : 40,
     "controleuz" : 38,
-    "fantom" : 44
+    "fantom" : 44,
+    "pijon" : 48,
+    "coach_nrv" :42
     }
 
 punch = {
@@ -168,7 +179,9 @@ punch = {
     "villageman" : 10,
     "bucheron" : 8,
     "controleuz" : 10,
-    "fantom" : 8
+    "fantom" : 8,
+    "pijon" : 16,
+    "coach_nrv" : 18
     }
 
 kicks = {
@@ -182,7 +195,9 @@ kicks = {
     "villageman" : 10,
     "bucheron" : 12,
     "controleuz" : 14,
-    "fantom" : 12
+    "fantom" : 12,
+    "pijon" : 10,
+    "coach_nrv" : 18
     }
 
 supers = {
@@ -196,7 +211,9 @@ supers = {
     "villageman" : 20,
     "bucheron" : 22,
     "controleuz" : 24,
-    "fantom" : 28
+    "fantom" : 28,
+    "pijon" : 22,
+    "coach_nrv" : 28
     }
 
 sauter = {
@@ -210,7 +227,9 @@ sauter = {
     "villageman" : 12,
     "bucheron" : 16,
     "controleuz" : 14,
-    "fantom" : 16
+    "fantom" : 16,
+    "pijon" : 18,
+    "coach_nrv" : 20
     }
 
 low = {
@@ -224,7 +243,9 @@ low = {
     "villageman" : 9,
     "bucheron" : 8,
     "controleuz" : 12,
-    "fantom" : 10
+    "fantom" : 10,
+    "pijon" : 14,
+    "coach_nrv" : 16
     }
 
 
@@ -282,7 +303,7 @@ level_tracks = {
     "montagne" : 6,
     "theatre" : 7,
     "gare" : 8,
-    "toit" : 1,
+    "toit" : 9,
     "lac" : 2,
     "espace" : 3
     }
@@ -297,9 +318,8 @@ stage_liste = [
     "lac",
     "gare",
     "theatre"
-    # "toit",
-    # "lac",
-    # "espace"
+    "toit",
+    "espace"
     ]
 
 adv_liste = [
@@ -311,7 +331,9 @@ adv_liste = [
     "villageman",
     "bucheron",
     "controleuz",
-    "fantom"
+    "fantom",
+    "pijon",
+    "coach_nrv"
     ]
 
 range_adv = {
@@ -323,7 +345,9 @@ range_adv = {
     "villageman" : 20,
     "bucheron" : 20,
     "controleuz" : 18,
-    "fantom" : 16
+    "fantom" : 16,
+    "pijon" : 16,
+    "coach_nrv" : 12
     }
 
 adv_dist = {
@@ -335,7 +359,9 @@ adv_dist = {
             "villageman" : 10,
             "bucheron" : 12,
             "controleuz" : 11,
-            "fantom" : 16
+            "fantom" : 16,
+            "pijon" : 14,
+            "coach_nrv" : 12
             }
 
 adv_proba_jump = {
@@ -347,7 +373,9 @@ adv_proba_jump = {
     "villageman" : 6,
     "bucheron" : 7,
     "controleuz" : 6,
-    "fantom" : 4
+    "fantom" : 4,
+    "pijon" : 3,
+    "coach_nrv" : 2
     }
 
 adv_speed = {
@@ -359,7 +387,9 @@ adv_speed = {
     "villageman" : 1,
     "bucheron" : 2,
     "controleuz" : 1,
-    "fantom" : 2
+    "fantom" : 2,
+    "pijon" : 2,
+    "coach_nrv" : 1
     }
 
 power_bar0 = pygame.image.load("..\\_bank\\image\\super_power0.png")
