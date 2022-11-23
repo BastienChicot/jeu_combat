@@ -266,32 +266,32 @@ level_sol ={
 
 level_lim_min = {
     "centre_com":470,
-    "practice":440,
-    "espace":465,
-    "gare":460,
-    "montagne":440,
-    "theatre":440,
-    "ferme":465,
-    "usine":438,
-    "lac":340,
-    "toit":383,
-    "parc":440,
-    "metro":280
+    "practice":42,
+    "espace":0,
+    "gare":0,
+    "montagne":0,
+    "theatre":0,
+    "ferme":0,
+    "usine":0,
+    "lac":68,
+    "toit":0,
+    "parc":0,
+    "metro":0
     }
 
 level_lim_max = {
     "centre_com":470,
-    "practice":440,
-    "espace":465,
-    "gare":460,
-    "montagne":440,
-    "theatre":440,
-    "ferme":465,
-    "usine":438,
-    "lac":340,
-    "toit":383,
-    "parc":440,
-    "metro":280
+    "practice":457,
+    "espace":450,
+    "gare":450,
+    "montagne":450,
+    "theatre":450,
+    "ferme":450,
+    "usine":450,
+    "lac":440,
+    "toit":450,
+    "parc":450,
+    "metro":450
     }
 
 level_tracks = {
@@ -317,7 +317,7 @@ stage_liste = [
     "montagne",
     "lac",
     "gare",
-    "theatre"
+    "theatre",
     "toit",
     "espace"
     ]

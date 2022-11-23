@@ -184,15 +184,15 @@ def Multi(jeu):
             p2.x += p2.move_x
             p2.y += p2.move_y  
     
-            if p1.x > 450 :
-                p1.x=450
-            if p1.x < 0:
-                p1.x = 0
+            if p1.x > level_lim_max[lenivo] :
+                p1.x=level_lim_max[lenivo]
+            if p1.x < level_lim_min[lenivo]:
+                p1.x = level_lim_min[lenivo]
 
-            if p2.x > 450 :
-                p2.x=450
-            if p2.x < 0:
-                p2.x = 0
+            if p2.x > level_lim_max[lenivo]:
+                p2.x=level_lim_max[lenivo]
+            if p2.x < level_lim_min[lenivo]:
+                p2.x = level_lim_min[lenivo]
             
             screen.fill((0,0,0))
             
