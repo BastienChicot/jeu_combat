@@ -60,7 +60,8 @@ def accueil(jeu):
     pygame.init()
 
     buttons = []
-    
+
+    solo = Button('Solo',200,100,(250,50),5,buttons,screen)    
     multijoueur = Button('Multijoueur',200,100,(250,175),5,buttons,screen)
     hist = Button('Histoire',200,100,(250,300),5,buttons,screen)
     options = Button('Options',200,50,(250,425),5,buttons,screen) 
@@ -97,7 +98,13 @@ def accueil(jeu):
         screen.blit(decors,(0,0))
         buttons_draw(buttons,screen)
         
+        if solo.pressed:
+            jeu.mode_solo = True
+            jeu.selected = "multi_lvl"
+            select_boom.play()
+            time.sleep(0.1)   
         if multijoueur.pressed:
+            jeu.mode_solo = False
             jeu.selected = "multi_lvl"
             select_boom.play()
             time.sleep(0.1)
@@ -283,7 +290,14 @@ def Choix_joueur2(jeu,story):
         buttons_draw(images,screen)
         
         for img in images:
-            if img.pressed:
+            if img.pressed and jeu.mode_solo:
+                a = select_sounds[str(img.text)]
+                a.set_volume(jeu.vol_fx)
+                a.play()
+                jeu.selected = "solo"
+                jeu.joueur2 = str(img.text)
+                time.sleep(0.1)
+            elif img.pressed and not jeu.mode_solo:
                 a = select_sounds[str(img.text)]
                 a.set_volume(jeu.vol_fx)
                 a.play()

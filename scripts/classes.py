@@ -36,6 +36,8 @@ class Story:
 class Jeu():
     def __init__(self,nivo = "none"):
         
+        self.mode_solo = False
+        
         self.unlock_perso = {
             "basti":(75,75),
             "justi":(175,75),

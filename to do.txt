@@ -1,0 +1,5 @@
+mode solo
+
+input manette
+
+régler le problème dernier niveau et strat coach_nrv

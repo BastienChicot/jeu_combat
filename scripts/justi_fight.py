@@ -12,6 +12,7 @@ from classes import *
 from settings import *
 from mode_histoire import * 
 from multi import Multi
+from solo import Solo
 
 import os
 import random
@@ -57,6 +58,12 @@ def launch_jeu(jeu):
         Choix_joueur2(jeu,story)
     elif jeu.selected == "options" :
         Options(jeu)
+    elif jeu.selected == "solo" :
+        pygame.mixer.music.set_volume(jeu.vol_music_fight)
+        pygame.mixer.music.load ( playlist[level_tracks[jeu.nivo]])
+        pygame.mixer.music.play(-1) 
+        Solo(jeu)
+        menu = False
     elif jeu.selected == "multi" :
         pygame.mixer.music.set_volume(jeu.vol_music_fight)
         pygame.mixer.music.load ( playlist[level_tracks[jeu.nivo]])
@@ -65,20 +72,23 @@ def launch_jeu(jeu):
         menu = False
     elif jeu.selected == "accueil_histoire":
         Launch_histoire(jeu,story)
-    elif jeu.selected == "histoire":
+    elif jeu.selected == "histoire" and story.stage <= 10:
         pygame.mixer.music.set_volume(jeu.vol_music_fight)
         pygame.mixer.music.load ( playlist[level_tracks[stage_liste[story.stage]]])
         pygame.mixer.music.play(-1) 
         Histoire(jeu,story)    
+    elif jeu.selected == "histoire" and story.stage == 11:
+        jeu.selected = "none"
     
 while not gameExit :
 
     select_boom.set_volume(jeu.vol_fx)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            gameExit = True  
-
+            gameExit = True 
+            
     launch_jeu(jeu)      
+    print(jeu.mode_solo)
     
     pygame.display.update()
     
