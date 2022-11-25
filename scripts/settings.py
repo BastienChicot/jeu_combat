@@ -65,7 +65,7 @@ slap_3 = pygame.mixer.Sound("..\\_bank\\fx\\slaps\\FX (7).wav")
 slap_4 = pygame.mixer.Sound("..\\_bank\\fx\\slaps\\pcp_clap05.wav")
 slap_5 = pygame.mixer.Sound("..\\_bank\\fx\\slaps\\pcp_rim02.wav")
 
-random_liste = list(range(-4,1))
+random_liste = list(range(-5,1))
 
 start_playlist = []
 playlist = []
@@ -86,6 +86,7 @@ start_playlist.append("..\\_bank\\bo\\track-1.wav")
 start_playlist.append("..\\_bank\\bo\\track-2.wav")
 start_playlist.append("..\\_bank\\bo\\track-3.wav")
 start_playlist.append("..\\_bank\\bo\\track-4.wav")
+start_playlist.append("..\\_bank\\bo\\track-5.wav")
 
 
 hit_fx_sound = {
