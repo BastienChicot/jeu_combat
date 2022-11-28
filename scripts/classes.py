@@ -92,6 +92,9 @@ class Jeu():
         self.vol_music_fight = 0.5
         self.vol_fx = 0.5
         
+        self.joystick = False
+        self.manette = {}
+        
         ##JOUEUR 1
         self.touche_j1_1 = pygame.key.key_code("t")
         self.touche_j1_1_text = pygame.key.name(self.touche_j1_1)
@@ -382,22 +385,56 @@ class joueur():
         self.punch2_l = [self.punch2_1_l,self.punch2_2_l,self.punch2_3_l,self.punch2_4_l] 
          
         ##CONTROLES
-        if self.joueur == 1:
-            self.saut = jeu.touche_j1_U
-            self.descend = jeu.touche_j1_D
-            self.gauche = jeu.touche_j1_L
-            self.droite = jeu.touche_j1_R
+        
+        if jeu.joystick == False:
             
-            self.action = jeu.touche_j1_1
-            self.coup = jeu.touche_j1_2
-        elif self.joueur == 2:
-            self.saut = jeu.touche_j2_U
-            self.descend = jeu.touche_j2_D
-            self.gauche = jeu.touche_j2_L
-            self.droite = jeu.touche_j2_R
-            
-            self.action = jeu.touche_j2_1
-            self.coup = jeu.touche_j2_2        
+            if self.joueur == 1:
+                self.saut = jeu.touche_j1_U
+                self.descend = jeu.touche_j1_D
+                self.gauche = jeu.touche_j1_L
+                self.droite = jeu.touche_j1_R
+                
+                self.action = jeu.touche_j1_1
+                self.coup = jeu.touche_j1_2
+            elif self.joueur == 2:
+                self.saut = jeu.touche_j2_U
+                self.descend = jeu.touche_j2_D
+                self.gauche = jeu.touche_j2_L
+                self.droite = jeu.touche_j2_R
+                
+                self.action = jeu.touche_j2_1
+                self.coup = jeu.touche_j2_2        
+                
+        elif jeu.joystick: 
+
+            if self.joueur == 1:
+                if jeu.manette.get_axis(1) == -1 or jeu.manette.get_hat(0) == (0,1):
+                    self.jump = True
+                elif jeu.manette.get_axis(1) == 1 or jeu.manette.get_hat(0) == (0,-1):
+                    self.fall = True
+
+                if jeu.manette.get_axis(0) == -1 or jeu.manette.get_hat(0) == (-1,0):
+                    self.move_x = -2
+                    self.side = False
+                elif jeu.manette.get_axis(0) == 1 or jeu.manette.get_hat(0) == (1,0):
+                    self.move_x = 2
+                    self.side = True
+                
+                if jeu.manette.get_button(0):
+                    self.attack = True
+                    
+                if jeu.manette.get_button(1):
+                    self.super_attack = False
+                
+            elif self.joueur == 2:
+                self.saut = jeu.touche_j2_U
+                self.descend = jeu.touche_j2_D
+                self.gauche = jeu.touche_j2_L
+                self.droite = jeu.touche_j2_R
+                
+                self.action = jeu.touche_j2_1
+                self.coup = jeu.touche_j2_2                   
+
         ##ATTRIBUTS
         self.vie = 100
         self.move_y = 0
@@ -438,8 +475,9 @@ class joueur():
         self.jump_move = abs(sauter[nom]*5) 
         self.low_move = abs(low[nom]*3)
         
-    def move(self,e):           
-          # Condition becomes true when keyboard is pressed   
+    def move(self,jeu,e):           
+          # Condition becomes true when keyboard is pressed 
+          
         if e.type == pygame.KEYDOWN:
        
             if e.key == self.saut :
@@ -479,6 +517,27 @@ class joueur():
                 self.attack = False
             if e.key == self.coup :
                 self.super_attack = False
+                
+        if jeu.joystick :
+
+            if self.joueur == 1:
+                if jeu.manette.get_axis(1) == -1 or jeu.manette.get_hat(0) == (0,1):
+                    self.jump = True
+                elif jeu.manette.get_axis(1) == 1 or jeu.manette.get_hat(0) == (0,-1):
+                    self.fall = True
+
+                if jeu.manette.get_axis(0) == -1 or jeu.manette.get_hat(0) == (-1,0):
+                    self.move_x = -2
+                    self.side = False
+                elif jeu.manette.get_axis(0) == 1 or jeu.manette.get_hat(0) == (1,0):
+                    self.move_x = 2
+                    self.side = True
+                
+                if jeu.manette.get_button(0):
+                    self.attack = True
+                    
+                if jeu.manette.get_button(1):
+                    self.super_attack = False
                     
         return(self.move_x,self.move_y)
         

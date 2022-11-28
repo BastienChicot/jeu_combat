@@ -1,4 +1,3 @@
-mode solo
 
 input manette
 

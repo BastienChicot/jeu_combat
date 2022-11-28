@@ -19,6 +19,7 @@ import random
 
 m = random.choice(random_liste)
 
+joystick = pygame.joystick.Joystick(0)
 
 pygame.mixer.init()
 pygame.init()
@@ -26,6 +27,8 @@ pygame.font.init()
 pygame.mixer.pre_init(44100, -16, 1, 4096)
 
 story = Story()
+
+joysticks = {}
 
 if os.path.exists("saves/histoire.pkl."):
     story = load_story(story)
@@ -87,8 +90,22 @@ while not gameExit :
         if event.type == pygame.QUIT:
             gameExit = True 
             
+        if event.type == pygame.JOYDEVICEADDED:
+            joystick.init()
+            joy = pygame.joystick.Joystick(event.device_index)
+            joysticks[joy.get_instance_id()] = joy
+
+            jeu.joystick = True
+            jeu.manette = joystick
+            
+        if event.type == pygame.JOYDEVICEREMOVED:
+            joystick.quit()
+            del joysticks[event.instance_id]
+            
+            jeu.joystick = False
+            
     launch_jeu(jeu)      
-    print(jeu.mode_solo)
+    print(jeu.joystick)
     
     pygame.display.update()
     
