@@ -19,8 +19,6 @@ import random
 
 m = random.choice(random_liste)
 
-joystick = pygame.joystick.Joystick(0)
-
 pygame.mixer.init()
 pygame.init()
 pygame.font.init()
@@ -91,6 +89,8 @@ while not gameExit :
             gameExit = True 
             
         if event.type == pygame.JOYDEVICEADDED:
+            joystick = pygame.joystick.Joystick(0)
+
             joystick.init()
             joy = pygame.joystick.Joystick(event.device_index)
             joysticks[joy.get_instance_id()] = joy
@@ -105,7 +105,7 @@ while not gameExit :
             jeu.joystick = False
             
     launch_jeu(jeu)      
-    print(jeu.joystick)
+    print(jeu.joystick,joysticks)
     
     pygame.display.update()
     

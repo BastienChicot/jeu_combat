@@ -132,26 +132,15 @@ def Multi(jeu):
                     gameExit = True
                     sys.exit(0)
                     
-                if not jeu.joystick:
-                    if event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_SPACE:
-                            jeu.pause += 1 
-            
-                        if seconds > 5 :
-                            if (jeu.pause%2) != 1:
-                                p1.move_x,p1.move_y = p1.move(jeu,event)
-                                p2.move_x,p2.move_y = p2.move(jeu,event)
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        jeu.pause += 1 
+        
+                if seconds > 5 :
+                    if (jeu.pause%2) != 1:
+                        p1.move_x,p1.move_y = p1.move(jeu,event)
+                        p2.move_x,p2.move_y = p2.move(jeu,event)
                     
-                elif jeu.joystick:
-                    if event.type == pygame.JOYBUTTONDOWN:
-                        if jeu.manette.get_button(7):
-                            jeu.pause += 1 
-
-                        if seconds > 5 :
-                            if (jeu.pause%2) != 1:
-                                p1.move_x,p1.move_y = p1.move(jeu,event)
-                                p2.move_x,p2.move_y = p2.move(jeu,event)
-            
             perso1 = p1.maj_anim(a)
             perso2 = p2.maj_anim(b)
                                

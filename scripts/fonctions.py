@@ -90,6 +90,22 @@ def accueil(jeu):
             a=3
 
         for event in pygame.event.get():
+            if event.type == pygame.JOYDEVICEADDED:
+                joystick = pygame.joystick.Joystick(0)
+    
+                joystick.init()
+                joy = pygame.joystick.Joystick(event.device_index)
+                joysticks[joy.get_instance_id()] = joy
+    
+                jeu.joystick = True
+                jeu.manette = joystick
+            
+            if event.type == pygame.JOYDEVICEREMOVED:
+                joystick.quit()
+                del joysticks[event.instance_id]
+                
+                jeu.joystick = False
+
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit(0)
@@ -158,6 +174,22 @@ def Choix_level(jeu,story):
             a=3
 
         for event in pygame.event.get():
+            if event.type == pygame.JOYDEVICEADDED:
+                joystick = pygame.joystick.Joystick(0)
+    
+                joystick.init()
+                joy = pygame.joystick.Joystick(event.device_index)
+                joysticks[joy.get_instance_id()] = joy
+    
+                jeu.joystick = True
+                jeu.manette = joystick
+                
+            if event.type == pygame.JOYDEVICEREMOVED:
+                joystick.quit()
+                del joysticks[event.instance_id]
+                
+                jeu.joystick = False
+            
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit(0)
@@ -218,6 +250,22 @@ def Choix_joueur1(jeu,story):
             a=3
 
         for event in pygame.event.get():
+            if event.type == pygame.JOYDEVICEADDED:
+                joystick = pygame.joystick.Joystick(0)
+    
+                joystick.init()
+                joy = pygame.joystick.Joystick(event.device_index)
+                joysticks[joy.get_instance_id()] = joy
+    
+                jeu.joystick = True
+                jeu.manette = joystick
+                
+            if event.type == pygame.JOYDEVICEREMOVED:
+                joystick.quit()
+                del joysticks[event.instance_id]
+                
+                jeu.joystick = False
+            
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit(0)
@@ -280,6 +328,22 @@ def Choix_joueur2(jeu,story):
             a=3
 
         for event in pygame.event.get():
+            if event.type == pygame.JOYDEVICEADDED:
+                joystick = pygame.joystick.Joystick(0)
+    
+                joystick.init()
+                joy = pygame.joystick.Joystick(event.device_index)
+                joysticks[joy.get_instance_id()] = joy
+    
+                jeu.joystick = True
+                jeu.manette = joystick
+                
+            if event.type == pygame.JOYDEVICEREMOVED:
+                joystick.quit()
+                del joysticks[event.instance_id]
+                
+                jeu.joystick = False
+                
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit(0)
@@ -526,6 +590,23 @@ def Launch_histoire(jeu,story):
             a=3
 
         for event in pygame.event.get():
+            
+            if event.type == pygame.JOYDEVICEADDED:
+                joystick = pygame.joystick.Joystick(0)
+    
+                joystick.init()
+                joy = pygame.joystick.Joystick(event.device_index)
+                joysticks[joy.get_instance_id()] = joy
+    
+                jeu.joystick = True
+                jeu.manette = joystick
+                
+            if event.type == pygame.JOYDEVICEREMOVED:
+                joystick.quit()
+                del joysticks[event.instance_id]
+                
+                jeu.joystick = False
+            
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit(0)
