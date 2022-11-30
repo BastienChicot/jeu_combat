@@ -1,4 +1,5 @@
-
-input manette
-
 régler le problème dernier niveau et strat coach_nrv
+
+Améliorer gameplay
+
+Problème timer sur pause

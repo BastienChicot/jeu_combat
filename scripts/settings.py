@@ -16,6 +16,8 @@ gui_font = pygame.font.Font(None,30)
 display_width = 500
 display_height = 500
 
+texte_zone = pygame.image.load("..\\_bank\\image\\zone_texte.png")
+
 select_boom = pygame.mixer.Sound("..\\_bank\\fx\\boom.wav")
 
 ##SELECTION PERSO
@@ -419,3 +421,19 @@ justi_mega_rect.topleft = (325,196),
 basti_mega_rect = basti_mega.get_rect()
 basti_mega_rect.topleft = (325,193)
 mega_rect = [justi_mega_rect,basti_mega_rect]
+
+text_story = [
+    ["Bienvenu à toi !", 'Commençons par réviser', "les bases, ok?"],
+    ["Tu ne passeras pas", "par ici sans m'avoir","combattu d'abord!"],
+    ["Hey mais qu'est ce","que tu fais là toi ?","Ce sont mes chevaux !","Va-t-en!" ],
+    ["Parait que tu sais te","battre !", "Je veux voir ça..."],
+    ["J'avais prévu autre chose","mais je peux bien prendre","3 minutes pour te donner","une leçon."],
+    ["...","       Haaaaaaaaaaaan","..."],
+    ["Pas touche à mes sapins ! ", "J'espère que tu es prêts!"],
+    ["Puis-je voir votre","ticket s'il vous plait?"],
+    ["OuhOUOUUuouOU"],
+    ["Rooooouuuuuuu","Je vais t'exploser!"],
+    ["Bien joué ! Tu es fort!", "Mais pourras gagner ", "quand je suis au max", "de ma puissance ?..."]
+    ]
+    
+    

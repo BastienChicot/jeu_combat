@@ -30,7 +30,7 @@ def buttons_draw(buttons,screen):
     for b in buttons:
         b.draw(screen)
         
-def zone_dialogue(screen,texte_zone,action,liste_phrases,var_iter,max_iter):
+def zone_dialogue(screen,texte_zone,liste_phrases):
     
     pygame.font.init()
  
@@ -39,18 +39,14 @@ def zone_dialogue(screen,texte_zone,action,liste_phrases,var_iter,max_iter):
     textsurface = myfont.render(texte_zone, False, (110, 110, 110))
     screen.blit(fond_text,(260,380))
     screen.blit(textsurface,(280,385))
-    i=var_iter
+
     j = 405
     for phrases in liste_phrases :
         
-        if i < max_iter and action.click == True:
-            textsurface2 = myfont.render(phrases, False, (110, 110, 110))
-            screen.blit(textsurface2,(270,j))
+        textsurface2 = myfont.render(phrases, False, (110, 110, 110))
+        screen.blit(textsurface2,(270,j))
 
-            j += 15
-    
-        if var_iter >= max_iter and action.click == True:
-            i -= max_iter
+        j += 15    
             
 def pause(screen,buttons_pause):
 

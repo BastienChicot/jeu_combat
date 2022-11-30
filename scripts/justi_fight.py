@@ -105,7 +105,6 @@ while not gameExit :
             jeu.joystick = False
             
     launch_jeu(jeu)      
-    print(jeu.joystick,joysticks)
     
     pygame.display.update()
     

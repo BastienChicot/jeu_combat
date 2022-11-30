@@ -46,6 +46,8 @@ def Multi(jeu):
 
     gameExit=False
     
+    countdown = 185
+    
     a = 0
     b = 0
     frame_count_1 = 0
@@ -81,6 +83,8 @@ def Multi(jeu):
         if (jeu.pause%2) != 1:
             seconds=(pygame.time.get_ticks()-start_ticks)/1000
             countdown = int(185 - seconds)
+        else:
+            countdown = countdown
         
         if seconds < 185 and p1.vie > 0 and p2.vie > 0:
             

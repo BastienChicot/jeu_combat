@@ -58,6 +58,8 @@ def Solo(jeu):
     perso1_rect = perso1.get_rect()
     perso2_rect = perso2.get_rect()
     
+    countdown = 185
+    
     lvl = level(lenivo)
     
     liste_p = [p1,p2]
@@ -76,6 +78,8 @@ def Solo(jeu):
         if (jeu.pause%2) != 1:
             seconds=(pygame.time.get_ticks()-start_ticks)/1000
             countdown = int(185 - seconds)
+        else:
+            countdown = countdown
         
         if seconds < 185 and p1.vie > 0 and p2.vie > 0:
             

@@ -60,6 +60,8 @@ def Histoire(jeu,story):
     
     lvl = level(lenivo)
     
+    countdown = 185
+    
     liste_p = [p1,p2]
     
     start_ticks=pygame.time.get_ticks()
@@ -78,6 +80,8 @@ def Histoire(jeu,story):
             if (jeu.pause%2) != 1:
                 seconds=(pygame.time.get_ticks()-start_ticks)/1000
                 countdown = int(185 - seconds)
+            else:
+                countdown = countdown
             
             if seconds < 185 and p1.vie > 0 and p2.vie > 0:
                 
@@ -581,8 +585,21 @@ def Histoire(jeu,story):
                 Victoire = True
                 
                 anim = ko[a]
-                screen.blit(anim,(150,200))            
+                screen.blit(anim,(150,200)) 
                 
+            if seconds < 5 and story.stage <= 10 :
+                texte = text_story[story.stage]
+
+                screen.blit(texte_zone,(270,175))
+            
+                j = 190
+                for ligne in texte :
+                    
+                    txt_surf = myfont.render(ligne, False, (110, 110, 110))
+                    screen.blit(txt_surf,(277,j))
+            
+                    j += 20   
+                                    
             if restart.pressed:
                 jeu.selected = "histoire"
                 p1.vie = 100
@@ -599,7 +616,7 @@ def Histoire(jeu,story):
                 jeu.pause = 0
                 
             if continuer.pressed:
-                if Victoire:
+                if Victoire and story.stage <= 10:
                     
                     story.unlock_perso.update({str(adv_liste[story.stage]) : jeu.unlock_perso[adv_liste[story.stage]]})
                     story.unlock_perso2.update({str(adv_liste[story.stage]) : jeu.unlock_perso2[adv_liste[story.stage]]})
