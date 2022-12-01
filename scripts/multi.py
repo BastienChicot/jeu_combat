@@ -47,7 +47,8 @@ def Multi(jeu):
     gameExit=False
     
     countdown = 185
-    
+    pause_time = 0
+
     a = 0
     b = 0
     frame_count_1 = 0
@@ -74,17 +75,18 @@ def Multi(jeu):
     clock = pygame.time.Clock()
     
     while not gameExit and jeu.selected == "multi" :
-        
+
+        if (jeu.pause%2) == 1:
+           pause_time = pygame.time.get_ticks()/1000 - (start_ticks/1000 + seconds)  
+           
         pygame.mixer.music.set_volume(jeu.vol_music_fight)
         
         pause_text = big_font.render("PAUSE", False, (255, 20, 20))
         pause_fond = big_font.render("PAUSE", False, (0, 0, 0))
         
         if (jeu.pause%2) != 1:
-            seconds=(pygame.time.get_ticks()-start_ticks)/1000
+            seconds= (pygame.time.get_ticks()-start_ticks)/1000 - pause_time
             countdown = int(185 - seconds)
-        else:
-            countdown = countdown
         
         if seconds < 185 and p1.vie > 0 and p2.vie > 0:
             
@@ -97,36 +99,36 @@ def Multi(jeu):
                 compteur = big_font.render(str(countdown), False, (255, 20, 20))
                 compteur_fond = big_font.render(str(countdown), False, (0, 0, 0))
                 
-            if frame_count_1 <= 100:
+            if frame_count_1 <= 60:
                 frame_count_1 += 1
             else:
                 frame_count_1 = 0
                 p1.animation = False
                 p1.type_anim = "none"
 
-            if frame_count_2 <= 100:
+            if frame_count_2 <= 60:
                 frame_count_2 += 1
             else:
                 frame_count_2 = 0
                 p2.animation = False
                 p2.type_anim = "none"
                 
-            if frame_count_1 <= 25:
+            if frame_count_1 <= 15:
                 a=0
-            elif 25 < frame_count_1 <= 50:
+            elif 15 < frame_count_1 <= 30:
                 a=1
-            elif 50 < frame_count_1 <= 75:
+            elif 30 < frame_count_1 <= 45:
                 a=2
-            elif 75 < frame_count_1 <= 100 :
+            elif 45 < frame_count_1 <= 60 :
                 a=3
 
-            if frame_count_2 <= 25:
+            if frame_count_2 <= 15:
                 b=0
-            elif 25 < frame_count_2 <= 50:
+            elif 15 < frame_count_2 <= 30:
                 b=1
-            elif 50 < frame_count_2 <= 75:
+            elif 30 < frame_count_2 <= 45:
                 b=2
-            elif 75 < frame_count_2 <= 100 :
+            elif 45 < frame_count_2 <= 60 :
                 b=3
             
             evenement = pygame.event
@@ -247,36 +249,36 @@ def Multi(jeu):
                     update_vol_fx(jeu)
                 
         elif seconds >= 180 and p1.vie > 0 and p2.vie > 0:
-            if frame_count_1 <= 100:
+            if frame_count_1 <= 60:
                 frame_count_1 += 1
             else:
                 frame_count_1 = 0
                 p1.animation = False
                 p1.type_anim = "none"
 
-            if frame_count_2 <= 100:
+            if frame_count_2 <= 60:
                 frame_count_2 += 1
             else:
                 frame_count_2 = 0
                 p2.animation = False
                 p2.type_anim = "none"
                 
-            if frame_count_1 <= 25:
+            if frame_count_1 <= 15:
                 a=0
-            elif 25 < frame_count_1 <= 50:
+            elif 15 < frame_count_1 <= 30:
                 a=1
-            elif 50 < frame_count_1 <= 75:
+            elif 30 < frame_count_1 <= 45:
                 a=2
-            elif 75 < frame_count_1 <= 100 :
+            elif 45 < frame_count_1 <= 60 :
                 a=3
 
-            if frame_count_2 <= 25:
+            if frame_count_2 <= 15:
                 b=0
-            elif 25 < frame_count_2 <= 50:
+            elif 15 < frame_count_2 <= 30:
                 b=1
-            elif 50 < frame_count_2 <= 75:
+            elif 30 < frame_count_2 <= 45:
                 b=2
-            elif 75 < frame_count_2 <= 100 :
+            elif 45 < frame_count_2 <= 60 :
                 b=3
             
             evenement = pygame.event
@@ -376,7 +378,7 @@ def Multi(jeu):
             frame_count_1 += 1
             p1.type_anim = "ko"
         
-            if frame_count_2 <= 100:
+            if frame_count_2 <= 60:
                 frame_count_2 += 1
             else:
                 frame_count_2 = 0
@@ -402,22 +404,22 @@ def Multi(jeu):
                 
             p2.y += p2.move_y 
                 
-            if frame_count_1 <= 25:
+            if frame_count_1 <= 15:
                 a=0
-            elif 25 < frame_count_1 <= 50:
+            elif 15 < frame_count_1 <= 30:
                 a=1
-            elif 50 < frame_count_1 <= 75:
+            elif 30 < frame_count_1 <= 45:
                 a=2
-            elif 75 < frame_count_1 :
+            elif 45 < frame_count_1 :
                 a=3
-        
-            if frame_count_2 <= 25:
+
+            if frame_count_2 <= 15:
                 b=0
-            elif 25 < frame_count_2 <= 50:
+            elif 15 < frame_count_2 <= 30:
                 b=1
-            elif 50 < frame_count_2 <= 75:
+            elif 30 < frame_count_2 <= 45:
                 b=2
-            elif 75 < frame_count_2 <= 100 :
+            elif 45 < frame_count_2 <= 60 :
                 b=3
             
             evenement = pygame.event
@@ -481,7 +483,7 @@ def Multi(jeu):
             frame_count_2 += 1
             p2.type_anim = "ko"
         
-            if frame_count_1 <= 100:
+            if frame_count_1 <= 60:
                 frame_count_1 += 1
             else:
                 frame_count_1 = 0
@@ -507,23 +509,24 @@ def Multi(jeu):
                 
             p1.y += p1.move_y 
                 
-            if frame_count_2 <= 25:
-                b=0
-            elif 25 < frame_count_2 <= 50:
-                b=1
-            elif 50 < frame_count_2 <= 75:
-                b=2
-            elif 75 < frame_count_2 :
-                b=3
-        
-            if frame_count_1 <= 25:
+            if frame_count_1 <= 15:
                 a=0
-            elif 25 < frame_count_1 <= 50:
+            elif 15 < frame_count_1 <= 30:
                 a=1
-            elif 50 < frame_count_1 <= 75:
+            elif 30 < frame_count_1 <= 45:
                 a=2
-            elif 75 < frame_count_1 <= 100 :
+            elif 45 < frame_count_1 <= 60 :
                 a=3
+
+            if frame_count_2 <= 15:
+                b=0
+            elif 15 < frame_count_2 <= 30:
+                b=1
+            elif 30 < frame_count_2 <= 45:
+                b=2
+            elif 45 < frame_count_2 :
+                b=3
+            
             
             evenement = pygame.event
             
@@ -600,7 +603,7 @@ def Multi(jeu):
             
         pygame.display.update()
         
-        clock.tick(100)
+        clock.tick(60)
         
 
 

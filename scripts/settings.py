@@ -340,17 +340,19 @@ adv_liste = [
     ]
 
 range_adv = {
-    "coach":64,
-    "gus" : 64,
-    "clou":32,
-    "sam": 28,
-    "dad" : 24,
-    "villageman" : 20,
-    "bucheron" : 20,
-    "controleuz" : 18,
-    "fantom" : 16,
-    "pijon" : 16,
-    "coach_nrv" : 12
+    "coach":36,
+    "gus" : 32,
+    "clou":28,
+    "sam": 22,
+    "dad" : 20,
+    "villageman" : 18,
+    "bucheron" : 18,
+    "controleuz" : 16,
+    "fantom" : 14,
+    "pijon" : 12,
+    "coach_nrv" : 8,
+    "justi" : 16,
+    "basti" : 20
     }
 
 adv_dist = {
@@ -364,7 +366,9 @@ adv_dist = {
             "controleuz" : 11,
             "fantom" : 16,
             "pijon" : 14,
-            "coach_nrv" : 12
+            "coach_nrv" : 12,
+            "justi" : 10,
+            "basti" : 16
             }
 
 adv_proba_jump = {
@@ -378,7 +382,9 @@ adv_proba_jump = {
     "controleuz" : 6,
     "fantom" : 4,
     "pijon" : 3,
-    "coach_nrv" : 2
+    "coach_nrv" : 2,
+    "justi" : 6,
+    "basti" : 6
     }
 
 adv_speed = {
@@ -392,7 +398,9 @@ adv_speed = {
     "controleuz" : 1,
     "fantom" : 2,
     "pijon" : 2,
-    "coach_nrv" : 1
+    "coach_nrv" : 1,
+    "justi" : 1,
+    "basti" : 1
     }
 
 power_bar0 = pygame.image.load("..\\_bank\\image\\super_power0.png")

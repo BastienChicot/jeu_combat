@@ -1,5 +1,3 @@
-régler le problème dernier niveau et strat coach_nrv
-
 Améliorer gameplay
 
-Problème timer sur pause
+Revoir jump en 60 fps

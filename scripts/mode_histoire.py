@@ -46,6 +46,7 @@ def Histoire(jeu,story):
     frame_count_1 = 0
     frame_count_2 = 0
     seconds = 0
+    pause_time = 0
     
     compteur = big_font.render("5", False, (255, 20, 20))
     compteur_fond = big_font.render("5", False, (0, 0, 0))
@@ -71,6 +72,9 @@ def Histoire(jeu,story):
     while not gameExit and jeu.selected == "histoire" :
         
         if story.stage <= 10:
+
+            if (jeu.pause%2) == 1:
+               pause_time = pygame.time.get_ticks()/1000 - (start_ticks/1000 + seconds) 
             
             pygame.mixer.music.set_volume(jeu.vol_music_fight)
             
@@ -78,7 +82,7 @@ def Histoire(jeu,story):
             pause_fond = big_font.render("PAUSE", False, (0, 0, 0))
             
             if (jeu.pause%2) != 1:
-                seconds=(pygame.time.get_ticks()-start_ticks)/1000
+                seconds= (pygame.time.get_ticks()-start_ticks)/1000 - pause_time
                 countdown = int(185 - seconds)
             else:
                 countdown = countdown
@@ -94,36 +98,36 @@ def Histoire(jeu,story):
                     compteur = big_font.render(str(countdown), False, (255, 20, 20))
                     compteur_fond = big_font.render(str(countdown), False, (0, 0, 0))
                     
-                if frame_count_1 <= 100:
+                if frame_count_1 <= 60:
                     frame_count_1 += 1
                 else:
                     frame_count_1 = 0
                     p1.animation = False
                     p1.type_anim = "none"
     
-                if frame_count_2 <= 100:
+                if frame_count_2 <= 60:
                     frame_count_2 += 1
                 else:
                     frame_count_2 = 0
                     p2.animation = False
                     p2.type_anim = "none"
                     
-                if frame_count_1 <= 25:
+                if frame_count_1 <= 15:
                     a=0
-                elif 25 < frame_count_1 <= 50:
+                elif 15 < frame_count_1 <= 30:
                     a=1
-                elif 50 < frame_count_1 <= 75:
+                elif 30 < frame_count_1 <= 45:
                     a=2
-                elif 75 < frame_count_1 <= 100 :
+                elif 45 < frame_count_1 <= 60 :
                     a=3
     
-                if frame_count_2 <= 25:
+                if frame_count_2 <= 15:
                     b=0
-                elif 25 < frame_count_2 <= 50:
+                elif 15 < frame_count_2 <= 30:
                     b=1
-                elif 50 < frame_count_2 <= 75:
+                elif 30 < frame_count_2 <= 45:
                     b=2
-                elif 75 < frame_count_2 <= 100 :
+                elif 45 < frame_count_2 <= 60 :
                     b=3
                 
                 evenement = pygame.event
@@ -141,7 +145,10 @@ def Histoire(jeu,story):
                         if (jeu.pause%2) != 1:
                             p2.move_x,p2.move_y = p2.move(p1,frame_count_2,perso2_rect,perso1_rect)
                             p1.move_x,p1.move_y = p1.move(jeu,event)
-                
+                        else:
+                            p2.move_x,p2.move_y = 0, 0
+                            p1.move_x,p1.move_y = 0, 0
+                            
                 perso1 = p1.maj_anim(a)
                 perso2 = p2.maj_anim(b)
                                                
@@ -244,36 +251,36 @@ def Histoire(jeu,story):
                         update_vol_fx(jeu)
                     
             elif seconds >= 180 and p1.vie > 0 and p2.vie > 0:
-                if frame_count_1 <= 100:
+                if frame_count_1 <= 60:
                     frame_count_1 += 1
                 else:
                     frame_count_1 = 0
                     p1.animation = False
                     p1.type_anim = "none"
     
-                if frame_count_2 <= 100:
+                if frame_count_2 <= 60:
                     frame_count_2 += 1
                 else:
                     frame_count_2 = 0
                     p2.animation = False
                     p2.type_anim = "none"
                     
-                if frame_count_1 <= 25:
+                if frame_count_1 <= 15:
                     a=0
-                elif 25 < frame_count_1 <= 50:
+                elif 15 < frame_count_1 <= 30:
                     a=1
-                elif 50 < frame_count_1 <= 75:
+                elif 30 < frame_count_1 <= 45:
                     a=2
-                elif 75 < frame_count_1 <= 100 :
+                elif 45 < frame_count_1 <= 60 :
                     a=3
     
-                if frame_count_2 <= 25:
+                if frame_count_2 <= 15:
                     b=0
-                elif 25 < frame_count_2 <= 50:
+                elif 15 < frame_count_2 <= 30:
                     b=1
-                elif 50 < frame_count_2 <= 75:
+                elif 30 < frame_count_2 <= 45:
                     b=2
-                elif 75 < frame_count_2 <= 100 :
+                elif 45 < frame_count_2 <= 60 :
                     b=3
                 
                 evenement = pygame.event
@@ -380,7 +387,7 @@ def Histoire(jeu,story):
                 frame_count_1 += 1
                 p1.type_anim = "ko"
             
-                if frame_count_2 <= 100:
+                if frame_count_2 <= 60:
                     frame_count_2 += 1
                 else:
                     frame_count_2 = 0
@@ -405,23 +412,23 @@ def Histoire(jeu,story):
                     p2.air_time = 1
                     
                 p2.y += p2.move_y 
-                    
-                if frame_count_1 <= 25:
+                        
+                if frame_count_1 <= 15:
                     a=0
-                elif 25 < frame_count_1 <= 50:
+                elif 15 < frame_count_1 <= 30:
                     a=1
-                elif 50 < frame_count_1 <= 75:
+                elif 30 < frame_count_1 <= 45:
                     a=2
-                elif 75 < frame_count_1 :
+                elif 45 < frame_count_1 :
                     a=3
-            
-                if frame_count_2 <= 25:
+    
+                if frame_count_2 <= 15:
                     b=0
-                elif 25 < frame_count_2 <= 50:
+                elif 15 < frame_count_2 <= 30:
                     b=1
-                elif 50 < frame_count_2 <= 75:
+                elif 30 < frame_count_2 <= 45:
                     b=2
-                elif 75 < frame_count_2 <= 100 :
+                elif 45 < frame_count_2 <= 60 :
                     b=3
                 
                 evenement = pygame.event
@@ -486,7 +493,7 @@ def Histoire(jeu,story):
                 frame_count_2 += 1
                 p2.type_anim = "ko"
             
-                if frame_count_1 <= 100:
+                if frame_count_1 <= 60:
                     frame_count_1 += 1
                 else:
                     frame_count_1 = 0
@@ -512,23 +519,23 @@ def Histoire(jeu,story):
                     
                 p1.y += p1.move_y 
                     
-                if frame_count_2 <= 25:
-                    b=0
-                elif 25 < frame_count_2 <= 50:
-                    b=1
-                elif 50 < frame_count_2 <= 75:
-                    b=2
-                elif 75 < frame_count_2 :
-                    b=3
-            
-                if frame_count_1 <= 25:
+                if frame_count_1 <= 15:
                     a=0
-                elif 25 < frame_count_1 <= 50:
+                elif 15 < frame_count_1 <= 30:
                     a=1
-                elif 50 < frame_count_1 <= 75:
+                elif 30 < frame_count_1 <= 45:
                     a=2
-                elif 75 < frame_count_1 <= 100 :
+                elif 45 < frame_count_1 <= 60 :
                     a=3
+    
+                if frame_count_2 <= 15:
+                    b=0
+                elif 15 < frame_count_2 <= 30:
+                    b=1
+                elif 30 < frame_count_2 <= 45:
+                    b=2
+                elif 45 < frame_count_2 :
+                    b=3
                 
                 evenement = pygame.event
                 
@@ -658,7 +665,7 @@ def Histoire(jeu,story):
             
         pygame.display.update()
         
-        clock.tick(100)
+        clock.tick(60)
         
 
 
