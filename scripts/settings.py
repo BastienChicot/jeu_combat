@@ -67,7 +67,7 @@ slap_3 = pygame.mixer.Sound("..\\_bank\\fx\\slaps\\FX (7).wav")
 slap_4 = pygame.mixer.Sound("..\\_bank\\fx\\slaps\\pcp_clap05.wav")
 slap_5 = pygame.mixer.Sound("..\\_bank\\fx\\slaps\\pcp_rim02.wav")
 
-random_liste = list(range(-5,1))
+random_liste = list(range(-6,1))
 
 start_playlist = []
 playlist = []
@@ -89,6 +89,7 @@ start_playlist.append("..\\_bank\\bo\\track-2.wav")
 start_playlist.append("..\\_bank\\bo\\track-3.wav")
 start_playlist.append("..\\_bank\\bo\\track-4.wav")
 start_playlist.append("..\\_bank\\bo\\track-5.wav")
+start_playlist.append("..\\_bank\\bo\\track-6.wav")
 
 
 hit_fx_sound = {
@@ -156,19 +157,19 @@ select_sounds = {
     }
 
 hauteur = {
-    "basti":40,
-    "clou":35,
-    "coach":40,
-    "justi":40,
-    "gus" : 35,
-    "sam" : 40,
-    "dad" : 35,
-    "villageman" : 40,
-    "bucheron" : 40,
-    "controleuz" : 38,
-    "fantom" : 44,
-    "pijon" : 48,
-    "coach_nrv" :42
+    "basti":36,
+    "clou":32,
+    "coach":36,
+    "justi":36,
+    "gus" : 32,
+    "sam" : 36,
+    "dad" : 32,
+    "villageman" : 36,
+    "bucheron" : 36,
+    "controleuz" : 34,
+    "fantom" : 38,
+    "pijon" : 40,
+    "coach_nrv" :37
     }
 
 punch = {

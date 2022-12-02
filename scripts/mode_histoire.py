@@ -161,9 +161,9 @@ def Histoire(jeu,story):
                         p.move_y = -(p.detente/p.air_time)
                         
                     if p.y < p.limite and p.air_time > p.detente:
-                        p.move_y = 3
+                        p.move_y = 7
                     elif p.y < p.limite and p.fall :
-                        p.move_y = 5
+                        p.move_y = 10
                     elif p.y >= p.limite and not p.jump:
                         p.move_y = 0
                         p.y = p.limite
