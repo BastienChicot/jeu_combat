@@ -340,7 +340,7 @@ class Pnj():
                 self.animation = True
                 self.type_anim = "super_punch"
                 frame_count = 1
-            elif a == 4 and 10 < self.air_time < 35 and not self.fall and self.type_anim == "none":
+            elif a == 4 and 1 < self.air_time and not self.fall and self.type_anim == "none":
                 self.animation = True
                 self.type_anim = "jump_punch"
                 frame_count = 1

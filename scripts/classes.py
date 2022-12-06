@@ -598,37 +598,36 @@ class joueur():
     
     def punch_anim(self,frame_count):
         
-        if self.interact :
-            if self.attack and not self.super_attack and not self.fall and self.clean_hit < 5 and self.type_anim == "none":
-                self.animation = True
-                self.type_anim = "punch"
-                frame_count = 1
-            elif not self.attack and self.super_attack and self.clean_hit < 5 and self.type_anim == "none":
-                self.animation = True
-                self.type_anim = "punch2"
-                frame_count = 1
-            elif self.attack and self.super_attack and self.clean_hit < 5 and not self.fall and self.type_anim == "none": 
-                self.animation = True
-                self.type_anim = "kick"
-                frame_count = 1
-            elif self.attack and not self.super_attack and self.fall and self.type_anim == "none": 
-                self.animation = True
-                self.type_anim = "low"
-                frame_count = 1
-            elif self.super_attack and self.move_x != 0 and self.clean_hit >= 5 and not self.attack and self.type_anim == "none":
-                self.clean_hit = 0
-                self.animation = True
-                self.type_anim = "super_punch"
-                frame_count = 1
-            elif self.attack and 10 < self.air_time < 35 and not self.fall and self.type_anim == "none":
-                self.animation = True
-                self.type_anim = "jump_punch"
-                frame_count = 1
-            elif self.attack and self.super_attack and self.air_time > 1 and self.fall and self.type_anim == "none":
-                self.animation = True
-                self.type_anim = "down"
-                frame_count = 1
-            
+        if self.attack and not self.super_attack and self.air_time < 5 and not self.fall and self.clean_hit < 5 and self.type_anim == "none":
+            self.animation = True
+            self.type_anim = "punch"
+            frame_count = 1
+        elif not self.attack and self.super_attack and self.air_time < 5 and self.clean_hit < 5 and self.type_anim == "none":
+            self.animation = True
+            self.type_anim = "punch2"
+            frame_count = 1
+        elif self.attack and self.super_attack and self.air_time < 5 and self.clean_hit < 5 and not self.fall and self.type_anim == "none": 
+            self.animation = True
+            self.type_anim = "kick"
+            frame_count = 1
+        elif self.attack and not self.super_attack and self.air_time < 5 and self.fall and self.type_anim == "none": 
+            self.animation = True
+            self.type_anim = "low"
+            frame_count = 1
+        elif self.super_attack and self.move_x != 0 and self.air_time < 5 and self.clean_hit >= 5 and not self.attack and self.type_anim == "none":
+            self.clean_hit = 0
+            self.animation = True
+            self.type_anim = "super_punch"
+            frame_count = 1
+        elif self.attack and 5 < self.air_time and not self.fall and self.type_anim == "none":
+            self.animation = True
+            self.type_anim = "jump_punch"
+            frame_count = 1
+        elif self.attack and self.super_attack and self.air_time > 1 and self.fall and self.type_anim == "none":
+            self.animation = True
+            self.type_anim = "down"
+            frame_count = 1
+
         return(frame_count)
             
             

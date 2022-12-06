@@ -82,6 +82,7 @@ playlist.append("..\\_bank\\bo\\track6.wav")
 playlist.append("..\\_bank\\bo\\track7.wav")
 playlist.append("..\\_bank\\bo\\track8.wav")
 playlist.append("..\\_bank\\bo\\track9.wav")
+playlist.append("..\\_bank\\bo\\track10.wav")
 
 start_playlist.append("..\\_bank\\bo\\track0.wav")
 start_playlist.append("..\\_bank\\bo\\track-1.wav")
@@ -309,7 +310,7 @@ level_tracks = {
     "gare" : 8,
     "toit" : 9,
     "lac" : 2,
-    "espace" : 3
+    "espace" : 10
     }
 
 stage_liste = [
