@@ -1,3 +1,0 @@
-Améliorer gameplay
-
-Revoir jump en 60 fps
